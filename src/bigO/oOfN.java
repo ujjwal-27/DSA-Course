@@ -1,5 +1,9 @@
 package bigO;
 
+/**
+ * Here, we have n = 10, and no. of operation = 10
+ * Simply, it's O(n)/
+ */
 public class oOfN {
     public static void main(String[] args) {
         printItems(10);
