@@ -1,4 +1,4 @@
-package bigO;
+package misc.bigO;
 
 /**
  * Here, we have nested for loop and normal for loop.

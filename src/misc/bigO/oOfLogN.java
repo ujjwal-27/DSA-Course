@@ -1,4 +1,4 @@
-package bigO;
+package misc.bigO;
 
 /**
  * The concept of O(log n) time complexity is to find a specified element in an array by cutting the array into halves until the targeted value is found.

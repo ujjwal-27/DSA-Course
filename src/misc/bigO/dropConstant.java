@@ -1,4 +1,4 @@
-package bigO;
+package misc.bigO;
 
 /**
  * Here we have n = 10, and no. of operations = 20 (since there are two for-loops)

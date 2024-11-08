@@ -1,4 +1,4 @@
-package bigO;
+package misc.bigO;
 
 /**
  * Here, we have n = 10, and no of operations = n * n = n^2

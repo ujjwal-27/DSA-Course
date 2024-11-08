@@ -1,4 +1,4 @@
-package bigO;
+package misc.bigO;
 
 /**
  * Here, we have n = 10, and no. of operation = 10
