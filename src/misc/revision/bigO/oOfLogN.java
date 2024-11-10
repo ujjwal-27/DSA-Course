@@ -7,38 +7,6 @@ public class oOfLogN {
         findItem(a, target);
     }
 
-    public static int[] sortArray(int[] a) {
-        boolean flag = true;
-
-        for (int i = 1; i < a.length; i++) {
-            if (a[i] < a[i - 1]) {
-                flag = false;
-            }
-        }
-
-        if (!flag) {
-            int length = a.length;
-
-            while (length > 0) {
-                int element = a[0];
-
-                for (int i = 1; i < length; i++) {
-                    if (a[i] < a[i - 1]) {
-                        a[i - 1] = a[i];
-                        a[i] = element;
-
-                    } else {
-                        element = a[i];
-                    }
-                }
-
-                length--;
-            }
-        }
-
-        return a;
-    }
-
     public static int binarySearch(int[] a, int target) {
         int[] nums = sortArray(a);
 
@@ -70,5 +38,37 @@ public class oOfLogN {
         } else {
             System.out.println("The target value " + target + " is not found.");
         }
+    }
+
+    public static int[] sortArray(int[] a) {
+        boolean flag = true;
+
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] < a[i - 1]) {
+                flag = false;
+            }
+        }
+
+        if (!flag) {
+            int length = a.length;
+
+            while (length > 0) {
+                int element = a[0];
+
+                for (int i = 1; i < length; i++) {
+                    if (a[i] < a[i - 1]) {
+                        a[i - 1] = a[i];
+                        a[i] = element;
+
+                    } else {
+                        element = a[i];
+                    }
+                }
+
+                length--;
+            }
+        }
+
+        return a;
     }
 }
