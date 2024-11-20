@@ -9,7 +9,7 @@ package misc.bigO;
  * And continue the procedure.
  * Here, I have implemented extra step of sorting the array in ascending order if it is not.
  */
-public class oOfLogN {
+public class OfLogN {
     public static void main(String[] args) {
         int[] a = {5, 7, 10, 15, 29, 27, 3};
         int target = 29;

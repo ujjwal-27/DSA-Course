@@ -6,7 +6,7 @@ package misc.bigO;
  * As we can see, n^2 is dominant than n when it comes to no. of operations.
  * So, using rule of simplification we drop non-dominant, and we have O(n^2).
  */
-public class dropNonDominant {
+public class DropNonDominant {
     public static void main(String[] args) {
         printItems(10);
     }

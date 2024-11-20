@@ -1,6 +1,6 @@
 package misc.revision.bigO;
 
-public class oOfLogN {
+public class OfLogN {
     public static void main(String[] args) {
         int[] a = {5, 7, 10, 15, 29, 27, 3}; // {3, 5, 7, 10, 15, 27, 29}
         int target = 27;

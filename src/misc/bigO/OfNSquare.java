@@ -4,7 +4,7 @@ package misc.bigO;
  * Here, we have n = 10, and no of operations = n * n = n^2
  * Hence, it is referred as O(n^2).
  */
-public class oOfNSquare {
+public class OfNSquare {
     public static void main(String[] args) {
         printItems(10);
     }

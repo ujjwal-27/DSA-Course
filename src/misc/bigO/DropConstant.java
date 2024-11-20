@@ -5,7 +5,7 @@ package misc.bigO;
  * This might look like O(2n) since n + n = 2n
  * Using rule of simplification we can drop the constant '2' and we have O(n).
  */
-public class dropConstant {
+public class DropConstant {
     public static void main(String[] args) {
         printItems(10);
     }
