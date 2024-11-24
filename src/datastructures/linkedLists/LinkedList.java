@@ -14,6 +14,15 @@ public class LinkedList {
         }
     }
 
+    public void getHead() {
+        if (head == null) {
+            System.out.println("Head: null");
+
+        } else {
+            System.out.println("Head: " + head.value);
+        }
+    }
+
     public LinkedList(int value) {
         Node newNode = new Node(value);
 
