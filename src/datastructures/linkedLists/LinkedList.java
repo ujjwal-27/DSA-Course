@@ -23,6 +23,15 @@ public class LinkedList {
         }
     }
 
+    public void getTail() {
+        if (tail == null) {
+            System.out.println("Tail: null");
+
+        } else {
+            System.out.println("Tail: " + tail.value);
+        }
+    }
+
     public LinkedList(int value) {
         Node newNode = new Node(value);
 
