@@ -23,6 +23,10 @@ public class LinkedList {
         }
     }
 
+    public void getLength() {
+        System.out.println("Length: " + length);
+    }
+
     public void getTail() {
         if (tail == null) {
             System.out.println("Tail: null");
