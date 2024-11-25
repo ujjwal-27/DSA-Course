@@ -7,6 +7,12 @@ public class Main {
         linkedList.append(7);
         linkedList.append(9);
         linkedList.append(23);
+
+        linkedList.removeLast();
+        linkedList.removeLast();
+        linkedList.removeLast();
+        linkedList.removeLast();
+
         linkedList.printList();
 
 //        linkedList.getHead();
