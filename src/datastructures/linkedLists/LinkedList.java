@@ -67,29 +67,26 @@ public class LinkedList {
         }
     }
 
-    public void removeLast() {
-        if (length == 1) {
-            head = null;
-            tail = null;
-            length = 0;
+    public Node removeLast() {
+        if (length == 0) return null;
 
-            System.out.println("List empty: No nodes found.");
+        Node temp = head;
+        Node previous = head;
 
-        } else {
-            Node temp = head;
-            Node previous = null;
-
-            while (temp.next != null) {
-                previous = temp;
-                temp = previous.next;
-            }
-
-            tail = previous;
-            tail.next = null;
-
-//            System.out.println(temp.value); // check if the value of last node matches or not
+        while (temp.next != null) {
+            previous = temp;
+            temp = temp.next; // can also use 'previous.next'
         }
 
+        tail = previous;
+        tail.next = null;
         length--;
+
+        if (length == 0) {
+            head = null;
+            tail = null;
+        }
+
+        return temp; // returns the node that was removed while this method was invoked
     }
 }
