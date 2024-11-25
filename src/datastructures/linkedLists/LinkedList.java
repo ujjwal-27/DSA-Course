@@ -66,4 +66,30 @@ public class LinkedList {
             temp = temp.next;
         }
     }
+
+    public void removeLast() {
+        if (length == 1) {
+            head = null;
+            tail = null;
+            length = 0;
+
+            System.out.println("List empty: No nodes found.");
+
+        } else {
+            Node temp = head;
+            Node previous = null;
+
+            while (temp.next != null) {
+                previous = temp;
+                temp = previous.next;
+            }
+
+            tail = previous;
+            tail.next = null;
+
+//            System.out.println(temp.value); // check if the value of last node matches or not
+        }
+
+        length--;
+    }
 }
