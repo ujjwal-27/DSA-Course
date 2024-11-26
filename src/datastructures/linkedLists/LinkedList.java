@@ -17,7 +17,7 @@ public class LinkedList {
     public void append(int value) {
         Node newNode = new Node(value);
 
-        if (length == 0) {
+        if (length == 0) {  // edge case
             head = newNode;
 
         } else {
@@ -83,14 +83,14 @@ public class LinkedList {
     }
 
     public Node removeFirst() {
-        if (length == 0) return null;
+        if (length == 0) return null; // edge case
 
         Node temp = head;
         head = head.next;
         temp.next = null;
         length--;
 
-        if (length == 0) {
+        if (length == 0) { // edge case
             head = null;
             tail = null;
         }
@@ -99,7 +99,7 @@ public class LinkedList {
     }
 
     public Node removeLast() {
-        if (length == 0) return null;
+        if (length == 0) return null; // edge case
 
         Node temp = head;
         Node previous = head;
@@ -113,7 +113,7 @@ public class LinkedList {
         tail.next = null;
         length--;
 
-        if (length == 0) {
+        if (length == 0) { // edge case
             head = null;
             tail = null;
         }
