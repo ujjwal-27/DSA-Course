@@ -28,6 +28,18 @@ public class LinkedList {
         this.length++;
     }
 
+    public Node get(int index) {
+        if (index < 0 || index >= length) return null; // edge case
+
+        Node temp = head;
+
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+
+        return temp;
+    }
+
     public void getHead() {
         if (head == null) {
             System.out.println("Head: null");
