@@ -62,14 +62,10 @@ public class LinkedList {
         Node newNode = new Node(value);
         Node temp = head; // storing head node in temp variable
 
-        head = newNode; // since it is common for all if block
+        head = newNode; // since it is common for all 'if' block
 
         if (length == 0) {
             tail = newNode;
-
-        } else if (length == 1) {
-            head.next = temp;
-            tail = temp;
 
         } else {
             head.next = temp;
