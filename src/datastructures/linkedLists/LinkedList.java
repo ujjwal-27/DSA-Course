@@ -60,15 +60,14 @@ public class LinkedList {
 
     public void prepend(int value) {
         Node newNode = new Node(value);
-        Node temp = head; // storing head node in temp variable
-
-        head = newNode; // since it is common for all 'if' block
 
         if (length == 0) {
+            head = newNode;
             tail = newNode;
 
         } else {
-            head.next = temp;
+            newNode.next = head;
+            head = newNode;
         }
 
         length++;
