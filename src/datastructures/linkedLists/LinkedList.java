@@ -142,6 +142,30 @@ public class LinkedList {
         }
     }
 
+    public Node remove(int index) {
+        if (index < 0 || index >= length) return null;
+
+        Node temp;
+
+        if (index == 0) {
+            temp = removeFirst();
+
+        } else if (index == length - 1) {
+            temp = removeLast();
+
+        } else {
+            Node previous = get(index - 1);
+            temp = get(index);
+
+            previous.next = temp.next;
+            temp.next = null;
+
+            length--;
+        }
+
+        return temp;
+    }
+
     public Node removeFirst() {
         if (length == 0) return null; // edge case
 
