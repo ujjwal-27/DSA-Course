@@ -98,12 +98,11 @@ public class LinkedList {
             append(value);
 
         } else {
-            Node after = get(index);
-            Node before = get(index - 1);
             Node newNode = new Node(value);
+            Node temp = get(index - 1);
 
-            before.next = newNode;
-            newNode.next = after;
+            newNode.next = temp.next;
+            temp.next = newNode;
 
             length++;
         }
