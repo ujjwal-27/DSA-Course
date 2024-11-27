@@ -160,16 +160,13 @@ public class LinkedList {
     }
 
     public boolean set(int index, int value) {
-        if (index < 0 || index >= length) return false;
+        Node temp = get(index);
 
-        Node temp = head;
-
-        for (int i = 0; i < index; i++) {
-            temp = temp.next;
+        if (temp != null) {
+            temp.value = value;
+            return true;
         }
 
-        temp.value = value;
-
-        return true;
+        return false;
     }
 }
