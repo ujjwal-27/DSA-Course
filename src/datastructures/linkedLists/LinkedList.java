@@ -88,6 +88,29 @@ public class LinkedList {
         }
     }
 
+    public boolean insert(int index, int value) {
+        if (index < 0 || index > length) return false;
+
+        if (index == 0) {
+            prepend(value);
+            
+        } else if (index == length) {
+            append(value);
+
+        } else {
+            Node after = get(index);
+            Node before = get(index - 1);
+            Node newNode = new Node(value);
+
+            before.next = newNode;
+            newNode.next = after;
+
+            length++;
+        }
+
+        return true;
+    }
+
     public LinkedList(int value) {
         Node newNode = new Node(value);
 
