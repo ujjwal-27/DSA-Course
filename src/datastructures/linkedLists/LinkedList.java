@@ -40,6 +40,20 @@ public class LinkedList {
         return temp;
     }
 
+    public boolean getByValue(int value) {
+        Node temp = head;
+
+        while (temp != null) {
+            if (temp.value == value) {
+                return true;
+            }
+
+            temp = temp.next;
+        }
+
+        return false;
+    }
+
     public void getHead() {
         if (head == null) {
             System.out.println("Head: null");
