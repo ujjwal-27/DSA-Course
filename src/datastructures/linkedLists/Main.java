@@ -8,10 +8,7 @@ public class Main {
         linkedList.append(2);
 
 
-        linkedList.insert(0, 8);
-        linkedList.insert(3, 57);
-        linkedList.insert(5, 9);
-        linkedList.insert(7, 11);
+        System.out.println("removed: " + linkedList.remove(2).value);
 
         linkedList.printList();
     }
