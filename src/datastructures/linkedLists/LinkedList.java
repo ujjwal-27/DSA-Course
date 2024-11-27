@@ -51,6 +51,8 @@ public class LinkedList {
      * @return Boolean
      */
     public boolean getByValue(int value) {
+        if (length == 0) return false;
+
         Node temp = head;
 
         while (temp != null) {
