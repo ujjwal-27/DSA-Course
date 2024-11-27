@@ -7,10 +7,10 @@ public class Main {
         linkedList.append(7);
         linkedList.append(2);
 
-        System.out.println(linkedList.getByValue(9));
-        System.out.println(linkedList.getByValue(27));
-        System.out.println(linkedList.getByValue(8));
-        System.out.println(linkedList.getByValue(4));
-        System.out.println(linkedList.getByValue(2));
+        System.out.println(linkedList.set(4, 8));
+        System.out.println(linkedList.set(2, 9));
+        System.out.println(linkedList.set(0, 22));
+
+        linkedList.printList();
     }
 }
