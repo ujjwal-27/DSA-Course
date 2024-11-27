@@ -7,9 +7,8 @@ public class Main {
         linkedList.append(7);
         linkedList.append(2);
 
-        System.out.println(linkedList.set(4, 8));
-        System.out.println(linkedList.set(2, 9));
-        System.out.println(linkedList.set(0, 22));
+        linkedList.insert(3, 8);
+        linkedList.insert(5, 9);
 
         linkedList.printList();
     }
