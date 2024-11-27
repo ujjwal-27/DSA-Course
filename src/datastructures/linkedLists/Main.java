@@ -5,10 +5,12 @@ public class Main {
         LinkedList linkedList = new LinkedList(4);
         linkedList.append(27);
         linkedList.append(7);
+        linkedList.append(2);
 
-        System.out.println(linkedList.get(0).value);
-        System.out.println(linkedList.get(1).value);
-        System.out.println(linkedList.get(2).value);
-        System.out.println(linkedList.get(3));
+        System.out.println(linkedList.getByValue(9)); // false
+        System.out.println(linkedList.getByValue(27));
+        System.out.println(linkedList.getByValue(8));
+        System.out.println(linkedList.getByValue(4));
+        System.out.println(linkedList.getByValue(2));
     }
 }
