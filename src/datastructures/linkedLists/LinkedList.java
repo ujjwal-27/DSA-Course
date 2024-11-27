@@ -28,6 +28,11 @@ public class LinkedList {
         this.length++;
     }
 
+    /**
+     * This method returns the value of particular index provided in the parameter.
+     * @param index Integer
+     * @return Integer value of provided index
+     */
     public Node get(int index) {
         if (index < 0 || index >= length) return null; // edge case
 
@@ -40,6 +45,11 @@ public class LinkedList {
         return temp;
     }
 
+    /**
+     * This method returns true or false depending on whether the value passed through parameter is available in the list or not.
+     * @param value Integer
+     * @return Boolean
+     */
     public boolean getByValue(int value) {
         Node temp = head;
 
