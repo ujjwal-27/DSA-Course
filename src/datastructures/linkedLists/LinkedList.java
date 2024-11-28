@@ -145,25 +145,23 @@ public class LinkedList {
     public Node remove(int index) {
         if (index < 0 || index >= length) return null;
 
-        Node temp;
-
         if (index == 0) {
-            temp = removeFirst();
+            return removeFirst();
 
         } else if (index == length - 1) {
-            temp = removeLast();
+            return removeLast();
 
         } else {
             Node previous = get(index - 1);
-            temp = get(index);
+            Node temp = previous.next; // Instead of invoking get(index) method for temp variable which use O(n), we can simply use 'previous.next' which gives the same value and also contributes in optimizing operation time.
 
             previous.next = temp.next;
             temp.next = null;
 
             length--;
-        }
 
-        return temp;
+            return temp;
+        }
     }
 
     public Node removeFirst() {
