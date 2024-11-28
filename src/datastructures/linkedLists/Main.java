@@ -5,10 +5,12 @@ public class Main {
         LinkedList linkedList = new LinkedList(4);
         linkedList.append(27);
         linkedList.append(7);
+        linkedList.append(59);
+        linkedList.append(33);
         linkedList.append(2);
 
 
-        System.out.println("removed: " + linkedList.remove(2).value);
+        linkedList.reverse();
 
         linkedList.printList();
     }
