@@ -203,6 +203,22 @@ public class LinkedList {
         return temp; // returns the node that was removed while this method was invoked
     }
 
+    public void reverse() {
+        int index = length - 2;
+        Node temp = tail;
+
+        while (index >= 0) {
+            Node nextNode = get(index);
+            temp.next = nextNode;
+            temp = nextNode;
+            index--;
+        }
+
+        head = tail;
+        tail = temp;
+        tail.next = null;
+    }
+
     public boolean set(int index, int value) {
         Node temp = get(index);
 
