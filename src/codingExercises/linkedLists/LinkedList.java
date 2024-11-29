@@ -116,6 +116,13 @@ public class LinkedList {
 
         return temp;
     }
+
+    // WRITE PREPEND METHOD HERE //
+    //                           //
+    //                           //
+    //                           //
+    //                           //
+    ///////////////////////////////
 }
 
 
