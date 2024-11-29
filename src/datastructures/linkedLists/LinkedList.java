@@ -204,19 +204,19 @@ public class LinkedList {
     }
 
     public void reverse() {
-        int index = length - 2;
-        Node temp = tail;
-
-        while (index >= 0) {
-            Node nextNode = get(index);
-            temp.next = nextNode;
-            temp = nextNode;
-            index--;
-        }
-
+        Node temp = head;
         head = tail;
         tail = temp;
-        tail.next = null;
+
+        Node after = null;
+        Node before = null;
+
+        for (int i = 0; i < length; i++) {
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
     }
 
     public boolean set(int index, int value) {
