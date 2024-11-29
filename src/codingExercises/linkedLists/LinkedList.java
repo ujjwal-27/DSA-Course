@@ -101,6 +101,13 @@ public class LinkedList {
 
         return temp;
     }
+
+    // WRITE REMOVEFIRST METHOD HERE //
+    //                               //
+    //                               //
+    //                               //
+    //                               //
+    ///////////////////////////////////
 }
 
 
