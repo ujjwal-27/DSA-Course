@@ -79,12 +79,28 @@ public class LinkedList {
         length++;
     }
 
-    // WRITE REMOVELAST METHOD HERE //
-    //                              //
-    //                              //
-    //                              //
-    //                              //
-    //////////////////////////////////
+    public Node removeLast() {
+        if (length == 0) return null;
+
+        Node previous = head;
+        Node temp = head;
+
+        while (temp.next != null) {
+            previous = temp;
+            temp = temp.next;
+        }
+
+        tail = previous;
+        tail.next = null;
+        length--;
+
+        if (length == 0) {
+            head = null;
+            tail = null;
+        }
+
+        return temp;
+    }
 }
 
 
