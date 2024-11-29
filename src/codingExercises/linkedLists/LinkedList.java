@@ -16,9 +16,9 @@ public class LinkedList {
     }
 
     public LinkedList(int value) {
-        Node node = new Node(value);
-        head = node;
-        tail = node;
+        Node newNode = new Node(value);
+        head = newNode;
+        tail = newNode;
         length = 1;
     }
 
@@ -59,5 +59,19 @@ public class LinkedList {
         }
     }
 
+    public void makeEmpty() {
+        head = null;
+        tail = null;
+        length = 0;
+    }
+
+    // WRITE APPEND METHOD HERE //
+    //                          //
+    //                          //
+    //                          //
+    //                          //
+    //////////////////////////////
+
 }
+
 
