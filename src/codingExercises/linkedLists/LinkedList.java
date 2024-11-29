@@ -79,6 +79,12 @@ public class LinkedList {
         length++;
     }
 
+    // WRITE REMOVELAST METHOD HERE //
+    //                              //
+    //                              //
+    //                              //
+    //                              //
+    //////////////////////////////////
 }
 
 
