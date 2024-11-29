@@ -7,20 +7,5 @@ public class Main {
         LinkedList myLinkedList = new LinkedList(4);
 
         myLinkedList.printAll();
-
-
-        /*
-            EXPECTED OUTPUT:
-            ----------------
-            Head: 4
-            Tail: 4
-            Length: 1
-
-            Linked List:
-            4
-
-        */
-
     }
-
 }
