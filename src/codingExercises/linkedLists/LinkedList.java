@@ -22,6 +22,20 @@ public class LinkedList {
         length = 1;
     }
 
+    public Node get(int index) {
+        if (index < 0 || index >= length) return null;
+
+        Node temp = head;
+        int i = 0;
+
+        while (i != index) {
+            temp = temp.next;
+            i++;
+        }
+
+        return temp;
+    }
+
     public Node getHead() {
         return head;
     }
