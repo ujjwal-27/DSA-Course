@@ -189,6 +189,22 @@ public class LinkedList {
         return temp;
     }
 
+    public void reverse() {
+        Node temp = head;
+        head = tail;
+        tail = temp;
+
+        Node after = null;
+        Node before = null;
+
+        for (int i = 0; i < length; i++) {
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
+    }
+
     public boolean set(int index, int value) {
         Node temp = get(index);
 
