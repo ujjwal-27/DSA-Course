@@ -48,6 +48,28 @@ public class LinkedList {
         return length;
     }
 
+    public boolean insert(int index, int value) {
+        if (index < 0 || index > length) return false;
+
+        if (index == 0) {
+            prepend(value);
+
+        } else if (index == length) {
+            append(value);
+
+        } else {
+            Node newNode = new Node(value);
+            Node previous = get(index - 1);
+            Node temp = previous.next;
+
+            previous.next = newNode;
+            newNode.next = temp;
+            length++;
+        }
+
+        return true;
+    }
+
     public void printList() {
         Node temp = head;
         while (temp != null) {
