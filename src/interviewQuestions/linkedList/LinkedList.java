@@ -86,6 +86,29 @@ public class LinkedList {
 
         return slow;
     }
+
+    /**
+     * This method implements Floyd's Tortoise and Hare Algorithm to find if the list has loop or not.
+     *  Here, two pointers - slow and fast - are initialized, both pointing to the head of the list.
+     * While-loop is implemented with the condition stating that the loop shall execute until 'fast' is not null and 'next node of fast' is not null.
+     * Inside the code block of while loop, move 'slow' pointer one step ahead, and 'fast' pointer two steps ahead.
+     * At a point, if the slow pointer and fast pointer meets, then return true (which means the list has never ending loop)
+     * If not, return false.
+     * @return Boolean true or false.
+     */
+    public boolean hasLoop() {
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) return true;
+        }
+
+        return false;
+    }
 }
 
 
