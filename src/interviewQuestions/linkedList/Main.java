@@ -8,23 +8,17 @@ public class Main {
         myLinkedList.append(4);
         myLinkedList.append(5);
 
-        System.out.println("1 -> 2 -> 3 -> 4 -> 5");
-        System.out.println( "Middle Node: "+ myLinkedList.findMiddleNode().value);
+        // create a loop by connecting the tail to the second node
+        myLinkedList.getTail().next = myLinkedList.getHead().next;
 
-        myLinkedList.append(6);
-
-        System.out.println("===========================");
-        System.out.println("1 -> 2 -> 3 -> 4 -> 5 -> 6");
-        System.out.println( "Middle Node: "+ myLinkedList.findMiddleNode().value);
+        System.out.println("Has Loop:");
+        System.out.println( myLinkedList.hasLoop());
 
         /*
             EXPECTED OUTPUT:
             ----------------
-            1 -> 2 -> 3 -> 4 -> 5
-            Middle Node: 3
-            ===========================
-            1 -> 2 -> 3 -> 4 -> 5 -> 6
-            Middle Node: 4
+            Has Loop:
+            true
 
         */
     }

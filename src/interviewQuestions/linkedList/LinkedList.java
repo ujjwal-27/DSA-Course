@@ -84,7 +84,7 @@ public class LinkedList {
             fast = fast.next.next; // two steps ahead
         }
 
-        return slow; 
+        return slow;
     }
 }
 
