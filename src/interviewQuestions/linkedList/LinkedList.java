@@ -109,6 +109,36 @@ public class LinkedList {
 
         return false;
     }
+
+    /**
+     * This method use two-pointer technique.
+     * Here, the two pointers are initialized as first and second Node.
+     * Initially, the head pointer is checked if it is null or not. If yes, it implies the list is empty.
+     * Then, the length of list is computed, and checked if the value of k is greater than length. For this, pointer 'first' is used.
+     * Then, a for-loop is executed till (length - k) which points on the exact kth node of the list. For this, pointer 'second' is used.
+     * @param k integer
+     * @return Node on kth place from end.
+     */
+    public Node findKthFromEnd(int k) {
+        if (head == null) return null;
+
+        int length = 1;
+        Node first = head;
+        Node second = head;
+
+        while (first.next != null) {
+            first = first.next;
+            length++;
+        }
+
+        if (k > length) return null;
+
+        for (int i = 0; i < length - k; i++) {
+            second = second.next;
+        }
+
+        return second;
+    }
 }
 
 
