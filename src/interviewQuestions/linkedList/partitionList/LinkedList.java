@@ -71,11 +71,11 @@ public class LinkedList {
 
     public void partitionList(int x) {
         if (head != null && length != 1) {
-            LinkedList highChain = null;
-            LinkedList lowChain = null;
-            Node highHead = null;
-            Node lowHead = null;
-            Node lowTail = null;
+            LinkedList highChain = null; // a new linked list for holding values >= x
+            LinkedList lowChain = null; // a new linked list for holding values < x
+            Node highHead = null; // head pointer for 'highChain' list
+            Node lowHead = null; // head pointer for 'lowChain' list
+            Node lowTail = null; // tail pointer for 'lowChain' list
             Node temp = head;
 
             while (temp != null) {
@@ -103,7 +103,6 @@ public class LinkedList {
                 temp = temp.next;
             }
 
-            assert lowTail != null;
             lowTail.next = highHead;
             head = lowHead;
         }
