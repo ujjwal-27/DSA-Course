@@ -69,13 +69,45 @@ public class LinkedList {
         length++;
     }
 
-    // WRITE THE PARTITIONLIST METHOD HERE //
-    //                                     //
-    //                                     //
-    //                                     //
-    //                                     //
-    /////////////////////////////////////////
+    public void partitionList(int x) {
+        if (head != null && length != 1) {
+            LinkedList highChain = null;
+            LinkedList lowChain = null;
+            Node highHead = null;
+            Node lowHead = null;
+            Node lowTail = null;
+            Node temp = head;
 
+            while (temp != null) {
+                if (temp.value < x) {
+                    if (lowHead == null) {
+                        lowChain = new LinkedList(temp.value);
+                        lowHead = lowChain.getHead();
+                        lowTail = lowHead;
+
+                    } else {
+                        lowChain.append(temp.value);
+                        lowTail = lowTail.next;
+                    }
+
+                } else {
+                    if (highHead == null) {
+                        highChain = new LinkedList(temp.value);
+                        highHead = highChain.getHead();
+
+                    } else {
+                        highChain.append(temp.value);
+                    }
+                }
+
+                temp = temp.next;
+            }
+
+            assert lowTail != null;
+            lowTail.next = highHead;
+            head = lowHead;
+        }
+    }
 }
 
 
