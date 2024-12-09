@@ -72,13 +72,27 @@ public class LinkedList {
         length++;
     }
 
-    // WRITE THE REMOVEDUPLICATES METHOD HERE //
-    //                                        //
-    //                                        //
-    //                                        //
-    //                                        //
-    ////////////////////////////////////////////
+    public void removeDuplicates() {
+        Node current = head;
 
+        while (current != null) {
+            Node runner = current;
+
+            while (runner.next != null) {
+
+                if (runner.next.value == current.value) {
+                    // Here, if the value of current node and value of next pointer of runner node is equal (duplicate value found), then we skip the duplicate value by setting runner.next to runner.next.next
+                    runner.next = runner.next.next;
+                    length --; // once a node is skipped (technically removed), then the length of the list must also be decreased by 1.
+
+                } else {
+                    runner = runner.next;
+                }
+            }
+
+            current = current.next;
+        }
+    }
 }
 
 
