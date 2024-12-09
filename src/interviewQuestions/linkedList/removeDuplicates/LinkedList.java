@@ -72,22 +72,42 @@ public class LinkedList {
         length++;
     }
 
+//    public void removeDuplicates() {
+//        Node current = head;
+//
+//        while (current != null) {
+//            Node runner = current;
+//
+//            while (runner.next != null) {
+//
+//                if (runner.next.value == current.value) {
+//                    // Here, if the value of current node and value of next pointer of runner node is equal (duplicate value found), then we skip the duplicate value by setting runner.next to runner.next.next
+//                    runner.next = runner.next.next;
+//                    length --; // once a node is skipped (technically removed), then the length of the list must also be decreased by 1.
+//
+//                } else {
+//                    runner = runner.next;
+//                }
+//            }
+//
+//            current = current.next;
+//        }
+//    }
+
     public void removeDuplicates() {
+        Set<Integer> values = new HashSet<>();
+
         Node current = head;
+        Node prev = null; // here, this 'prev' pointer acts as the duplicate node remover by skipping the current node if found duplicate.
 
         while (current != null) {
-            Node runner = current;
+            if (values.contains(current.value)) {
+                prev.next = current.next; // the 'next' pointer of 'prev' node skips the 'current' node and points to node next to current.
+                length--;
 
-            while (runner.next != null) {
-
-                if (runner.next.value == current.value) {
-                    // Here, if the value of current node and value of next pointer of runner node is equal (duplicate value found), then we skip the duplicate value by setting runner.next to runner.next.next
-                    runner.next = runner.next.next;
-                    length --; // once a node is skipped (technically removed), then the length of the list must also be decreased by 1.
-
-                } else {
-                    runner = runner.next;
-                }
+            } else {
+                values.add(current.value);
+                prev = current;
             }
 
             current = current.next;
