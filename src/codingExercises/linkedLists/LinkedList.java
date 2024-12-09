@@ -144,7 +144,7 @@ public class LinkedList {
         Node temp = before.next;
         Node after = temp.next;
 
-        temp.next = null;
+        temp.next = null; // we don't have to necessarily point it to null because if the 'next pointer' of the 'previous node' points directly to the 'next pointer of current node', then the current node will be removed.
         before.next = after;
         length--;
 
