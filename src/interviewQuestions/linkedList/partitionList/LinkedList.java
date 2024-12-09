@@ -68,7 +68,11 @@ public class LinkedList {
         }
         length++;
     }
-
+    
+    /**
+     * Since append() method is being called in this method, it is O(n^2).
+     * @param x Integer
+     */
     public void partitionList_self(int x) {
         if (head != null && length != 1) {
             LinkedList highChain = null; // a new linked list for holding values >= x
