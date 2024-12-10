@@ -63,22 +63,17 @@ public class LinkedList {
         length++;
     }
 
-    //   +===================================================+
-    //   |               WRITE YOUR CODE HERE                |
-    //   | Description:                                      |
-    //   | - This method converts a binary number,           |
-    //   |   represented as a linked list, to a decimal int. |
-    //   |                                                   |
-    //   | Return type: int                                  |
-    //   | - Returns the decimal equivalent of the binary    |
-    //   |   number.                                         |
-    //   |                                                   |
-    //   | Tips:                                             |
-    //   | - We use a while loop to traverse the linked list.|
-    //   | - Multiply the current sum by 2 and add the value |
-    //   |   at each node to get the decimal number.         |
-    //   +===================================================+
+    public int binaryToDecimal() {
+        int num = 0;
+        Node temp = head;
 
+        while (temp != null) {
+            num = num * 2 + temp.value; // core logic of this solution
+            temp = temp.next;
+        }
+
+        return num;
+    }
 }
 
 
