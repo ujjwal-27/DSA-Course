@@ -70,11 +70,26 @@ public class LinkedList {
         length++;
     }
 
-    // WRITE THE REVERSEBETWEEN METHOD HERE //
-    //                                      //
-    //                                      //
-    //                                      //
-    //                                      //
-    //////////////////////////////////////////
+    public void reverseBetween(int m, int n) {
+        if (head != null) {
+            Node dummyNode = new Node(0);
+            dummyNode.next = head;
+            Node previousNode = dummyNode;
 
+            for (int i = 0; i < m; i++) {
+                previousNode = previousNode.next;
+            }
+
+            Node currentNode = previousNode.next;
+
+            for (int i = 0; i < n - m; i++) {
+                Node nodeToMove = currentNode.next;
+                currentNode.next = nodeToMove.next;
+                nodeToMove.next = previousNode.next;
+                previousNode.next = nodeToMove;
+            }
+
+            head = dummyNode.next;
+        }
+    }
 }
