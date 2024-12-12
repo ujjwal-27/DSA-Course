@@ -70,6 +70,12 @@ public class LinkedList {
         length++;
     }
 
+    /**
+     * This method reverses the nodes of the list between indexes m and n (inclusive).
+     * This list does not have a tail node.
+     * @param m Start index
+     * @param n End index
+     */
     public void reverseBetween(int m, int n) {
         if (head != null) { // first check if the list is empty or not
             Node dummyNode = new Node(0); // this node helps to simplify the logic, if we have to reverse from the first node. Later, it helps to exactly assign head pointer.
