@@ -71,25 +71,30 @@ public class LinkedList {
     }
 
     public void reverseBetween(int m, int n) {
-        if (head != null) {
-            Node dummyNode = new Node(0);
+        if (head != null) { // first check if the list is empty or not
+            Node dummyNode = new Node(0); // this node helps to simplify the logic, if we have to reverse from the first node. Later, it helps to exactly assign head pointer.
             dummyNode.next = head;
+
+            // For the core reverse logic, three nodes will be mainly involved, with first one being 'previousNode'.
             Node previousNode = dummyNode;
 
+            // assign previousNode right before the start of reverse segment (before m)
             for (int i = 0; i < m; i++) {
                 previousNode = previousNode.next;
             }
 
+            // Among three nodes, another one is 'currentNode', which will be assigned next to 'previousNode'.
             Node currentNode = previousNode.next;
 
+            // Core logic for implementing reverse functionality. This loop will be executed (n - m) times.
             for (int i = 0; i < n - m; i++) {
-                Node nodeToMove = currentNode.next;
-                currentNode.next = nodeToMove.next;
-                nodeToMove.next = previousNode.next;
-                previousNode.next = nodeToMove;
+                Node nodeToMove = currentNode.next; // Among three nodes, 'nodeToMove' is another node involved which will be placed next to 'currentNode'.
+                currentNode.next = nodeToMove.next; // First, assign 'next pointer of currentNode' to the node next to 'nodeToMove'
+                nodeToMove.next = previousNode.next; // Then, assign 'next pointer of nodeToMove' to the node next to 'previousNode'
+                previousNode.next = nodeToMove; // Then, assign 'next pointer of previousNode' to 'nodeToMove' node
             }
 
-            head = dummyNode.next;
+            head = dummyNode.next; // Finally, assign 'head' with node 'next to dummyNode'
         }
     }
 }
