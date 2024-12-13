@@ -13,6 +13,10 @@ public class DoublyLinkedList {
         length++;
     }
 
+    public void getHead() {
+        System.out.println("Head: " + head.value);
+    }
+
     class Node {
         int value;
         Node next;
