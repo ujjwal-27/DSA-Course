@@ -29,15 +29,14 @@ public class DoublyLinkedList {
         if (length == 0) {
             head = newNode;
             tail = newNode;
-            length = 1;
 
         } else {
-            Node temp = tail;
+            tail.next = newNode;
+            newNode.prev = tail;
             tail = newNode;
-            temp.next = tail;
-            tail.prev = temp;
-            length++;
         }
+
+        length++;
     }
 
     public void getHead() {
