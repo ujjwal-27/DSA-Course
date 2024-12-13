@@ -5,6 +5,16 @@ public class DoublyLinkedList {
     private Node tail;
     private int length;
 
+    class Node {
+        int value;
+        Node next;
+        Node prev;
+
+        Node(int value) {
+            this.value = value;
+        }
+    }
+
     public DoublyLinkedList(int value) {
         Node newNode = new Node(value);
 
@@ -32,15 +42,5 @@ public class DoublyLinkedList {
 
     public void getTail() {
         System.out.println("Tail: " + tail.value);
-    }
-
-    class Node {
-        int value;
-        Node next;
-        Node prev;
-
-        Node(int value) {
-            this.value = value;
-        }
     }
 }
