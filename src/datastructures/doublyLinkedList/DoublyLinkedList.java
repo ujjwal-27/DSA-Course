@@ -23,6 +23,23 @@ public class DoublyLinkedList {
         length = 1;
     }
 
+    public void append(int value) {
+        Node newNode = new Node(value);
+
+        if (length == 0) {
+            head = newNode;
+            tail = newNode;
+            length = 1;
+
+        } else {
+            Node temp = tail;
+            tail = newNode;
+            temp.next = tail;
+            tail.prev = temp;
+            length++;
+        }
+    }
+
     public void getHead() {
         System.out.println("Head: " + head.value);
     }
