@@ -5,5 +5,7 @@ public class Main {
         DoublyLinkedList doublyLinkedList = new DoublyLinkedList(7);
 
         doublyLinkedList.getHead();
+        doublyLinkedList.getTail();
+        doublyLinkedList.getLength();
     }
 }

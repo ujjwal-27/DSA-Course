@@ -17,6 +17,14 @@ public class DoublyLinkedList {
         System.out.println("Head: " + head.value);
     }
 
+    public void getLength() {
+        System.out.println("Length: " + length);
+    }
+
+    public void getTail() {
+        System.out.println("Tail: " + tail.value);
+    }
+
     class Node {
         int value;
         Node next;
