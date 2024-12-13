@@ -21,6 +21,15 @@ public class DoublyLinkedList {
         System.out.println("Length: " + length);
     }
 
+    public void getList() {
+        Node temp = head;
+
+        while (temp != null) {
+            System.out.println(temp.value);
+            temp = temp.next;
+        }
+    }
+
     public void getTail() {
         System.out.println("Tail: " + tail.value);
     }
