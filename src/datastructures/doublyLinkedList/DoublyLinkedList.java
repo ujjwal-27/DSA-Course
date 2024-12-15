@@ -61,12 +61,11 @@ public class DoublyLinkedList {
     }
 
     public Node removeLast() {
+        if (length == 0) return null;
+
         Node temp = tail;
-
-        if (length == 0) {
-            return null;
-
-        } else if (length == 1) {
+        
+        if (length == 1) {
             head = null;
             tail = null;
 
