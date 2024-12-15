@@ -12,7 +12,8 @@ public class Main {
         doublyLinkedList.getList();
 
         System.out.println("---- After remove first ----");
-        doublyLinkedList.removeFirst();
+        System.out.println("Removed: " + doublyLinkedList.removeFirst().value);
+        System.out.println("Removed: " + doublyLinkedList.removeFirst().value);
         doublyLinkedList.getLength();
         doublyLinkedList.getList();
     }
