@@ -59,4 +59,24 @@ public class DoublyLinkedList {
     public void getTail() {
         System.out.println("Tail: " + tail.value);
     }
+
+    public Node removeLast() {
+        Node temp = tail;
+
+        if (length == 0) {
+            return null;
+
+        } else if (length == 1) {
+            head = null;
+            tail = null;
+
+        } else {
+            tail = tail.prev;
+            tail.next = null;
+            temp.prev = null;
+        }
+
+        length--;
+        return temp;
+    }
 }
