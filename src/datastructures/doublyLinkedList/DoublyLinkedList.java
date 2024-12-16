@@ -44,8 +44,17 @@ public class DoublyLinkedList {
 
         Node temp = head;
 
-        for (int i = 0; i < index; i++) {
-            temp = temp.next;
+        if (index < length / 2) {
+            for (int i = 0; i < index; i++) {
+                temp = temp.next;
+            }
+
+        } else {
+            temp = tail;
+
+            for (int i = 1; i < length - index; i++) {
+                temp = temp.prev;
+            }
         }
 
         return temp;
