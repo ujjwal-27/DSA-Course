@@ -9,15 +9,12 @@ public class Main {
         doublyLinkedList.append(99);
         doublyLinkedList.append(22);
 
-        System.out.println(doublyLinkedList.get(6));
-        System.out.println(doublyLinkedList.get(5).value);
-        System.out.println(doublyLinkedList.get(4).value);
-        System.out.println(doublyLinkedList.get(3).value);
-        System.out.println(doublyLinkedList.get(2).value);
-        System.out.println(doublyLinkedList.get(1).value);
-        System.out.println(doublyLinkedList.get(0).value);
-
-        System.out.println("--------------------");
+        System.out.println("---- Before set ----");
+        doublyLinkedList.printList();
+        System.out.println("---- After set ----");
+        System.out.println(doublyLinkedList.set(-2, 100));
+        System.out.println(doublyLinkedList.set(6, 100));
+        System.out.println(doublyLinkedList.set(4, 100));
         doublyLinkedList.printList();
     }
 }
