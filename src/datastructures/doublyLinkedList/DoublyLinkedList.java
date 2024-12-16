@@ -52,7 +52,7 @@ public class DoublyLinkedList {
         } else {
             temp = tail;
 
-            for (int i = 1; i < length - index; i++) {
+            for (int i = length - 1; i > index; i--) {
                 temp = temp.prev;
             }
         }
