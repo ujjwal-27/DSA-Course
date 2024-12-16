@@ -96,6 +96,15 @@ public class DoublyLinkedList {
         length++;
     }
 
+    public void printList() {
+        Node temp = head;
+
+        while (temp != null) {
+            System.out.println(temp.value);
+            temp = temp.next;
+        }
+    }
+
     public Node removeFirst() {
         if (length == 0) return null;
 

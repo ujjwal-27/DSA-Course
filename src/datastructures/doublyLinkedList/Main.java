@@ -16,5 +16,8 @@ public class Main {
         System.out.println(doublyLinkedList.get(2).value);
         System.out.println(doublyLinkedList.get(1).value);
         System.out.println(doublyLinkedList.get(0).value);
+
+        System.out.println("--------------------");
+        doublyLinkedList.printList();
     }
 }
