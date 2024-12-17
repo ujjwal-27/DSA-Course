@@ -1,6 +1,9 @@
 package codingExercises.doublyLinkedList.constructor;
 
 public class DoublyLinkedList {
+    private Node head;
+    private Node tail;
+    private int length;
 
     class Node {
         int value;
