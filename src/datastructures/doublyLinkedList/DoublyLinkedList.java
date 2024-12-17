@@ -92,13 +92,13 @@ public class DoublyLinkedList {
 
         } else {
             Node newNode = new Node(value);
-            Node temp = get(index);
-            Node previous = temp.prev;
+            Node before = get(index - 1);
+            Node after = before.next;
 
-            newNode.next = temp;
-            newNode.prev = previous;
-            previous.next = newNode;
-            temp.prev = newNode;
+            newNode.prev = before;
+            newNode.next = after;
+            before.next = newNode;
+            after.prev = newNode;
             length++;
         }
 
