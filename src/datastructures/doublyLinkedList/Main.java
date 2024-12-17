@@ -7,11 +7,10 @@ public class Main {
         doublyLinkedList.append(27);
         doublyLinkedList.append(77);
 
-        System.out.println("---- Before insert ----");
+        System.out.println("---- Before remove ----");
         doublyLinkedList.printList();
-        System.out.println("---- After insert ----");
-        System.out.println(doublyLinkedList.insert(0, 100));
-        System.out.println(doublyLinkedList.insert(4, 53));
+        System.out.println("---- After remove ----");
+        System.out.println("Removed: " + doublyLinkedList.remove(2).value);
         doublyLinkedList.printList();
     }
 }
