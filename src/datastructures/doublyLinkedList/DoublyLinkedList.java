@@ -81,6 +81,30 @@ public class DoublyLinkedList {
         System.out.println("Tail: " + tail.value);
     }
 
+    public boolean insert(int index, int value) {
+        if (index < 0 || index > length) return false;
+
+        if (index == 0) {
+            prepend(value);
+
+        } else if (index == length) {
+            append(value);
+
+        } else {
+            Node newNode = new Node(value);
+            Node before = get(index - 1);
+            Node after = before.next;
+
+            newNode.prev = before;
+            newNode.next = after;
+            before.next = newNode;
+            after.prev = newNode;
+            length++;
+        }
+
+        return true;
+    }
+
     public void prepend(int value) {
         Node newNode = new Node(value);
 
