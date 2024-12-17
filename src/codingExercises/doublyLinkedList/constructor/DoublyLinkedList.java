@@ -2,12 +2,15 @@ package codingExercises.doublyLinkedList.constructor;
 
 public class DoublyLinkedList {
 
-    // CREATE CLASS VARIABLES, NODE CLASS, AND CONSTRUCTOR HERE //
-    //                                                          //
-    //                                                          //
-    //                                                          //
-    //                                                          //
-    //////////////////////////////////////////////////////////////
+    class Node {
+        int value;
+        Node next;
+        Node prev;
+
+        public Node(int value) {
+            this.value = value;
+        }
+    }
 
     public Node getHead() {
         return head;
