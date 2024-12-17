@@ -9,12 +9,11 @@ public class Main {
         doublyLinkedList.append(99);
         doublyLinkedList.append(22);
 
-        System.out.println("---- Before set ----");
+        System.out.println("---- Before insert ----");
         doublyLinkedList.printList();
-        System.out.println("---- After set ----");
-        System.out.println(doublyLinkedList.set(-2, 100));
-        System.out.println(doublyLinkedList.set(6, 100));
-        System.out.println(doublyLinkedList.set(4, 100));
+        System.out.println("---- After insert ----");
+        System.out.println(doublyLinkedList.insert(2, 100));
+        System.out.println(doublyLinkedList.insert(5, 53));
         doublyLinkedList.printList();
     }
 }
