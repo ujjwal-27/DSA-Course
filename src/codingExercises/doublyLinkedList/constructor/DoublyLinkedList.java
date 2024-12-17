@@ -15,6 +15,14 @@ public class DoublyLinkedList {
         }
     }
 
+    public DoublyLinkedList(int value) {
+        Node newNode = new Node(value);
+
+        head = newNode;
+        tail = newNode;
+        length = 1;
+    }
+
     public Node getHead() {
         return head;
     }
