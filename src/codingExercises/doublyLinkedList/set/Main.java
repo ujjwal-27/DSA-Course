@@ -11,7 +11,6 @@ public class Main {
 
         System.out.println("DLL before set():");
         myDLL.printList();
-
         myDLL.set(2, 99);
 
         System.out.println("\nDLL after set():");
