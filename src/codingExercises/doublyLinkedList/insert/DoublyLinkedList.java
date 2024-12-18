@@ -147,11 +147,27 @@ public class DoublyLinkedList {
         return false;
     }
 
-    // WRITE INSERT METHOD HERE //
-    //                          //
-    //                          //
-    //                          //
-    //                          //
-    //////////////////////////////
+    public boolean insert(int index, int value) {
+        if (index < 0 || index > length) return false;
 
+        if (index == 0) {
+            prepend(value);
+
+        } else if (index == length) {
+            append(value);
+
+        } else {
+            Node newNode = new Node(value);
+            Node after = get(index);
+            Node before = after.prev;
+
+            before.next = newNode;
+            after.prev = newNode;
+            newNode.prev = before;
+            newNode.next = after;
+            length++;
+        }
+
+        return true;
+    }
 }
