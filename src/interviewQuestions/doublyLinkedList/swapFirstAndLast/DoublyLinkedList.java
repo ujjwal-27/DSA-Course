@@ -79,12 +79,24 @@ public class DoublyLinkedList {
         length++;
     }
 
-    // WRITE SWAPFIRSTLAST METHOD HERE //
-    //                                 //
-    //                                 //
-    //                                 //
-    //                                 //
-    /////////////////////////////////////
+    public void swapFirstLast() {
+        if (length < 2) return;
 
+        Node tempHead = head;
+        Node tempTail = tail;
+        Node afterHead = head.next;
+        Node beforeTail = tail.prev;
+
+        tempHead.next = null;
+        tempHead.prev = beforeTail;
+        tempTail.next = afterHead;
+        tempTail.prev = null;
+
+        afterHead.prev = tempTail;
+        beforeTail.next = tempHead;
+
+        head = tempTail;
+        tail = tempHead;
+    }
 }
 
