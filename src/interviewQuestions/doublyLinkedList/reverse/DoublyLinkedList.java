@@ -95,13 +95,30 @@ public class DoublyLinkedList {
         return temp;
     }
 
-    // WRITE REVERSE METHOD HERE //
-    //                           //
-    //                           //
-    //                           //
-    //                           //
-    ///////////////////////////////
+    public void reverse() {
+        if (length < 2) return;
 
+        Node current = head;
+        Node nodeToMove = current.next;
+        Node previous = current;
+
+        while (nodeToMove != null) {
+            current.next = nodeToMove.next;
+
+            if (nodeToMove.next != null) {
+                nodeToMove.next.prev = current;
+            }
+
+            previous.prev = nodeToMove;
+            nodeToMove.next = previous;
+            previous = previous.prev;
+            previous.prev = null;
+            nodeToMove = current.next;
+        }
+
+        head = previous;
+        tail = current;
+    }
 }
 
 
