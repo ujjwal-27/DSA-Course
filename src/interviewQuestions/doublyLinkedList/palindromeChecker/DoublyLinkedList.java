@@ -79,12 +79,19 @@ public class DoublyLinkedList {
         length++;
     }
 
-    // WRITE ISPALINDROME METHOD HERE //
-    //                                //
-    //                                //
-    //                                //
-    //                                //
-    ////////////////////////////////////
+    public boolean isPalindrome() {
+        Node after = tail;
+        Node before = head;
+
+        for (int i = 0; i < length/2; i++) {
+            if (before.value != after.value) return false;
+
+            before = before.next;
+            after = after.prev;
+        }
+
+        return true;
+    }
 }
 
 
