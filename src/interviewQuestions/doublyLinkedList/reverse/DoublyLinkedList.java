@@ -95,7 +95,8 @@ public class DoublyLinkedList {
         return temp;
     }
 
-    public void reverse() {
+
+    public void reverse() { // This concept is self-implemented. There is an alternative approach for this algorithm provided in course. If required, please refer to it.
         if (length < 2) return;
 
         Node current = head;
