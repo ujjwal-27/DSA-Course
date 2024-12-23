@@ -62,13 +62,31 @@ public class DoublyLinkedList {
         length++;
     }
 
-    // WRITE THE SWAPPAIRS METHOD HERE //
-    //                                 //
-    //                                 //
-    //                                 //
-    //                                 //
-    /////////////////////////////////////
+    public void swapPairs() {
+        if (length < 2) return;
 
+        Node current = head;
+        Node move = current.next;
+        Node previous = null;
+
+        while (move != null) {
+            current.prev = previous;
+            current.next = move.next;
+            move.prev = current.prev;
+            current.prev = move;
+            move.next = current;
+
+            if (previous!= null) {
+                previous.next = move;
+            }
+
+            previous = current;
+            current = previous.next;
+            move = current.next;
+        }
+
+        head = head.prev;
+    }
 }
 
 
