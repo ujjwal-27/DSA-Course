@@ -63,29 +63,49 @@ public class DoublyLinkedList {
     }
 
     public void swapPairs() {
+        // Length of list must be >= 2.
         if (length < 2) return;
 
-        Node current = head;
-        Node move = current.next;
-        Node previous = null;
+        // Create a dummy node to simplify swapping process, and to make it easier to point to head node in the end.
+        Node dummy = new Node(0);
+        dummy.next = head;
 
-        while (move != null) {
-            current.prev = previous;
-            current.next = move.next;
-            move.prev = current.prev;
-            current.prev = move;
-            move.next = current;
+        // Create and set a previous node to dummy. Here, the previous node will always be before the two nodes to be swapped.
+        Node previous = dummy;
 
-            if (previous!= null) {
-                previous.next = move;
+        // Here, the head is also moved
+        while (head != null && head.next != null) {
+            // In every iteration, the first and second nodes are the ones that are to be swapped.
+            Node first = head;
+            Node second = head.next;
+
+            // Here, the three main nodes are previous, first and second for completing the swap between two nodes.
+            // First, the 'next pointers' of the nodes are adjusted to complete a swap.
+            previous.next = second;
+            first.next = second.next;
+            second.next = first;
+
+            // Since this is DLL, the 'prev pointers' of the nodes must also be adjusted.
+            second.prev = previous;
+            first.prev = second;
+
+            // first.next was previously second.next node.
+            // to complete a swap, we must point the 'prev pointer' of this node to first node.
+            if (first.next != null) {
+                first.next.prev = first;
             }
 
-            previous = current;
-            current = previous.next;
-            move = current.next;
+            // Then, we adjust the head node and previous node for next iteration
+            head = first.next;
+            previous = first;
         }
 
-        head = head.prev;
+        // After the completion of swap, point the head node to the node next to dummy.
+        head = dummy.next;
+
+        // After that, disconnect the dummy node from the list.
+        dummy.next.prev = null;
+        dummy.next = null;
     }
 }
 
