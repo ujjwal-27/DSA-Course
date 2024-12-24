@@ -37,6 +37,22 @@ public class Stack {
         }
     }
 
+    public void pull() {
+        if (height == 0) {
+            return;
+
+        } else if (height == 1) {
+            top = null;
+
+        } else {
+            Node temp = top;
+            top = top.next;
+            temp.next = null;
+        }
+
+        height--;
+    }
+
     public void push(int value) {
         Node newNode = new Node(value);
 
