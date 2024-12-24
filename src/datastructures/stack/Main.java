@@ -9,5 +9,10 @@ public class Main {
         stack.getHeight();
         stack.getTop();
         stack.printStack();
+
+        stack.pull();
+        stack.getHeight();
+        stack.getTop();
+        stack.printStack();
     }
 }
