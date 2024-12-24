@@ -19,4 +19,13 @@ public class Stack {
         top = newNode;
         height = 1;
     }
+
+    public void printStack() {
+        Node temp = top;
+
+        while (temp != null) {
+            System.out.println(temp.value);
+            temp = temp.next;
+        }
+    }
 }
