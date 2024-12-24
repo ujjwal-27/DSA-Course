@@ -37,20 +37,15 @@ public class Stack {
         }
     }
 
-    public void pull() {
-        if (height == 0) {
-            return;
+    public Node pull() {
+        if (height == 0) return null;
 
-        } else if (height == 1) {
-            top = null;
-
-        } else {
-            Node temp = top;
-            top = top.next;
-            temp.next = null;
-        }
-
+        Node temp = top;
+        top = top.next;
+        temp.next = null;
         height--;
+
+        return temp;
     }
 
     public void push(int value) {
