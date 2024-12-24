@@ -20,6 +20,14 @@ public class Stack {
         height = 1;
     }
 
+    public void getHeight() {
+        System.out.println("Height: " + height);
+    }
+
+    public void getTop() {
+        System.out.println("Top: " + top.value);
+    }
+
     public void printStack() {
         Node temp = top;
 
