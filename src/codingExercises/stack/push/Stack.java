@@ -56,13 +56,16 @@ public class Stack {
         height = 0;
     }
 
-    /// WRITE PUSH METHOD HERE ///
-    //                          //
-    //                          //
-    //                          //
-    //                          //
-    //////////////////////////////
+    public void push(int value) {
+        Node newNode = new Node(value);
 
+        if (height == 1) {
+            newNode.next = top;
+        }
+
+        top = newNode;
+        height++;
+    }
 }
 
 
