@@ -65,13 +65,19 @@ public class Queue {
         length = 0;
     }
 
-    // WRITE ENQUEUE METHOD HERE //
-    //                           //
-    //                           //
-    //                           //
-    //                           //
-    ///////////////////////////////
+    public void enqueue(int value) {
+        Node newNode = new Node(value);
 
+        if (length == 0) {
+            first = newNode;
+
+        } else {
+            last.next = newNode;
+        }
+
+        last = newNode;
+        length++;
+    }
 }
 
 
