@@ -22,6 +22,17 @@ public class Queue {
         length = 1;
     }
 
+    public Node dequeue() {
+        if (length == 0) return null;
+
+        Node temp = first;
+        first = first.next;
+        temp.next = null;
+        length--;
+
+        return temp;
+    }
+
     public void enqueue(int value) {
         Node newNode = new Node(value);
 
