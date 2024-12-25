@@ -1,13 +1,24 @@
 package codingExercises.stack.constructor;
 
 public class Stack {
+    Node top;
+    int height;
 
-    // CREATE CLASS VARIABLES, NODE CLASS, AND CONSTRUCTOR HERE//
-    //                                                         //
-    //                                                         //
-    //                                                         //
-    //                                                         //
-    /////////////////////////////////////////////////////////////
+    class Node {
+        int value;
+        Node next;
+
+        public Node(int value) {
+            this.value = value;
+        }
+    }
+
+    public Stack(int value) {
+        Node newNode = new Node(value);
+
+        top = newNode;
+        height = 1;
+    }
 
     public Node getTop() {
         return top;
