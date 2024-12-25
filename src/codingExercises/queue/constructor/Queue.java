@@ -1,14 +1,26 @@
 package codingExercises.queue.constructor;
 
 public class Queue {
+    Node first;
+    Node last;
+    int length;
 
-    // CREATE CLASS VARIABLES, NODE CLASS, AND CONSTRUCTOR HERE //
-    //                                                          //
-    //                                                          //
-    //                                                          //
-    //                                                          //
-    //////////////////////////////////////////////////////////////
+    class Node {
+        int value;
+        Node next;
 
+        public Node(int value) {
+            this.value = value;
+        }
+    }
+
+    public Queue(int value) {
+        Node newNode = new Node(value);
+
+        first = newNode;
+        last = newNode;
+        length = 1;
+    }
 
     public Node getFirst() {
         return first;
