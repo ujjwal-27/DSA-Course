@@ -3,25 +3,22 @@ package interviewQuestions.stack.arrayList.parenthesesBalanced;
 public class Main {
 
     public static boolean isBalancedParentheses(String testStr) {
-        if (testStr.isEmpty()) return true;
-
-        if (testStr.charAt(0) == ')') return false;
-
-        int leftCount = 0;
-        int rightCount = 0;
+        Stack<Character> stack = new Stack<>();
 
         for (int i = 0; i < testStr.length(); i++) {
-            if (testStr.charAt(i) == '(') {
-                leftCount++;
+            char p = testStr.charAt(i);
 
-            } else {
-                rightCount++;
+            if (p == '(') {
+                stack.push(p);
+
+            } else if (p == ')') {
+                if (stack.isEmpty() || stack.pop() != '(') {
+                    return false;
+                }
             }
         }
 
-        if (leftCount != rightCount) return false;
-
-        return true;
+        return stack.isEmpty();
     }
 
     public static void main(String[] args) {
