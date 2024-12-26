@@ -31,6 +31,8 @@ public class Stack<T> {
     public int size() {
         return stackList.size();
     }
-    
 
+    public void push(T value) {
+        stackList.add(value);
+    }
 }
