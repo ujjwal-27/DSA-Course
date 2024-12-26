@@ -3,13 +3,18 @@ package interviewQuestions.stack.arrayList.reverseString;
 public class Main {
 
     public static String reverseString(String string) {
-        StringBuilder reversedString = new StringBuilder();
+        Stack stack = new Stack();
+        String reversedString = "";
 
-        for (int i = string.length() - 1; i >= 0; i--) {
-            reversedString.append(string.charAt(i));
+        for (int i = 0; i < string.length(); i++) {
+            stack.push(string.charAt(i));
         }
 
-        return reversedString.toString();
+        while (!stack.isEmpty()) {
+            reversedString = reversedString + stack.pop();
+        }
+
+        return reversedString;
     }
 
     public static void main(String[] args) {
