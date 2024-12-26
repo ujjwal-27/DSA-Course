@@ -2,15 +2,27 @@ package interviewQuestions.stack.arrayList.parenthesesBalanced;
 
 public class Main {
 
-    // WRITE THE ISBALANCEDPARENTHESES METHOD HERE //
-    //                                             //
-    //                                             //
-    //                                             //
-    //                                             //
-    /////////////////////////////////////////////////
+    public static boolean isBalancedParentheses(String testStr) {
+        if (testStr.isEmpty()) return true;
 
+        if (testStr.charAt(0) == ')') return false;
 
+        int leftCount = 0;
+        int rightCount = 0;
 
+        for (int i = 0; i < testStr.length(); i++) {
+            if (testStr.charAt(i) == '(') {
+                leftCount++;
+
+            } else {
+                rightCount++;
+            }
+        }
+
+        if (leftCount != rightCount) return false;
+
+        return true;
+    }
 
     public static void main(String[] args) {
         testAndPrint("()", true);
