@@ -36,11 +36,10 @@ public class Stack<T> {
         stackList.add(value);
     }
 
-    // WRITE POP METHOD HERE //
-    //                       //
-    //                       //
-    //                       //
-    ///////////////////////////
+    public T pop() {
+        if (isEmpty()) return null;
 
+        return stackList.remove(stackList.size() - 1);
+    }
 }
 
