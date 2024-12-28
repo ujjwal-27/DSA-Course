@@ -5,7 +5,7 @@ public class Main {
     public static void sortStack(Stack<Integer> originalStack) {
         Stack<Integer> sortedStack = new Stack<>(); // An empty stack for storing sorted stack temporarily
 
-        // According to the question, top element from original stack is to be removed, and compare it with top element of sorted stack.
+        // According to the question, top element from original stack is to be removed (popped), and compare it with top element of sorted stack (peek).
         // If the top element of the sorted stack is greater than the current top element of original stack, the top element of the sorted stack should be moved back to the original stack until the current top element from original stack is in the correct position.
         // Following this concept, this outer loop will execute until original stack is empty.
         while (!originalStack.isEmpty()) {
