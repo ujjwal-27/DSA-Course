@@ -1,4 +1,4 @@
-package interviewQuestions.stack.arrayList.pop;
+package interviewQuestions.stackAndQueue.parenthesesBalanced;
 
 import java.util.ArrayList;
 
@@ -38,8 +38,8 @@ public class Stack<T> {
 
     public T pop() {
         if (isEmpty()) return null;
-
         return stackList.remove(stackList.size() - 1);
     }
+
 }
 

@@ -1,4 +1,4 @@
-package interviewQuestions.stack.arrayList.parenthesesBalanced;
+package interviewQuestions.stackAndQueue.parenthesesBalanced;
 
 public class Main {
 

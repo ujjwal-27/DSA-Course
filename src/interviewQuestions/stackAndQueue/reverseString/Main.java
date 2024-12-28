@@ -1,4 +1,4 @@
-package interviewQuestions.stack.arrayList.reverseString;
+package interviewQuestions.stackAndQueue.reverseString;
 
 public class Main {
 

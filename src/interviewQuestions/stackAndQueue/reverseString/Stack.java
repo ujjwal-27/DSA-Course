@@ -1,4 +1,4 @@
-package interviewQuestions.stack.arrayList.parenthesesBalanced;
+package interviewQuestions.stackAndQueue.reverseString;
 
 import java.util.ArrayList;
 
