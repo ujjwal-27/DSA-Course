@@ -1,4 +1,4 @@
-package interviewQuestions.stack.arrayList.sort;
+package interviewQuestions.stackAndQueue.sort;
 
 public class Main {
 

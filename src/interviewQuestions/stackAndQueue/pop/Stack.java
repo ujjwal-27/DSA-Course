@@ -1,4 +1,4 @@
-package interviewQuestions.stack.arrayList.push;
+package interviewQuestions.stackAndQueue.pop;
 
 import java.util.ArrayList;
 
@@ -35,4 +35,11 @@ public class Stack<T> {
     public void push(T value) {
         stackList.add(value);
     }
+
+    public T pop() {
+        if (isEmpty()) return null;
+
+        return stackList.remove(stackList.size() - 1);
+    }
 }
+

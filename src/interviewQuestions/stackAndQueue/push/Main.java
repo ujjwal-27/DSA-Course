@@ -1,4 +1,4 @@
-package interviewQuestions.stack.arrayList.push;
+package interviewQuestions.stackAndQueue.push;
 
 public class Main {
 
