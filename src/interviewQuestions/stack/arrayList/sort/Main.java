@@ -9,16 +9,13 @@ public class Main {
         // If the top element of the sorted stack is greater than the current top element of original stack, the top element of the sorted stack should be moved back to the original stack until the current top element from original stack is in the correct position.
         // Following this concept, this outer loop will execute until original stack is empty.
         while (!originalStack.isEmpty()) {
-            Integer originalTopElement = originalStack.pop(); // top element from original stack removed, and stored in 'originalTopElement' variable (this is also referred as current element)
-            Integer peekSortedStack = sortedStack.peek(); // getting (not removed) top element from sorted stack, and stored in 'peekSortedStack' variable
+            int originalTopElement = originalStack.pop(); // top element from original stack removed, and stored in 'originalTopElement' variable (this is also referred as current element)
 
             // This inner loop will execute until the sorted stack is not empty, and current element is less than top elements of sorted stack from each iteration.
             // If one of the conditions is not satisfied, current element will be pushed to sorted stack.
-            while (!sortedStack.isEmpty() && originalTopElement < peekSortedStack) {
+            while (!sortedStack.isEmpty() && originalTopElement < sortedStack.peek()) {
                 // As long as the condition stated in while statement is true, the top element from sorted stack is removed, and added back to original stack.
-                Integer sortedTopElement = sortedStack.pop();
-                originalStack.push(sortedTopElement);
-                peekSortedStack = sortedStack.peek(); // updating the value of 'peekSortedStack' after executing pop method on sorted stack
+                originalStack.push(sortedStack.pop());
             }
 
             // Once the top element from sorted stack is found which is smaller than current element, it is added to sorted stack
@@ -28,8 +25,7 @@ public class Main {
         // This loop will execute until sorted stack is empty
         // Here, the top elements from sorted stack is removed, and again added back to original stack.
         while (!sortedStack.isEmpty()) {
-            Integer sortedElement = sortedStack.pop();
-            originalStack.push(sortedElement);
+            originalStack.push(sortedStack.pop());
         }
     }
 
