@@ -11,12 +11,17 @@ public class MyQueue {
         stack2 = new Stack<>();
     }
 
-    // WRITE THE ENQUEUE METHOD HERE //
-    //                               //
-    //                               //
-    //                               //
-    //                               //
-    ///////////////////////////////////
+    public void enqueue(int value) {
+        while (!isEmpty()) {
+            stack2.push(stack1.pop());
+        }
+
+        stack1.push(value);
+
+        while (!stack2.isEmpty()) {
+            stack1.push(stack2.pop());
+        }
+    }
 
     public int peek() {
         return stack1.peek();
