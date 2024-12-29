@@ -21,12 +21,11 @@ public class MyQueue {
         }
     }
 
-    // WRITE THE DEQUEUE METHOD HERE //
-    //                               //
-    //                               //
-    //                               //
-    //                               //
-    ///////////////////////////////////
+    public Integer dequeue() {
+        if (isEmpty()) return null;
+
+        return stack1.pop();
+    }
 
     public int peek() {
         return stack1.peek();
