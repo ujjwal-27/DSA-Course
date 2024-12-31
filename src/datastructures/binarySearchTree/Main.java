@@ -13,6 +13,11 @@ public class Main {
         System.out.println(bst.insert(25));
         System.out.println(bst.insert(12));
 
-        System.out.println(bst.root.value);
+        System.out.println(bst.root.left.left.value);
+        System.out.println(bst.root.left.right.value);
+        System.out.println(bst.root.right.left.value);
+        System.out.println(bst.root.right.right.value);
+        System.out.println(bst.root.left.value);
+        System.out.println(bst.root.right.value);
     }
 }
