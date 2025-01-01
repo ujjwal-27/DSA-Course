@@ -1,6 +1,8 @@
 package codingExercises.binarySearchTree.constructor;
 
 public class BinarySearchTree {
+    private Node root;
+    
     class Node {
         int value;
         Node left;
