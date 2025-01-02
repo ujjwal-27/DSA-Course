@@ -1,6 +1,9 @@
 package datastructures.hashTable;
 
 public class HashTable {
+    private int length = 7;
+    private Node[] dataMap;
+    
     class Node {
         String key;
         int value;
