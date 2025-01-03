@@ -13,6 +13,6 @@ public class Main {
         ht.set("java", 1985);
 
         ht.printTable();
-        System.out.println(ht.get("laptops"));
+        System.out.println(ht.get("laptop"));
     }
 }
