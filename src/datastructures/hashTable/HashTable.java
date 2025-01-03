@@ -35,7 +35,7 @@ public class HashTable {
     public void printTable() {
         for (int i = 0; i < dataMap.length; i++) {
             System.out.println(i + ": ");
-            Node temp = dataMap[i];
+            Node temp = dataMap[i]; // Here, this will always point to first Node of the respective index (address).
 
             while (temp != null) {
                 System.out.println("{" + temp.key + " = " + temp.value + "}");
@@ -47,13 +47,12 @@ public class HashTable {
     public void set(String key, int value) {
         Node newNode = new Node(key, value);
         int index = hash(key);
-        System.out.println(index);
 
         if (dataMap[index] == null) {
             dataMap[index] = newNode;
 
         } else {
-            Node temp = dataMap[index];
+            Node temp = dataMap[index]; // Here, this will always point to first Node of the respective index (address).
 
             while (temp.next != null) {
                 temp = temp.next;
