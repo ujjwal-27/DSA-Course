@@ -21,8 +21,8 @@ public class HashTable {
             int ascii = key.charAt(i); // this gives 'ascii value' of the respective 'character' of String 'key'
 
             // While computing hash value, number is multiplied by 23. Since 23 is a prime number, multiplying any number by 23 has a good chance of getting unique output.
-            // Likewise, the resulting value modulus key.length i.e. 7 will give an output between 0 and 6 inclusive, which will determine the address for the input: key.
-            hash = (hash + ascii * 23) % key.length();
+            // Likewise, the resulting value modulus dataMap.length i.e. 7 will give an output between 0 and 6 inclusive, which will determine the address for the input: key.
+            hash = (hash + ascii * 23) % dataMap.length;
         }
 
         return hash;
