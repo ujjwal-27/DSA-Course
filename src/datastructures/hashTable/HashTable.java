@@ -44,6 +44,24 @@ public class HashTable {
         }
     }
 
+    public int get(String key) {
+        int index = hash(key);
+
+        if (dataMap[index] == null) return 0;
+
+        Node temp = dataMap[index];
+
+        while (temp.next != null) {
+            if (temp.key.equals(key)) {
+                return temp.value;
+            }
+
+            temp = temp.next;
+        }
+
+        return 0;
+    }
+
     public void set(String key, int value) {
         Node newNode = new Node(key, value);
         int index = hash(key);
