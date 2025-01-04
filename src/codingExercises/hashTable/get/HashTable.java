@@ -66,11 +66,19 @@ public class HashTable {
         }
     }
 
-    ///  WRITE GET METHOD HERE  ///
-    //                           //
-    //                           //
-    //                           //
-    //                           //
-    ///////////////////////////////
+    public int get(String key) {
+        int index = hash(key);
+
+        if (dataMap[index] == null) return 0;
+
+        Node temp = dataMap[index];
+
+        while (temp != null) {
+            if (temp.key.equals(key)) return temp.value;
+            temp = temp.next;
+        }
+
+        return 0;
+    }
 
 }
