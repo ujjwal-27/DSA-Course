@@ -8,7 +8,7 @@ public class InterviewQuestion {
         int[] a2 = {2, 4, 6};
 
         InterviewQuestion iq = new InterviewQuestion();
-        boolean result = iq.commonItem(a1, a2);
+        boolean result = iq.checkCommonItem(a1, a2);
         System.out.println(result);
     }
 
