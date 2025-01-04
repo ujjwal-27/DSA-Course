@@ -1,6 +1,16 @@
 package codingExercises.hashTable.constructor;
 
 public class HashTable {
+    class Node {
+        String key;
+        int value;
+        Node next;
+
+        public Node(String key, int value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
 
     public Node[] getDataMap() {
         return dataMap;
