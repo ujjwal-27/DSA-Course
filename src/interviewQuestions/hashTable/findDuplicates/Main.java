@@ -25,7 +25,7 @@ public class Main {
 
         // using loop in the final hash map
         hashMap.forEach((key , value) -> {
-            // if the value is true, add the 'keys' (integers) in the ArrayList: duplicate
+            // if the value is true, add the 'keys' (integers) to the ArrayList: duplicate
             if (value) {
                 duplicates.add(key);
             }
@@ -37,7 +37,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] nums = {1, 2, 3, 4, 5};
+        int[] nums = {1, 2, 3, 2, 1, 4, 5, 4};
         List<Integer> duplicates = findDuplicates(nums);
         System.out.println(duplicates);
 
