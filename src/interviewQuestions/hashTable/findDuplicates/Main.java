@@ -40,7 +40,35 @@ public class Main {
 //    }
 
     /**
-     * Solution based on 'hints' provided in the course. The original solution can be found in the course.
+     * Solution based on 'hints' provided in the course.
+     * @param nums Array of integers
+     * @return Duplicate list
+     */
+//    public static List<Integer> findDuplicates(int[] nums) {
+//        HashMap<Integer, Integer> numCounts = new HashMap<>(); // HashMap for storing values from 'nums' integer array.
+//        List<Integer> duplicates = new ArrayList<>(); // ArrayList for storing duplicate values
+//
+//        for (int num: nums) {
+//            int count = 1;
+//
+//            if (numCounts.get(num) != null) {
+//                count++;
+//            }
+//
+//            numCounts.put(num, count);
+//        }
+//
+//        numCounts.forEach((key, value) -> {
+//            if (value > 1) {
+//                duplicates.add(key);
+//            }
+//        });
+//
+//        return duplicates;
+//    }
+
+    /**
+     * Actual solution from the course.
      * @param nums Array of integers
      * @return Duplicate list
      */
@@ -49,13 +77,8 @@ public class Main {
         List<Integer> duplicates = new ArrayList<>(); // ArrayList for storing duplicate values
 
         for (int num: nums) {
-            int count = 1;
-
-            if (numCounts.get(num) != null) {
-                count++;
-            }
-
-            numCounts.put(num, count);
+            // 'numCounts.getOrDefault(num, 0)' --> This code either gives the actual value of associated with key (num) from the map, or gives zero if the key does not exist.
+            numCounts.put(num, numCounts.getOrDefault(num, 0) + 1);
         }
 
         numCounts.forEach((key, value) -> {
