@@ -6,14 +6,17 @@ import java.util.*;
 public class Main {
 
     public static Character firstNonRepeatingChar(String string) {
-        HashMap<Character, Integer> hashMap = new HashMap<>();
+        HashMap<Character, Integer> charCounts = new HashMap<>();
 
         for (int i = 0; i < string.length(); i++) {
-            hashMap.put(string.charAt(i), hashMap.getOrDefault(string.charAt(i), 0) + 1);
+            // 'charCounts.getOrDefault(string.charAt(i), 0)' --> This code either gives the actual value of associated with key (string.charAt(i)) from the map, or gives zero if the key does not exist.
+            charCounts.put(string.charAt(i), charCounts.getOrDefault(string.charAt(i), 0) + 1); // + 1 to increase the count of associated key (character) on each encounter.
         }
 
+        // iterating through the input string again to check the occurrence count in sequence.
         for (int i = 0; i < string.length(); i++) {
-            if (hashMap.get(string.charAt(i)) == 1) {
+            // As soon as the character with count 1 is found, return the respective character.
+            if (charCounts.get(string.charAt(i)) == 1) {
                 return string.charAt(i);
             }
         }
