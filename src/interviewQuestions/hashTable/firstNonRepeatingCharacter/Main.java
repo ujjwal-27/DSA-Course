@@ -5,12 +5,21 @@ import java.util.*;
 
 public class Main {
 
-    // WRITE FIRSTNONREPEATINGCHAR METHOD HERE //
-    //                                         //
-    //                                         //
-    //                                         //
-    //                                         //
-    /////////////////////////////////////////////
+    public static Character firstNonRepeatingChar(String string) {
+        HashMap<Character, Integer> hashMap = new HashMap<>();
+
+        for (int i = 0; i < string.length(); i++) {
+            hashMap.put(string.charAt(i), hashMap.getOrDefault(string.charAt(i), 0) + 1);
+        }
+
+        for (int i = 0; i < string.length(); i++) {
+            if (hashMap.get(string.charAt(i)) == 1) {
+                return string.charAt(i);
+            }
+        }
+
+        return null;
+    }
 
 
     public static void main(String[] args) {
