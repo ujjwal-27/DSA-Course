@@ -5,6 +5,11 @@ import java.util.*;
 
 public class Main {
 
+    /**
+     * Self implemented solution
+     * @param nums Array of integers
+     * @return Duplicate list
+     */
     public static List<Integer> findDuplicates(int[] nums) {
         HashMap<Integer, Boolean> hashMap = new HashMap<>(); // HashMap for storing values from 'nums' integer array.
         List<Integer> duplicates = new ArrayList<>(); // ArrayList for storing duplicate values
