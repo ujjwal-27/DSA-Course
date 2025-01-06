@@ -7,6 +7,13 @@ public class Main {
 
     public static List<List<String>> groupAnagrams(String[] strings) {
         HashMap<String, Boolean> anagramGroups = new HashMap<>();
+        List<List<String>> arrayList = new ArrayList<>(); // dummy array list to return something in the end to avoid error
+
+        for (String string: strings) {
+            char[] chars = string.toCharArray();
+        }
+
+        return arrayList;
     }
 
 
