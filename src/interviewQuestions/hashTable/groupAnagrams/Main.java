@@ -11,6 +11,7 @@ public class Main {
 
         for (String string: strings) {
             char[] chars = string.toCharArray();
+            Arrays.sort(chars);
         }
 
         return arrayList;
