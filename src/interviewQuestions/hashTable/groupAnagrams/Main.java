@@ -6,7 +6,7 @@ import java.util.*;
 public class Main {
 
     public static List<List<String>> groupAnagrams(String[] strings) {
-        HashMap<String, Boolean> anagramGroups = new HashMap<>();
+        HashMap<String, ArrayList<String>> anagramGroups = new HashMap<>();
         List<List<String>> arrayList = new ArrayList<>(); // dummy array list to return something in the end to avoid error
 
         for (String string: strings) {
@@ -14,8 +14,19 @@ public class Main {
             Arrays.sort(chars);
 
             String canonical = new String(chars);
-            System.out.println(canonical);
+
+            if (anagramGroups.containsKey(canonical)) {
+                anagramGroups.get(canonical).add(string);
+
+            } else {
+                ArrayList<String> group = new ArrayList<>();
+                group.add(string);
+
+                anagramGroups.put(canonical, group);
+            }
         }
+
+        System.out.println(anagramGroups);
 
         return arrayList;
     }
