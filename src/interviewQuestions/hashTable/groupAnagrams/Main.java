@@ -5,12 +5,9 @@ import java.util.*;
 
 public class Main {
 
-    // WRITE GROUPANAGRAMS METHOD HERE //
-    //                                 //
-    //                                 //
-    //                                 //
-    //                                 //
-    /////////////////////////////////////
+    public static List<List<String>> groupAnagrams(String[] strings) {
+        HashMap<String, Boolean> anagramGroups = new HashMap<>();
+    }
 
 
     public static void main(String[] args) {
