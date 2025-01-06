@@ -26,7 +26,9 @@ public class Main {
             }
         }
 
-        System.out.println(anagramGroups);
+        anagramGroups.forEach((key, value) -> {
+            arrayList.add(value);
+        });
 
         return arrayList;
     }
