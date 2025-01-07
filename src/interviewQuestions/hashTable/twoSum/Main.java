@@ -5,12 +5,23 @@ import java.util.*;
 
 public class Main {
 
-    // WRITE THE TWOSUM MEHTOD HERE //
-    //                              //
-    //                              //
-    //                              //
-    //                              //
-    //////////////////////////////////
+    public static int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> numMap = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int currentNum = nums[i];
+            int candidate = target - currentNum;
+
+            if (numMap.containsKey(candidate)) {
+                return new int[]{numMap.get(candidate), i};
+
+            } else {
+                numMap.put(currentNum, i);
+            }
+        }
+
+        return new int[]{};
+    }
 
 
     public static void main(String[] args) {
