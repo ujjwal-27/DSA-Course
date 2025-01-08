@@ -8,11 +8,11 @@ import java.util.Set;
 
 public class Main {
 
-    // WRITE THE REMOVEDUPLICATES METHOD HERE //
-    //                                        //
-    //                                        //
-    //                                        //
-    ////////////////////////////////////////////
+    public static List<Integer> removeDuplicates(List<Integer> myList) {
+        Set<Integer> uniqueSet = new HashSet<>(myList);
+
+        return new ArrayList<>(uniqueSet);
+    }
 
 
     public static void main(String[] args) {
