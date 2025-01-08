@@ -41,5 +41,12 @@ public class Main {
         HashSet<Integer> differenceSet = new HashSet<>(s1); // initially assign s1 to differenceSet
         System.out.println(differenceSet.removeAll(s2)); // returns boolean
         System.out.println(differenceSet); // returns the set of values which are found in s1 only, but not in s2
+
+        if (s1.contains(2)) {
+            System.out.println("Found.");
+
+        } else {
+            System.out.println("Not found.");
+        }
     }
 }
