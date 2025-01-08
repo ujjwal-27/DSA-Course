@@ -20,6 +20,18 @@ public class Main {
         s1.remove(3);
         System.out.println(s1);
 
-        
+        HashSet<Integer> s2 = new HashSet<>();
+        s2.add(3);
+        s2.add(4);
+        s2.add(5);
+        s2.add(6);
+        System.out.println(s2);
+
+        // Union of two sets
+        HashSet<Integer> unionSet = new HashSet<>(s1); // initially assign s1 to unionSet
+        System.out.println(unionSet.addAll(s2)); // returns boolean
+        System.out.println(unionSet); // returns union of s1 and s2 (all the values from both HashSet)
+
+       
     }
 }
