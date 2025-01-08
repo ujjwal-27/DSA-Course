@@ -32,6 +32,11 @@ public class Main {
         System.out.println(unionSet.addAll(s2)); // returns boolean
         System.out.println(unionSet); // returns union of s1 and s2 (all the values from both HashSet)
 
-       
+        // Intersection of two sets
+        HashSet<Integer> intersectionSet = new HashSet<>(s1); // initially assign s1 to intersectionSet
+        System.out.println(intersectionSet.retainAll(s2)); // returns boolean
+        System.out.println(intersectionSet); // returns intersection of s1 and s2 (common values from both the HashSet)
+
+        
     }
 }
