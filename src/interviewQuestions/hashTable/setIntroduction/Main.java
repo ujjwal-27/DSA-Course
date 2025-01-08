@@ -17,6 +17,9 @@ public class Main {
         s1.add(5);
         System.out.println(s1);
 
+        s1.remove(3);
+        System.out.println(s1);
+
         
     }
 }
