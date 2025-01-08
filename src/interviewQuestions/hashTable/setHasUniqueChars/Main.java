@@ -5,16 +5,21 @@ import java.util.Set;
 
 public class Main {
 
+    /**
+     * In this method, first an empty HashSet is created.
+     * Then, every character from the string is added to the set.
+     * Lastly, the length of string and charSet is compared. If it's equal then all the characters in the string is unique, else not.
+     * @param string Random string
+     * @return Boolean true/false
+     */
     public static boolean hasUniqueChars(String string) {
-        Set<Character> uniqueCharacters = new HashSet<>();
+        Set<Character> charSet = new HashSet<>();
 
         for (int i = 0; i < string.length(); i++) {
-            uniqueCharacters.add(string.charAt(i));
+            charSet.add(string.charAt(i));
         }
 
-        if (string.length() == uniqueCharacters.size()) return true;
-
-        return false;
+        return (string.length() == charSet.size());
     }
 
 
