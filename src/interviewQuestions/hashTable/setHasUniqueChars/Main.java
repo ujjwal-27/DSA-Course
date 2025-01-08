@@ -5,12 +5,17 @@ import java.util.Set;
 
 public class Main {
 
-    // WRITE HASUNIQUECHARS METHOD HERE //
-    //                                  //
-    //                                  //
-    //                                  //
-    //                                  //
-    //////////////////////////////////////
+    public static boolean hasUniqueChars(String string) {
+        Set<Character> uniqueCharacters = new HashSet<>();
+
+        for (int i = 0; i < string.length(); i++) {
+            uniqueCharacters.add(string.charAt(i));
+        }
+
+        if (string.length() == uniqueCharacters.size()) return true;
+
+        return false;
+    }
 
 
     public static void main(String[] args) {
