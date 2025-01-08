@@ -36,7 +36,7 @@ public class Main {
 
         // Intersection of two sets
         HashSet<Integer> intersectionSet = new HashSet<>(s1); // initially assign s1 to intersectionSet
-        System.out.println(intersectionSet.retainAll(s2)); // returns boolean
+        System.out.println(intersectionSet.retainAll(s2)); // If all the elements in s1 is already present in s2, then no elements will be removed from s1 after executing retainAll method. Therefore, it will return false in this case.
         System.out.println(intersectionSet); // returns intersection of s1 and s2 (common values from both the HashSet)
 
         // Difference of two sets
