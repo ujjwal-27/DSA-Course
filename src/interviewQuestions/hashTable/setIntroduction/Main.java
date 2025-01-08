@@ -37,6 +37,9 @@ public class Main {
         System.out.println(intersectionSet.retainAll(s2)); // returns boolean
         System.out.println(intersectionSet); // returns intersection of s1 and s2 (common values from both the HashSet)
 
-        
+        // Difference of two sets
+        HashSet<Integer> differenceSet = new HashSet<>(s1); // initially assign s1 to differenceSet
+        System.out.println(differenceSet.removeAll(s2)); // returns boolean
+        System.out.println(differenceSet); // returns the set of values which are found in s1 only, but not in s2
     }
 }
