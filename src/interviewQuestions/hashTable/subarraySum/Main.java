@@ -5,12 +5,26 @@ import java.util.Map;
 
 public class Main {
 
-    // WRITE SUBARAYSUM METHOD HERE //
-    //                              //
-    //                              //
-    //                              //
-    //                              //
-    //////////////////////////////////
+    public static int[] subarraySum(int[] nums, int target) {
+        HashMap<Integer, Integer> sumIndexMap = new HashMap<>(); 
+
+        sumIndexMap.put(0, -1);
+        int sum = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            int candidateKey = sum - target;
+
+            if (sumIndexMap.containsKey(candidateKey)) {
+                int requiredIndex = sumIndexMap.get(candidateKey) + 1;
+                return new int[]{requiredIndex, i};
+            }
+
+            sumIndexMap.put(sum, i);
+        }
+
+        return new int[]{};
+    }
 
 
     public static void main(String[] args) {
