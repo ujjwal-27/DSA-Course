@@ -5,12 +5,25 @@ import java.util.*;
 
 public class Main {
 
-    // WRITE FINDPAIRS METHOD HERE //
-    //                             //
-    //                             //
-    //                             //
-    //                             //
-    /////////////////////////////////
+    public static List<int[]> findPairs(int[] arr1, int[] arr2, int target) {
+        Set<Integer> intSet = new HashSet<>();
+        List<int[]> pairList = new ArrayList<>();
+
+        for (int i = 0; i < arr1.length; i++) {
+            intSet.add(arr1[i]);
+        }
+
+        for (int i = 0; i < arr2.length; i++) {
+            int difference = target - arr2[i];
+
+            if (intSet.contains(difference)) {
+                int[] pairArr = new int[]{difference, arr2[i]};
+                pairList.add(pairArr);
+            }
+        }
+
+        return pairList;
+    }
 
 
     public static void main(String[] args) {
@@ -36,4 +49,4 @@ public class Main {
 
 }
 
-    
+
