@@ -6,13 +6,19 @@ import java.util.Map;
 public class Main {
 
     public static int[] subarraySum(int[] nums, int target) {
-        HashMap<Integer, Integer> sumIndexMap = new HashMap<>(); 
+        // In this map, 'key' represents sum of integers from each iteration, and 'value' represents the corresponding 'index' of that iteration.
+        HashMap<Integer, Integer> sumIndexMap = new HashMap<>();
 
+        // Initialize 'sumIndexMap' with key -> 0 and value -> -1 which represents 'sum' and 'index' of each iteration respectively.
+        // At some point, if the 'candidateKey' is 0, then it will point to this key-value pairs which means that sub-array starts from index 0.
         sumIndexMap.put(0, -1);
         int sum = 0;
 
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
+
+            // The core logic of this 'candidateKey' is that if this key is found in 'sumIndexMap', then it represents that there is contiguous sub-array in 'nums' array which add up to the target sum.
+            // The contiguous array starts from the index i.e. 'requiredIndex' which is the corresponding 'value of candidateKey' + 1.
             int candidateKey = sum - target;
 
             if (sumIndexMap.containsKey(candidateKey)) {
@@ -20,10 +26,10 @@ public class Main {
                 return new int[]{requiredIndex, i};
             }
 
-            sumIndexMap.put(sum, i);
+            sumIndexMap.put(sum, i); // Putting current overall sum and index in 'sumIndexMap'
         }
 
-        return new int[]{};
+        return new int[]{}; // If not candidateKey is found in 'sumIndexMap', this means there is no contiguous sub-array in 'nums' array which add up to the target sum. Hence, return empty array.
     }
 
 
