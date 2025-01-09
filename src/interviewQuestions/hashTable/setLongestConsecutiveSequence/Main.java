@@ -1,53 +1,39 @@
 package interviewQuestions.hashTable.setLongestConsecutiveSequence;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 
 public class Main {
 
     public static int longestConsecutiveSequence(int[] nums) {
-        if (nums.length == 0) return 0;
-
-        Set<Integer> intSet = new HashSet<>();
+        Set<Integer> numSet = new HashSet<>();
 
         for (int num: nums) {
-            intSet.add(num);
+            numSet.add(num);
         }
-
-        List<Integer> intList = new ArrayList<>(intSet);
-        intList.sort((a, b) -> {
-            if (b <= a) {
-                return 1;
-            }
-
-            return -1;
-        });
 
         int longestSequence = 0;
-        int sequence = 0;
 
-        System.out.println(intList);
-        for (int i = 1; i < intList.size(); i++) {
-            if (intList.get(i) - intList.get(i - 1) == 1) {
-                sequence++;
+        for (int num: numSet) {
+            if (!numSet.contains(num - 1)) {
+                int currentNum = num;
+                int currentSequence = 1;
 
-            } else {
-                if (sequence > longestSequence) {
-                    longestSequence = sequence;
+                while (numSet.contains(currentNum + 1)) {
+                    currentNum++;
+                    currentSequence++;
                 }
 
-                sequence = 0;
+//                if (currentSequence > longestSequence) {
+//                    longestSequence = currentSequence;
+//                }
+
+                longestSequence = Math.max(longestSequence, currentSequence);
             }
-        }
+        };
 
-        if (sequence > 0 && sequence > longestSequence) {
-            longestSequence = sequence;
-        }
-
-        return longestSequence + 1;
+        return longestSequence;
     }
 
     public static void main(String[] args) {
