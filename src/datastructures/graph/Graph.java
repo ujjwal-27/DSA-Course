@@ -14,4 +14,8 @@ public class Graph {
 
         return false;
     }
+
+    public void printGraph() {
+        System.out.println(adjList);
+    }
 }
