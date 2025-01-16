@@ -12,8 +12,12 @@ public class Main {
         graph.addEdge("A", "C");
         graph.addEdge("C", "B");
 
-        graph.removeEdge("C", "B");
-        graph.removeEdge("A", "B");
+//        graph.removeEdge("C", "B");
+//        graph.removeEdge("A", "B");
+
+        graph.removeVertex("A");
+        graph.removeVertex("C");
+        graph.removeVertex("B");
 
         graph.printGraph();
     }
