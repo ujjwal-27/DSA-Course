@@ -9,8 +9,10 @@ public class Main {
         System.out.println(graph.addVertex("C"));
 
         graph.addEdge("A", "B");
+        graph.addEdge("A", "C");
         graph.addEdge("C", "B");
 
+        graph.removeEdge("C", "B");
         graph.removeEdge("A", "B");
 
         graph.printGraph();
