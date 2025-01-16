@@ -11,6 +11,8 @@ public class Main {
         graph.addEdge("A", "B");
         graph.addEdge("C", "B");
 
+        graph.removeEdge("A", "B");
+
         graph.printGraph();
     }
 }
