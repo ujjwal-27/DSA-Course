@@ -35,6 +35,19 @@ public class Graph {
         return false;
     }
 
+    public boolean removeVertex(String vertex) {
+        if (adjList.get(vertex) != null) {
+            adjList.get(vertex).forEach((String edge) -> {
+                adjList.get(edge).remove(vertex);
+            });
+
+            adjList.remove(vertex);
+            return true;
+        }
+
+        return false;
+    }
+
     public void printGraph() {
         System.out.println(adjList);
     }
