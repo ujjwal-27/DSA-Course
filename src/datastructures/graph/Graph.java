@@ -37,9 +37,13 @@ public class Graph {
 
     public boolean removeVertex(String vertex) {
         if (adjList.get(vertex) != null) {
-            adjList.get(vertex).forEach((String edge) -> {
-                adjList.get(edge).remove(vertex);
-            });
+//            adjList.get(vertex).forEach((String edge) -> {
+//                adjList.get(edge).remove(vertex);
+//            });
+
+            for (String otherVertex: adjList.remove(vertex)) {
+                adjList.get(otherVertex).remove(vertex);
+            }
 
             adjList.remove(vertex);
             return true;
