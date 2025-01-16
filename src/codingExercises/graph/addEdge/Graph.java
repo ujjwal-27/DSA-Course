@@ -17,7 +17,7 @@ public class Graph {
     }
 
     public boolean addEdge(String vertex1, String vertex2) {
-        if (adjList.get(vertex1) == null && adjList.get(vertex2) == null) return false;
+        if (adjList.get(vertex1) == null || adjList.get(vertex2) == null) return false;
 
         adjList.get(vertex1).add(vertex2);
         adjList.get(vertex2).add(vertex1);
