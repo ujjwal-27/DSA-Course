@@ -16,11 +16,11 @@ public class Graph {
         System.out.println(adjList);
     }
 
-    // WRITE ADDVERTEX METHOD HERE //
-    //                             //
-    //                             //
-    //                             //
-    //                             //
-    /////////////////////////////////
+    public boolean addVertex(String vertex) {
+        if (adjList.get(vertex) != null) return false;
+
+        adjList.put(vertex, new ArrayList<>());
+        return true;
+    }
 
 }
