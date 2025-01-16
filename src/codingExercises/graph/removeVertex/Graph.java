@@ -42,11 +42,15 @@ public class Graph {
         return false;
     }
 
-    // WRITE REMOVEVERTEX METHOD HERE //
-    //                                //
-    //                                //
-    //                                //
-    //                                //
-    ////////////////////////////////////
+    public boolean removeVertex(String vertex) {
+        if (adjList.get(vertex) == null) return false;
+
+        for (String otherVertex: adjList.get(vertex)) {
+            adjList.get(otherVertex).remove(vertex);
+        }
+
+        adjList.remove(vertex);
+        return true;
+    }
 
 }
