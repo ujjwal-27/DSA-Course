@@ -21,4 +21,8 @@ public class Heap {
     public int rightChild(int index) {
         return (index * 2) + 2;
     }
+
+    public int parent(int index) {
+        return (index - 1) / 2;
+    }
 }
