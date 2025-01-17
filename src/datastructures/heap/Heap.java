@@ -17,4 +17,8 @@ public class Heap {
     public int leftChild(int index) {
         return (index * 2) + 1;
     }
+
+    public int rightChild(int index) {
+        return (index * 2) + 2;
+    }
 }
