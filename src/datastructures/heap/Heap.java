@@ -25,4 +25,10 @@ public class Heap {
     public int parent(int index) {
         return (index - 1) / 2;
     }
+
+    public void swap(int index1, int index2) {
+        int temp = heap.get(index1);
+        heap.set(index1, heap.get(index2));
+        heap.set(index2, temp);
+    }
 }
