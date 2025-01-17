@@ -13,4 +13,8 @@ public class Heap {
     public List<Integer> getHeap() {
         return new ArrayList<>(heap);
     }
+
+    public int leftChild(int index) {
+        return (index * 2) + 1;
+    }
 }
