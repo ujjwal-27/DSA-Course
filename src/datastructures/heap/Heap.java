@@ -77,6 +77,22 @@ public class Heap {
         return (index - 1) / 2;
     }
 
+    public Integer remove() {
+        if (heap.isEmpty()) return null;
+
+        if (heap.size() == 1) {
+            return heap.remove(0);
+        }
+
+        int topValue = heap.get(0);
+        int lastValue = heap.remove(heap.size() - 1);
+        heap.set(0, lastValue);
+
+        sinkDown(0);
+
+        return topValue;
+    }
+
     /**
      * This method swap the value of two nodes with the help of index.
      * @param index1 [Integer] Index of a node
