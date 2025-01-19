@@ -29,10 +29,19 @@ public class Heap {
         return new ArrayList<>(heap);
     }
 
+    /**
+     * In this method, the new value is first added to the list.
+     * Then, the 'index' of newly added value is stored in 'current' variable.
+     * Then, a while-loop is executed until the value of 'current' (index of new value) is not zero, and until the 'newly added value' is greater than the 'value of its parent'.
+     * - In each iteration, 'index' of 'new value' (current) is swapped with the 'index' of its 'parent'.
+     * - And then, 'current' is assigned with 'index' of its 'parent'.
+     * - In next iteration, 'current' will have new parent.
+     * @param value [Integer]
+     */
     public void insert(int value) {
         heap.add(value);
 
-        int current = heap.size() - 1;
+        int current = heap.size() - 1; // initialize 'current' with the 'last index' of the 'list' which indicates the 'index' of 'newly added value'.
 
         while (current > 0 && heap.get(current) > heap.get(parent(current))) {
             swap(current, parent(current));
