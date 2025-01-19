@@ -36,6 +36,7 @@ public class Heap {
      * - In each iteration, 'index' of 'new value' (current) is swapped with the 'index' of its 'parent'.
      * - And then, 'current' is assigned with 'index' of its 'parent'.
      * - In next iteration, 'current' will have new parent.
+     * The while-loop holds the core logic for inserting new value in heap, while maintaining its validity.
      * @param value [Integer]
      */
     public void insert(int value) {
