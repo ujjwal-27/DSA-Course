@@ -78,6 +78,80 @@ public class Heap {
     }
 
     /**
+     * Edge cases:
+     * 1. Check if heap is empty. If yes, return null.
+     * 2. Check if the size of is 1. If yes, remove and return the only value from the heap.
+     * ------------------------------------------------------------------------------------------
+     * Implementations (if the size of heap is greater than 1):
+     * Firstly, this method simply replaces the 'value at 0-index' (top node) with the 'value at last index' (last node) of the heap.
+     * Then, 'sinkDown' method is invoked by passing the 0 index as argument, to maintain a valid heap.
+     * In this method, the value of 'last node' which replaced the 'top node' is compared with its left child and right child, and swapped with the child with the greatest value.
+     * This is done, until the node is greater than its both left and right child.
+     * @return [Integer] Top value of the Heap.
+     */
+    public Integer remove() {
+        if (heap.isEmpty()) return null;
+
+        if (heap.size() == 1) {
+            return heap.remove(0);
+        }
+
+        int topValue = heap.get(0); // top node
+        int lastValue = heap.remove(heap.size() - 1); // last node
+        heap.set(0, lastValue); // setting the last node in 0-index
+
+        sinkDown(0);
+
+        return topValue;
+    }
+
+    /**
+     * In this method, the value of node which is at 0-index compared with its left child and right child. Then, it is swapped with the child with the greatest value.
+     * This is done, until the value of that node is greater than its both left and right child.
+     * Implementations:
+     * - First, a variable 'maxIndex' is assigned with 'index' from parameter.
+     * - The variable 'maxIndex' will later be updated accordingly, if the value of either left child or right child is comparatively greater.
+     * - A while-loop is executed with condition set to true.
+     * --
+     * @param index Initially, the value of 'index' will always be 0.
+     */
+    private void sinkDown(int index) {
+        int maxIndex = index;
+        int heapSize = heap.size();
+
+        while (true) {
+            int leftIndex = leftChild(index); // This method simply provide the index of 'left child'. The resulting index may or may not exist in the heap.
+            int rightIndex = rightChild(index); // This method simply provide the index of 'right child'. The resulting index may or may not exist in the heap.
+
+            // Here, the condition leftIndex < heapSize validates the existence of leftIndex.
+            // Meaning, if the total size of heap is 7, then the index of last node/element of the heap will be 6.
+            // So, if the leftIndex is less than heap size, the condition is true.
+            // Also, the second condition checks if the value of leftIndex is greater than the value of maxIndex.
+            // Here, the maxIndex is the index of parent.
+            if (leftIndex < heapSize && heap.get(leftIndex) > heap.get(maxIndex)) {
+                maxIndex = leftIndex; // If yes, then leftIndex is set as maxIndex
+            }
+
+            // Same logic for rightIndex < heapSize.
+            // Likewise, the second condition checks if the value of rightIndex is greater than the value of maxIndex.
+            // Here, the maxIndex is either leftIndex or the index of parent.
+            if (rightIndex < heapSize && heap.get(rightIndex) > heap.get(maxIndex)) {
+                maxIndex = rightIndex; // If yes, then rightIndex is set as maxIndex
+            }
+
+            // The variable 'index' always represents the index value of top-most node of heap.
+            // If (index != maxIndex) means either leftIndex or rightIndex is assigned as maxIndex.
+            if (index != maxIndex) {
+                swap(index, maxIndex);
+                maxIndex = index; // After the swap, reassign 'maxIndex' with the 'index'. This will allow to get the accurate leftIndex and rightIndex in next iteration.
+
+            } else {
+                return;
+            }
+        }
+    }
+
+    /**
      * This method swap the value of two nodes with the help of index.
      * @param index1 [Integer] Index of a node
      * @param index2 [Integer] Index of a node
