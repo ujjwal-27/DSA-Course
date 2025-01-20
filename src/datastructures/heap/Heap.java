@@ -93,6 +93,32 @@ public class Heap {
         return topValue;
     }
 
+    private void sinkDown(int index) {
+        int maxIndex = index;
+        int heapSize = heap.size();
+
+        while (true) {
+            int leftIndex = leftChild(index);
+            int rightIndex = rightChild(index);
+
+            if (leftIndex < heapSize && heap.get(leftIndex) > heap.get(maxIndex)) {
+                maxIndex = leftIndex;
+            }
+
+            if (rightIndex < heapSize && heap.get(rightIndex) > heap.get(maxIndex)) {
+                maxIndex = rightIndex;
+            }
+
+            if (index != maxIndex) {
+                swap(index, maxIndex);
+                maxIndex = index;
+
+            } else {
+                return;
+            }
+        }
+    }
+
     /**
      * This method swap the value of two nodes with the help of index.
      * @param index1 [Integer] Index of a node
