@@ -77,6 +77,18 @@ public class Heap {
         return (index - 1) / 2;
     }
 
+    /**
+     * Edge cases:
+     * 1. Check if heap is empty. If yes, return null.
+     * 2. Check if the size of is 1. If yes, remove and return the only value from the heap.
+     * ------------------------------------------------------------------------------------------
+     * Implementations (if the size of heap is greater than 1):
+     * Firstly, this method simply replaces the 'value at 0-index' (top node) with the 'value at last index' (last node) of the heap.
+     * Then, 'sinkDown' method is invoked by passing the 0 index as argument, to maintain a valid heap.
+     * In this method, the value of 'last node' which replaced the 'top node' is compared with its left child and right child, and swapped with the child with the greatest value.
+     * This is done, until the node is greater than its both left and right child.
+     * @return [Integer] Top value of the Heap.
+     */
     public Integer remove() {
         if (heap.isEmpty()) return null;
 
@@ -84,9 +96,9 @@ public class Heap {
             return heap.remove(0);
         }
 
-        int topValue = heap.get(0);
-        int lastValue = heap.remove(heap.size() - 1);
-        heap.set(0, lastValue);
+        int topValue = heap.get(0); // top node
+        int lastValue = heap.remove(heap.size() - 1); // last node
+        heap.set(0, lastValue); // setting the last node in 0-index
 
         sinkDown(0);
 
