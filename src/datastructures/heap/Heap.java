@@ -106,12 +106,12 @@ public class Heap {
     }
 
     /**
-     * In this method, the value of node which is at 0-index compared with its left child and right child. Then, it is swapped with the child with the greatest value.
-     * This is done, until the value of that node is greater than its both left and right child.
+     * In this method, the 'value of node' which is at '0-index' is compared with its 'left child' and 'right child'. Then, it is swapped with the 'one of the children' with the 'greatest value'.
+     * This is done, until the value of that 'node' is greater than its 'both left and right child'.
      * Implementations:
      * - First, a variable 'maxIndex' is assigned with 'index' from parameter.
-     * - The variable 'maxIndex' will later be updated accordingly, if the value of either left child or right child is comparatively greater.
-     * - A while-loop is executed with condition set to true.
+     * - The variable 'maxIndex' will later be updated accordingly, if the value of either 'left child' or 'right child' is comparatively 'greater'.
+     * - A 'while-loop' is executed with 'condition set to true'.
      * --
      * @param index Initially, the value of 'index' will always be 0.
      */
@@ -120,27 +120,27 @@ public class Heap {
         int heapSize = heap.size();
 
         while (true) {
-            int leftIndex = leftChild(index); // This method simply provide the index of 'left child'. The resulting index may or may not exist in the heap.
-            int rightIndex = rightChild(index); // This method simply provide the index of 'right child'. The resulting index may or may not exist in the heap.
+            int leftIndex = leftChild(index); // This method simply provide the index of 'left child'. The resulting index (leftIndex) may or may not exist in the heap.
+            int rightIndex = rightChild(index); // This method simply provide the index of 'right child'. The resulting index (rightIndex) may or may not exist in the heap.
 
-            // Here, the condition leftIndex < heapSize validates the existence of leftIndex.
-            // Meaning, if the total size of heap is 7, then the index of last node/element of the heap will be 6.
-            // So, if the leftIndex is less than heap size, the condition is true.
-            // Also, the second condition checks if the value of leftIndex is greater than the value of maxIndex.
-            // Here, the maxIndex is the index of parent.
+            // Here, the condition 'leftIndex < heapSize' validates the existence of leftIndex.
+            // Meaning, if the 'total size of heap' is 7, then the 'index of last node/element' of the heap will be 6.
+            // So, if the 'leftIndex' is less than 'heap size', the condition is true.
+            // Also, the second condition checks if the 'value of leftIndex' is greater than the 'value of maxIndex'.
+            // Here, the 'maxIndex' is the 'index of parent'.
             if (leftIndex < heapSize && heap.get(leftIndex) > heap.get(maxIndex)) {
                 maxIndex = leftIndex; // If yes, then leftIndex is set as maxIndex
             }
 
-            // Same logic for rightIndex < heapSize.
-            // Likewise, the second condition checks if the value of rightIndex is greater than the value of maxIndex.
-            // Here, the maxIndex is either leftIndex or the index of parent.
+            // Same logic for 'rightIndex < heapSize'.
+            // Likewise, the second condition checks if the 'value of rightIndex' is greater than the 'value of maxIndex'.
+            // Here, the 'maxIndex' is either 'leftIndex' or the 'index of parent'.
             if (rightIndex < heapSize && heap.get(rightIndex) > heap.get(maxIndex)) {
-                maxIndex = rightIndex; // If yes, then rightIndex is set as maxIndex
+                maxIndex = rightIndex; // If yes, then 'rightIndex' is set as 'maxIndex'
             }
 
-            // The variable 'index' always represents the index value of top-most node of heap.
-            // If (index != maxIndex) means either leftIndex or rightIndex is assigned as maxIndex.
+            // The variable 'index' always represents the 'index of initial top-most node' of heap.
+            // If (index != maxIndex) means either 'leftIndex' or 'rightIndex' is assigned as 'maxIndex'.
             if (index != maxIndex) {
                 swap(index, maxIndex);
                 maxIndex = index; // After the swap, reassign 'maxIndex' with the 'index'. This will allow to get the accurate leftIndex and rightIndex in next iteration.
@@ -152,7 +152,7 @@ public class Heap {
     }
 
     /**
-     * This method swap the value of two nodes with the help of index.
+     * This method swap the 'value of two nodes' with the help of 'index'.
      * @param index1 [Integer] Index of a node
      * @param index2 [Integer] Index of a node
      */
