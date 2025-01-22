@@ -32,12 +32,19 @@ public class MinHeap {
         heap.set(index2, temp);
     }
 
-    // WRITE THE INSERT METHOD HERE //
-    //                              //
-    //                              //
-    //                              //
-    //                              //
-    //////////////////////////////////
+    public void insert(int value) {
+        heap.add(value);
+
+        int currentIndex = heap.size() - 1;
+        int parentIndex = parent(currentIndex);
+
+        while (currentIndex > 0 && heap.get(currentIndex) < heap.get(parentIndex)) {
+            swap(currentIndex, parentIndex);
+
+            currentIndex = parentIndex;
+            parentIndex = parent(currentIndex);
+        }
+    }
 
 }
 
