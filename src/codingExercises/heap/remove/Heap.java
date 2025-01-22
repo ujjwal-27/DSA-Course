@@ -78,12 +78,12 @@ public class Heap {
 
         int topIndex = 0;
         int lastIndex = heap.size() - 1;
-        swap(topIndex, lastIndex);
+        swap(topIndex, lastIndex); // Swap first and last element from heap
 
-        int removedElement = heap.remove(lastIndex);
+        int removedElement = heap.remove(lastIndex); // After swap, remove the last element. Technically, the initial top element was removed.
         sinkDown(topIndex);
 
-        return removedElement;
+        return removedElement; // return the removed element.
     }
 }
 

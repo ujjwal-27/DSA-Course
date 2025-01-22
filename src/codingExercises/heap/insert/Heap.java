@@ -35,14 +35,15 @@ public class Heap {
     public void insert(int value) {
         heap.add(value);
 
-        int currentIndex = heap.size() - 1;
-        int parentIndex = parent(currentIndex);
+        int currentIndex = heap.size() - 1; // get the index of last element (newly added element)
+        int parentIndex = parent(currentIndex); // get the index of parent of last element (newly added element)
 
+        // bubble up the newly added element until it is greater than its parent element, or it reaches the top node.
         while (currentIndex > 0 && value > heap.get(parentIndex)) {
             swap(currentIndex, parentIndex);
 
-            currentIndex = parentIndex;
-            parentIndex = parent(currentIndex);
+            currentIndex = parentIndex; // reassign the value of current index after swap
+            parentIndex = parent(currentIndex); // reassign the value of parent index after swap
         }
     }
 }
