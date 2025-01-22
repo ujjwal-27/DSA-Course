@@ -42,12 +42,32 @@ public class MinHeap {
         }
     }
 
-    // WRITE THE SINKDOWN METHOD HERE //
-    //                                //
-    //                                //
-    //                                //
-    //                                //
-    ////////////////////////////////////
+    public void sinkDown(int index) {
+        int minIndex = index;
+
+        while (true) {
+            int heapSize = heap.size();
+            int leftIndex = leftChild(minIndex);
+            int rightIndex = rightChild(minIndex);
+
+            if (leftIndex < heapSize && heap.get(leftIndex) < heap.get(minIndex)) {
+                minIndex = leftIndex;
+            }
+
+            if (rightIndex < heapSize && heap.get(rightIndex) < heap.get(minIndex)) {
+                minIndex = rightIndex;
+            }
+
+            if (index != minIndex) {
+                swap(index, minIndex);
+
+                index = minIndex;
+
+            } else {
+                return;
+            }
+        }
+    }
 
 
     public Integer remove() {
