@@ -42,13 +42,31 @@ public class Heap {
         }
     }
 
-    // WRITE THE SINKDOWN METHOD HERE //
-    //                                //
-    //                                //
-    //                                //
-    //                                //
-    ////////////////////////////////////
+    public void sinkDown(int index) {
+        int maxIndex = index;
 
+        while (true) {
+            int heapSize = heap.size();
+            int leftIndex = leftChild(index);
+            int rightIndex = rightChild(index);
+
+            if (leftIndex < heapSize && heap.get(leftIndex) > heap.get(maxIndex)) {
+                maxIndex = leftIndex;
+            }
+
+            if (rightIndex < heapSize && heap.get(rightIndex) > heap.get(maxIndex)) {
+                maxIndex = rightIndex;
+            }
+
+            if (index != maxIndex) {
+                swap(index, maxIndex);
+                maxIndex = index;
+
+            } else {
+                return;
+            }
+        }
+    }
 
     public Integer remove() {
         if (heap.size() == 0) {
