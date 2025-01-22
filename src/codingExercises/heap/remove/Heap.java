@@ -69,12 +69,22 @@ public class Heap {
         }
     }
 
-    // WRITE THE REMOVE METHOD HERE //
-    //                              //
-    //                              //
-    //                              //
-    //                              //
-    //////////////////////////////////
+    public Integer remove() {
+        if (heap.isEmpty()) return null;
+
+        if (heap.size() == 1) {
+            return heap.remove(0);
+        }
+
+        int topIndex = 0;
+        int lastIndex = heap.size() - 1;
+        swap(topIndex, lastIndex);
+
+        int removedElement = heap.remove(lastIndex);
+        sinkDown(topIndex);
+
+        return removedElement;
+    }
 }
 
 
