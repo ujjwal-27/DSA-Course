@@ -143,7 +143,7 @@ public class Heap {
             // If (index != maxIndex) means either 'leftIndex' or 'rightIndex' is assigned as 'maxIndex'.
             if (index != maxIndex) {
                 swap(index, maxIndex);
-                maxIndex = index; // After the swap, reassign 'maxIndex' with the 'index'. This will allow to get the accurate leftIndex and rightIndex in next iteration.
+                index = maxIndex; // After the swap, reassign 'index' with the 'maxIndex'. This will allow to get the accurate leftIndex and rightIndex in next iteration.
 
             } else {
                 return;

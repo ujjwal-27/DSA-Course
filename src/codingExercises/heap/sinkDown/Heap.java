@@ -60,7 +60,7 @@ public class Heap {
 
             if (index != maxIndex) {
                 swap(index, maxIndex);
-                maxIndex = index;
+                index = maxIndex;
 
             } else {
                 return;

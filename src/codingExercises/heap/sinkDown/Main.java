@@ -12,7 +12,7 @@ public class Main {
         myHeap.insert(60);
         myHeap.insert(50);
         myHeap.insert(65);
-        myHeap.insert(79);
+//        myHeap.insert(79);
 
         System.out.println(myHeap.getHeap());
 
