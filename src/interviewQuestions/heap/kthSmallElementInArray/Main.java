@@ -1,8 +1,5 @@
 package interviewQuestions.heap.kthSmallElementInArray;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
 
     public static int findKthSmallest(int[] nums, int k) {
@@ -11,7 +8,6 @@ public class Main {
         for (int num:nums) {
             heap.insert(num);
         }
-
 //        System.out.println(heap.getHeap());
 
         int heapSize = heap.getHeap().size();
@@ -20,25 +16,12 @@ public class Main {
             heap.remove();
             heapSize--;
         }
+//        System.out.println(heap.getHeap());
 
-        List<Integer> sorted = new ArrayList<>(heap.getHeap());
-
-        sorted.sort((n1, n2) -> {
-            if (n1 > n2) {
-                return 1;
-
-            } else {
-                return -1;
-            }
-        });
-
-        return sorted.get(k - 1);
+        return heap.remove();
     }
 
     public static void main(String[] args) {
-//        int[] nums1 = {7, 10, 4, 3, 20, 15};
-//        int k1 = 3;
-//        System.out.println(findKthSmallest(nums1, k1));
         // Test case 1
         int[] nums1 = {7, 10, 4, 3, 20, 15};
         int k1 = 3;
