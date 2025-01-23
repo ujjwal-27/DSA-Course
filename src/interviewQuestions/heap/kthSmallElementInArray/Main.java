@@ -2,21 +2,32 @@ package interviewQuestions.heap.kthSmallElementInArray;
 
 public class Main {
 
+    /**
+     * In this method, each element from 'nums' array is inserted to heap object.
+     * A for-loop is executed on 'nums' array for inserting the numbers in heap:
+     * - Upon inserting, the size of the heap is checked. If the size of heap reaches greater than 'k', the inserted element is immediately removed.
+     * - After the completion of loop, there remains k-number of elements in heap.
+     * - The top element will be the kth-smallest element in the heap. (For every test cases below, this pattern matches)
+     * Finally, from the resulting heap, the top element is removed and returned.
+     * @param nums Arrays of integers
+     * @param k [Integer]
+     * @return [Integer] kth-smallest element in the heap
+     */
     public static int findKthSmallest(int[] nums, int k) {
         Heap maxHeap = new Heap();
 
         for (int num: nums) {
             maxHeap.insert(num);
-//            System.out.println("Before remove:" + maxHeap.getHeap());
+//            System.out.println("Before remove:" + maxHeap.getHeap()); // To track the elements in heap before remove.
 
+            // This if-block is executed as soon as the size of heap is greater than 'k'.
             if (maxHeap.getHeap().size() > k) {
                 maxHeap.remove();
-
-//                System.out.println("After remove: " + maxHeap.getHeap());
+//                System.out.println("After remove: " + maxHeap.getHeap()); // To track the elements in heap before remove.
             }
         }
 
-        return maxHeap.remove();
+        return maxHeap.remove(); // returns the kth element.
     }
 
     public static void main(String[] args) {
