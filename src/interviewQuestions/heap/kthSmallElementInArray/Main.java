@@ -3,22 +3,20 @@ package interviewQuestions.heap.kthSmallElementInArray;
 public class Main {
 
     public static int findKthSmallest(int[] nums, int k) {
-        Heap heap = new Heap();
+        Heap maxHeap = new Heap();
 
-        for (int num:nums) {
-            heap.insert(num);
+        for (int num: nums) {
+            maxHeap.insert(num);
+//            System.out.println("Before remove:" + maxHeap.getHeap());
+
+            if (maxHeap.getHeap().size() > k) {
+                maxHeap.remove();
+
+//                System.out.println("After remove: " + maxHeap.getHeap());
+            }
         }
-//        System.out.println(heap.getHeap());
 
-        int heapSize = heap.getHeap().size();
-
-        while (heapSize > k) {
-            heap.remove();
-            heapSize--;
-        }
-//        System.out.println(heap.getHeap());
-
-        return heap.remove();
+        return maxHeap.remove();
     }
 
     public static void main(String[] args) {
