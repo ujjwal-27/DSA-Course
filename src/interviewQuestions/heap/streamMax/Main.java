@@ -5,14 +5,17 @@ import java.util.List;
 
 public class Main {
 
-    // WRITE THE STREAMMAX METHOD HERE //
-    //                                 //
-    //                                 //
-    //                                 //
-    //                                 //
-    /////////////////////////////////////
+    public static List<Integer> streamMax(int[] nums) {
+        Heap heap = new Heap();
+        List<Integer> maxStream = new ArrayList<>();
 
+        for (int num: nums) {
+            heap.insert(num);
+            maxStream.add(heap.getHeap().get(0));
+        }
 
+        return maxStream;
+    }
 
     public static void main(String[] args) {
         // Test case 1
