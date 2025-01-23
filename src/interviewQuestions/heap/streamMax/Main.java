@@ -5,13 +5,18 @@ import java.util.List;
 
 public class Main {
 
+    /**
+     * Here, we are using the concept of maxHeap.
+     * @param nums Array of integers
+     * @return List of integers which includes stream of maximum numbers
+     */
     public static List<Integer> streamMax(int[] nums) {
-        Heap heap = new Heap();
-        List<Integer> maxStream = new ArrayList<>();
+        Heap maxHeap = new Heap();
+        List<Integer> maxStream = new ArrayList<>(); // Empty list to create stream of max values.
 
         for (int num: nums) {
-            heap.insert(num);
-            maxStream.add(heap.getHeap().get(0));
+            maxHeap.insert(num); // Adding each number from integer array 'nums' in heap
+            maxStream.add(maxHeap.getHeap().get(0)); // Upon each insert, add the top value of heap in ArrayList 'maxStream'
         }
 
         return maxStream;
