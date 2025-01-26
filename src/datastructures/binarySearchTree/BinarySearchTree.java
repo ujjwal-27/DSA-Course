@@ -75,7 +75,7 @@ public class BinarySearchTree {
      * - If 'value' is less than 'currentNode.value', then the method calls itself passing 'currentNode.left' as first parameter. (In BST, the left node always holds the smaller value).
      * - Likewise, if 'value' is greater than 'currentNode.value', then the method calls itself passing 'currentNode.right' as first parameter. (In BST, the right node always holds the greater value).
      * - This recursion continues until it reaches one of the base cases.
-     * @param currentNode [Node] Root node
+     * @param currentNode [Node] Initially, root node is sent.
      * @param value [Integer] Value to look up.
      * @return [Boolean] True/False
      */
@@ -94,7 +94,7 @@ public class BinarySearchTree {
 
     /**
      * Here, there are two methods named 'rContains', which represents method overloading. Based on the values sent in the parameter, the methods will execute accordingly.
-     * If only the 'value' is sent in the parameter, then it executes this method.
+     * If only the 'value' is sent in the parameter, then it executes this particular method. Basically, this method is invoked than the other one.
      * Then, this method invokes another 'rContains' private method with two parameters.
      * By default, it passes 'Root node' as argument for 'currentNode'.
      * @param value [Integer] Value to look up.
@@ -102,5 +102,27 @@ public class BinarySearchTree {
      */
     public boolean rContains(int value) {
         return rContains(root, value);
+    }
+
+    /**
+     * This method is invoked by another 'rInsert' public method with just one parameter.
+     * @param currentNode [Node] Initially, root node is sent.
+     * @param value [Integer] Value to insert.
+     * @return [Node] Inserted node
+     */
+    private Node rInsert(Node currentNode, int value) {
+
+    }
+
+
+    /**
+     * Here, there are two methods named 'rInsert', which represents method overloading. Based on the values sent in the parameter, the methods will execute accordingly.
+     * If only the 'value' is sent in the parameter, then it executes this particular method. Basically, this method is invoked than the other one.
+     * Then, this method invokes another 'rInsert' private method with two parameters.
+     * By default, it passes 'Root node' as argument for 'currentNode'.
+     * @param value [Integer] Value to insert.
+     */
+    public void rInsert(int value) {
+        rInsert(root, value);
     }
 }
