@@ -66,4 +66,41 @@ public class BinarySearchTree {
             }
         }
     }
+
+    /**
+     * This method is invoked by another 'rContains' public method with just one parameter.
+     * Base case-1: First the 'currentNode' is checked if it is null or not. If yes, return false.
+     * Base case-2: If the 'currentNode.value == value', return true. Here, the method reaches the point, where it meets required criteria.
+     * Recursive case: The 'value' from the parameter is checked with the currentNode.value:
+     * - If 'value' is less than 'currentNode.value', then the method calls itself passing 'currentNode.left' as first parameter. (In BST, the left node always holds the smaller value).
+     * - Likewise, if 'value' is greater than 'currentNode.value', then the method calls itself passing 'currentNode.right' as first parameter. (In BST, the right node always holds the greater value).
+     * - This recursion continues until it reaches one of the base cases.
+     * @param currentNode [Node] Root node
+     * @param value [Integer] Value to look up.
+     * @return [Boolean] True/False
+     */
+    private boolean rContains(Node currentNode, int value) {
+        if (currentNode == null) return false;
+
+        if (currentNode.value == value) return true;
+
+        if (value < currentNode.value) {
+            return rContains(currentNode.left, value);
+
+        } else {
+            return rContains(currentNode.right, value);
+        }
+    }
+
+    /**
+     * Here, there are two methods named 'rContains', which represents method overloading. Based on the values sent in the parameter, the methods will execute accordingly.
+     * If only the 'value' is sent in the parameter, then it executes this method.
+     * Then, this method invokes another 'rContains' private method with two parameters.
+     * By default, it passes 'Root node' as argument for 'currentNode'.
+     * @param value [Integer] Value to look up.
+     * @return [Boolean] True/False
+     */
+    public boolean rContains(int value) {
+        return rContains(root, value);
+    }
 }
