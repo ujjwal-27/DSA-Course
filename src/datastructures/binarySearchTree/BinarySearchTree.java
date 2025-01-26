@@ -66,4 +66,26 @@ public class BinarySearchTree {
             }
         }
     }
+
+    /**
+     * This method is invoked by another 'rContains' public method with just one parameter.
+     * @param currentNode [Node] Root node
+     * @param value [Integer] Value to look up.
+     * @return [Boolean] True/False
+     */
+    private boolean rContains(Node currentNode, int value) {
+
+    }
+
+    /**
+     * Here, there are two methods named 'rContains', which represents method overloading. Based on the values sent in the parameter, the methods will execute accordingly.
+     * If only the 'value' is sent in the parameter, then it executes this method.
+     * Then, this method invokes another 'rContains' private method with two parameters.
+     * By default, it passes 'Root node' as argument for 'currentNode'.
+     * @param value [Integer] Value to look up.
+     * @return [Boolean] True/False
+     */
+    public boolean rContains(int value) {
+        return rContains(root, value);
+    }
 }
