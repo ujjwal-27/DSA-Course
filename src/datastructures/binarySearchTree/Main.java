@@ -4,6 +4,13 @@ public class Main {
     public static void main(String[] args) {
         BinarySearchTree bst = new BinarySearchTree();
 
+        /**
+         *              47
+         *             /  \
+         *           21   76
+         *          / \   / \
+         *        18  27 52 82
+         */
         bst.insert(47);
         bst.insert(21);
         bst.insert(76);
