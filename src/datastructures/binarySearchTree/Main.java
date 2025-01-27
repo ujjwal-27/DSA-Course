@@ -4,15 +4,22 @@ public class Main {
     public static void main(String[] args) {
         BinarySearchTree bst = new BinarySearchTree();
 
-        bst.insert(47);
-        bst.insert(21);
-        bst.insert(76);
-        bst.insert(18);
-        bst.insert(27);
-        bst.insert(52);
-        bst.insert(82);
+        /**
+         *              47
+         *             /  \
+         *           21   76
+         *          / \   / \
+         *        18  27 52 82
+         */
+        bst.rInsert(47);
+        bst.rInsert(21);
+        bst.rInsert(76);
+        bst.rInsert(18);
+        bst.rInsert(27);
+        bst.rInsert(52);
+        bst.rInsert(82);
 
-        System.out.println(bst.rContains(27));
+        System.out.println(bst.rContains(47));
         System.out.println(bst.rContains(17));
     }
 }
