@@ -111,7 +111,16 @@ public class BinarySearchTree {
      * @return [Node] Inserted node
      */
     private Node rInsert(Node currentNode, int value) {
+        if (currentNode == null) return new Node(value);
 
+        if (value < currentNode.value) {
+            currentNode.left = rInsert(currentNode.left, value);
+
+        } else {
+            currentNode.right = rInsert(currentNode.right, value);
+        }
+
+        return currentNode;
     }
 
 
