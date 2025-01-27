@@ -106,11 +106,27 @@ public class BinarySearchTree {
 
     /**
      * This method is invoked by another 'rInsert' public method with just one parameter.
+     * Initially, this method will always receive a currentNode as an argument.
+     * Then, then 'value' is compared with 'currentNode.value':
+     * - If it is less, then 'currentNode' will point to 'left' node, and this method will 'call itself' by passing 'currentNode.left' and 'value' as argument. (This is when recursion takes place)
+     * -- If the 'currentNode.left' is not null, then this method will 'call itself' again accordingly.
+     * -- But, if the 'currentNode.left' is null, a new node will be created using 'value', and gets returned.
+     * - If it is greater, then 'currentNode' will point to 'right' node, and this method will 'call itself' by passing 'currentNode.right' and 'value' as argument.
+     * -- If the 'currentNode.right' is not null, then this method will 'call itself' again accordingly.
+     * -- But, if the 'currentNode.right' is null, a new node will be created using 'value', and gets returned.
+     * Here, everytime the method is called, a new instance gets added to call stack, until the method reaches base case.
+     * Upon reaching 'base case', 'return statement' starts to execute.
+     * On every return, 'current instance' get popped out from the 'call stack'.
+     * The 'value' returned from that instance goes back to 'preceding instance' from which the 'popped instance' was formed.
+     * The returned value 'syncs or connects' with the 'preceding instance' accordingly, until the 'final instance' pops out of the 'stack'.
+     *
      * @param currentNode [Node] Initially, root node is sent.
      * @param value [Integer] Value to insert.
      * @return [Node] Inserted node
      */
     private Node rInsert(Node currentNode, int value) {
+        // Base case
+        // The 'newly created' node will only be returned here, which will pop the top-most 'null' instance from the 'call stack'.
         if (currentNode == null) return new Node(value);
 
         if (value < currentNode.value) {
@@ -120,6 +136,7 @@ public class BinarySearchTree {
             currentNode.right = rInsert(currentNode.right, value);
         }
 
+        // All existing node instance with value will be returned here.
         return currentNode;
     }
 
