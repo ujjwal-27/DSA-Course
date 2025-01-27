@@ -126,12 +126,20 @@ public class BinarySearchTree {
 
     /**
      * Here, there are two methods named 'rInsert', which represents method overloading. Based on the values sent in the parameter, the methods will execute accordingly.
-     * If only the 'value' is sent in the parameter, then it executes this particular method. Basically, this method is invoked than the other one.
-     * Then, this method invokes another 'rInsert' private method with two parameters.
-     * By default, it passes 'Root node' as argument for 'currentNode'.
+     * If only the 'value' is sent in the parameter, then it executes this particular method. Basically, this method is invoked than the other one in the main class.
+     * [Edge case]: First it checks if node 'root' is null. If yes, a 'new node' is created and assigned to 'root'.
+     * - In this scenario, if the argument value is '47', then 'root' node of value '47', and value 47 is passed through the parameter of 'rInsert' private method.
+     * - In that method, the 'currentNode' will just be returned without any logic carried out.
+     * - This procedure takes place only if there is no node in the tree i.e. root = null.
+     * [Without edge case] If the tree has at least one node, this method will directly invoke another 'rInsert' private method, passing the 'root' node and 'value'.
+     * By default, it always passes 'Root node' as argument for 'currentNode' in another private method.
      * @param value [Integer] Value to insert.
      */
     public void rInsert(int value) {
+        if (root == null) { // If there is no node in the tree
+            root = new Node(value);
+        }
+
         rInsert(root, value);
     }
 }
