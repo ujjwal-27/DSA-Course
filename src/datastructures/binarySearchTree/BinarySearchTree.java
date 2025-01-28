@@ -172,8 +172,11 @@ public class BinarySearchTree {
         if (value < currentNode.value) {
             currentNode.left = rDelete(currentNode.left, value);
 
-        } else {
+        } else if (value > currentNode.value) {
             currentNode.right = rDelete(currentNode.right, value);
+
+        } else {
+            // Logic goes here, if the 'value' matches with 'currentNode.value'
         }
 
         return currentNode;
