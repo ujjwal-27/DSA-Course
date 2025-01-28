@@ -176,7 +176,15 @@ public class BinarySearchTree {
             currentNode.right = rDelete(currentNode.right, value);
 
         } else {
-            // Logic goes here, if the 'value' matches with 'currentNode.value'
+            if (currentNode.left == null && currentNode.right == null) {
+                return null;
+
+            } else if (currentNode.right == null) {
+                currentNode = currentNode.left;
+
+            } else if (currentNode.left == null) {
+                currentNode = currentNode.right;
+            }
         }
 
         return currentNode;
