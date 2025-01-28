@@ -159,4 +159,34 @@ public class BinarySearchTree {
 
         rInsert(root, value);
     }
+
+    /**
+     * This method is invoked by another 'rDelete' public method.
+     * @param currentNode [Node] Initially, root node is sent.
+     * @param value [int] Value of node to delete.
+     * @return [Node] Delete node.
+     */
+    private Node rDelete(Node currentNode, int value) {
+        if (currentNode == null) return null; // If the 'value' is not in the tree, it will lead to null at some point.
+
+        if (value < currentNode.value) {
+            currentNode.left = rDelete(currentNode.left, value);
+
+        } else if (value > currentNode.value) {
+            currentNode.right = rDelete(currentNode.right, value);
+
+        } else {
+            // Logic goes here, if the 'value' matches with 'currentNode.value'
+        }
+
+        return currentNode;
+    }
+
+    /**
+     *
+     * @param value [int] Value of node to delete.
+     */
+    public void rDelete(int value) {
+        rDelete(root, value);
+    }
 }
