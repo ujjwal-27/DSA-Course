@@ -162,24 +162,43 @@ public class BinarySearchTree {
 
     /**
      * This method is invoked by another 'rDelete' public method.
+     * Base case:
+     * - If there is no targeted node value in the tree, then at some point 'currentNode' will be equal to 'null' as it will reach below 'leaf node'. In this case, return null.
+     * Recursive case:
+     * - If the 'value' is less than 'currentNode.value', then the pointer of 'currentNode' will shift towards 'left node'. This is where 'recursion' takes place as the method will 'call itself', passing 'left node' in the 'first parameter'.
+     * - Likewise, if the 'value' is greater than 'currentNode.value', then the pointer of 'currentNode' will shift towards 'right node'. The method will 'call itself', passing the 'right node' in the 'first parameter'.
+     * Targeted node value found:
+     * - Here, there are four different cases that need to be considered:
+     * -- If both the left and right pointer of 'currentNode' is null, then just return null.
+     * -- If only the right pointer of 'currentNode' is null, just replace 'currentNode' with 'left node'.
+     * -- If only the left pointer of 'currentNode' is null, just replace 'currentNode' with 'right node'.
      * @param currentNode [Node] Initially, root node is sent.
      * @param value [int] Value of node to delete.
      * @return [Node] Delete node.
      */
     private Node rDelete(Node currentNode, int value) {
-        if (currentNode == null) return null; // If the 'value' is not in the tree, it will lead to null at some point.
+        // If the targeted 'value' is not in the tree, it will lead to null at some point.
+        if (currentNode == null) return null; // Base case
 
-        if (value < currentNode.value) {
+        if (value < currentNode.value) { // Recursive case
             currentNode.left = rDelete(currentNode.left, value);
 
-        } else if (value > currentNode.value) {
+        } else if (value > currentNode.value) { // Recursive case
             currentNode.right = rDelete(currentNode.right, value);
 
-        } else {
-            // Logic goes here, if the 'value' matches with 'currentNode.value'
+        } else { // Targeted node value found
+            if (currentNode.left == null && currentNode.right == null) { // If both the left and right pointer of currentNode is null.
+                return null;
+
+            } else if (currentNode.right == null) { // If only the right pointer of currentNode is null.
+                currentNode = currentNode.left; // Current node will be replaced with left node.
+
+            } else if (currentNode.left == null) { // If only the left pointer of currentNode is null.
+                currentNode = currentNode.right; // Current node will be replaced with right node.
+            }
         }
 
-        return currentNode;
+        return currentNode; // The node instance unwinds from the stack, every this return statement is executed.
     }
 
     /**
