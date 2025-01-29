@@ -186,6 +186,11 @@ public class BinarySearchTree {
      * -- If both the left and right pointer of 'currentNode' is null, then just return null.
      * -- If only the right pointer of 'currentNode' is null, just replace 'currentNode' with 'left node'.
      * -- If only the left pointer of 'currentNode' is null, just replace 'currentNode' with 'right node'.
+     * -- If there are 'nodes' in both left and right pointer of 'currentNode':
+     * --- Get the 'minimum value' from the 'right subtree' of 'currentNode', and 'replace' the value of 'currentNode' with that 'minimum value'.
+     * --- Next, the node with the minimum value needs to be deleted.
+     * --- For this, on the 'right subtree' of 'currentNode', 'recursion' takes place one more time as the method will 'call itself' passing 'currentNode.right' and 'minimum value' in the parameters respectively.
+     * --- Rest will be handled by the rDelete method.
      * @param currentNode [Node] Initially, root node is sent.
      * @param value [int] Value of node to delete.
      * @return [Node] Delete node.
@@ -217,7 +222,7 @@ public class BinarySearchTree {
             }
         }
 
-        return currentNode; // The node instance unwinds from the stack, every this return statement is executed.
+        return currentNode; // The node instance unwinds from the stack, everytime this 'return statement' is executed.
     }
 
     /**
