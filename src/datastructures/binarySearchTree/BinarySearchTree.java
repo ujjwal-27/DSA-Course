@@ -213,15 +213,7 @@ public class BinarySearchTree {
             } else {
                 int minimumValue = minimumValue(currentNode.right);
                 currentNode.value = minimumValue;
-
-                Node temp = currentNode;
-                temp = temp.right;
-
-                while (temp.left.value != minimumValue) {
-                    temp = temp.left;
-                }
-                
-                temp.left = null;
+                currentNode.right = rDelete(currentNode.right, minimumValue);
             }
         }
 
