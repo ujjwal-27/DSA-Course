@@ -67,6 +67,12 @@ public class BinarySearchTree {
         }
     }
 
+    /**
+     * In Binary Search Tree, since the smaller values are always placed on the left node, a while-loop is executed until 'currentNode.left != null'
+     * On every iteration, 'currentNode.left' is assigned to the 'currentNode'.
+     * @param currentNode [Node] Initially, this node can either be 'root node' or 'right node from the root'.
+     * @return [int] Minimum value in the tree.
+     */
     public int minimumValue(Node currentNode) {
         while (currentNode.left != null) {
             currentNode = currentNode.left;
