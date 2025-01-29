@@ -68,6 +68,20 @@ public class BinarySearchTree {
     }
 
     /**
+     * In Binary Search Tree, since the smaller values are always placed on the left node, a while-loop is executed until 'currentNode.left != null'
+     * On every iteration, 'currentNode.left' is assigned to the 'currentNode'.
+     * @param currentNode [Node] Initially, this node can either be 'root node' or 'right node from the root'.
+     * @return [int] Minimum value in the tree.
+     */
+    public int minimumValue(Node currentNode) {
+        while (currentNode.left != null) {
+            currentNode = currentNode.left;
+        }
+
+        return currentNode.value;
+    }
+
+    /**
      * This method is invoked by another 'rContains' public method with just one parameter.
      * Base case-1: First the 'currentNode' is checked if it is null or not. If yes, return false.
      * Base case-2: If the 'currentNode.value == value', return true. Here, the method reaches the point, where it meets required criteria.
@@ -132,7 +146,7 @@ public class BinarySearchTree {
         if (value < currentNode.value) {
             currentNode.left = rInsert(currentNode.left, value);
 
-        } else {
+        } else if (value > currentNode.value) {
             currentNode.right = rInsert(currentNode.right, value);
         }
 
