@@ -140,7 +140,7 @@ public class BinarySearchTree {
         if (value < currentNode.value) {
             currentNode.left = rInsert(currentNode.left, value);
 
-        } else {
+        } else if (value > currentNode.value) {
             currentNode.right = rInsert(currentNode.right, value);
         }
 
