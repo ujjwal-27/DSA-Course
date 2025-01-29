@@ -19,7 +19,11 @@ public class Main {
         bst.rInsert(52);
         bst.rInsert(82);
 
-        System.out.println(bst.rContains(47));
-        System.out.println(bst.rContains(17));
+        System.out.println(bst.rContains(76));
+//        System.out.println(bst.rContains(17));
+
+        System.out.println(bst.root.right.value);
+        System.out.println(bst.minimumValue(bst.root));
+        System.out.println(bst.minimumValue(bst.root.right));
     }
 }
