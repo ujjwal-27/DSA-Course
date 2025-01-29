@@ -186,6 +186,11 @@ public class BinarySearchTree {
      * -- If both the left and right pointer of 'currentNode' is null, then just return null.
      * -- If only the right pointer of 'currentNode' is null, just replace 'currentNode' with 'left node'.
      * -- If only the left pointer of 'currentNode' is null, just replace 'currentNode' with 'right node'.
+     * -- If there are 'nodes' in both left and right pointer of 'currentNode':
+     * --- Get the 'minimum value' from the 'right subtree' of 'currentNode', and 'replace' the value of 'currentNode' with that 'minimum value'.
+     * --- Next, the node with the minimum value needs to be deleted.
+     * --- For this, on the 'right subtree' of 'currentNode', 'recursion' takes place one more time as the method will 'call itself' passing 'currentNode.right' and 'minimum value' in the parameters respectively.
+     * --- Rest will be handled by the rDelete method.
      * @param currentNode [Node] Initially, root node is sent.
      * @param value [int] Value of node to delete.
      * @return [Node] Delete node.
@@ -200,7 +205,7 @@ public class BinarySearchTree {
         } else if (value > currentNode.value) { // Recursive case
             currentNode.right = rDelete(currentNode.right, value);
 
-        } else { // Targeted node value found
+        } else { // Targeted node value found. Codes above this 'else-statement' just traverses through the tree until it is determined that 'targeted value' is present or not.
             if (currentNode.left == null && currentNode.right == null) { // If both the left and right pointer of currentNode is null.
                 return null;
 
@@ -209,10 +214,15 @@ public class BinarySearchTree {
 
             } else if (currentNode.left == null) { // If only the left pointer of currentNode is null.
                 currentNode = currentNode.right; // Current node will be replaced with right node.
+
+            } else {
+                int minimumValue = minimumValue(currentNode.right);
+                currentNode.value = minimumValue;
+                currentNode.right = rDelete(currentNode.right, minimumValue);
             }
         }
 
-        return currentNode; // The node instance unwinds from the stack, every this return statement is executed.
+        return currentNode; // The node instance unwinds from the stack, everytime this 'return statement' is executed.
     }
 
     /**
