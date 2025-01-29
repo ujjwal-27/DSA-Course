@@ -205,7 +205,7 @@ public class BinarySearchTree {
         } else if (value > currentNode.value) { // Recursive case
             currentNode.right = rDelete(currentNode.right, value);
 
-        } else { // Targeted node value found
+        } else { // Targeted node value found. Codes above this 'else-statement' just traverses through the tree until it is determined that 'targeted value' is present or not.
             if (currentNode.left == null && currentNode.right == null) { // If both the left and right pointer of currentNode is null.
                 return null;
 
