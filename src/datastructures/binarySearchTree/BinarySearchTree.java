@@ -67,6 +67,14 @@ public class BinarySearchTree {
         }
     }
 
+    public int minimumValue(Node currentNode) {
+        while (currentNode.left != null) {
+            currentNode = currentNode.left;
+        }
+
+        return currentNode.value;
+    }
+
     /**
      * This method is invoked by another 'rContains' public method with just one parameter.
      * Base case-1: First the 'currentNode' is checked if it is null or not. If yes, return false.
