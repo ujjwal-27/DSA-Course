@@ -209,6 +209,19 @@ public class BinarySearchTree {
 
             } else if (currentNode.left == null) { // If only the left pointer of currentNode is null.
                 currentNode = currentNode.right; // Current node will be replaced with right node.
+
+            } else {
+                int minimumValue = minimumValue(currentNode.right);
+                currentNode.value = minimumValue;
+
+                Node temp = currentNode;
+                temp = temp.right;
+
+                while (temp.left.value != minimumValue) {
+                    temp = temp.left;
+                }
+                
+                temp.left = null;
             }
         }
 
