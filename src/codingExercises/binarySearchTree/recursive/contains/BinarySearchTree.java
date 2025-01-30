@@ -58,15 +58,22 @@ public class BinarySearchTree {
         return false;
     }
 
-    // WRITE THE RECURSIVE CONTAINS METHOD HERE //
-    //                                          //
-    //                                          //
-    //                                          //
-    //                                          //
-    //////////////////////////////////////////////
+    private boolean rContains(Node currentNode, int value) {
+        if (currentNode == null) return false;
 
-    public boolean rContains(int value) { return rContains(root, value); }
+        if (currentNode.value == value) return true;
 
+        if (value < currentNode.value) {
+            return rContains(currentNode.left, value);
+
+        } else {
+            return rContains(currentNode.right, value);
+        }
+    }
+
+    public boolean rContains(int value) {
+        return rContains(root, value);
+    }
 }
 
 
