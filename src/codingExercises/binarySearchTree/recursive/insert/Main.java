@@ -6,15 +6,18 @@ public class Main {
 
         BinarySearchTree myBST = new BinarySearchTree();
 
-        myBST.rInsert(2);
-        myBST.rInsert(1);
-        myBST.rInsert(3);
+        myBST.rInsert(47);
+        myBST.rInsert(21);
+        myBST.rInsert(18);
+        myBST.rInsert(76);
 
         /*
             THE LINES ABOVE CREATE THIS TREE:
-                         2
-                        / \
-                       1   3
+                         47
+                        /  \
+                      21    76
+                     /
+                   18
         */
 
 
@@ -22,17 +25,19 @@ public class Main {
         System.out.println("Root: " + myBST.getRoot().value);
         System.out.println("\nRoot->Left: " + myBST.getRoot().left.value);
         System.out.println("\nRoot->Right: " + myBST.getRoot().right.value);
+        System.out.println("\nRoot->Left->Left: " + myBST.getRoot().left.left.value);
 
 
         /*
             EXPECTED OUTPUT:
             ----------------
-            Root: 2
+            Root: 47
 
-            Root->Left: 1
+            Root->Left: 21
 
-            Root->Right: 3
+            Root->Right: 76
 
+            Root->Left: 18
         */
 
     }
