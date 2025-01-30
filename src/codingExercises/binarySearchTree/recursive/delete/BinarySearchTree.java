@@ -97,12 +97,35 @@ public class BinarySearchTree {
         return currentNode.value;
     }
 
-    // WRITE THE DELETENODE METHOD HERE //
-    //                                  //
-    //                                  //
-    //                                  //
-    //                                  //
-    //////////////////////////////////////
+    private Node deleteNode(Node currentNode, int value) {
+        if (currentNode == null) return null;
+
+        if (value < currentNode.value) {
+            currentNode.left = deleteNode(currentNode.left, value);
+
+        } else if (value > currentNode.value) {
+            currentNode.right = deleteNode(currentNode.right, value);
+
+        } else {
+            if (currentNode.left == null && currentNode.right == null) {
+                return null;
+
+            } else if (currentNode.left == null) {
+                currentNode = currentNode.right;
+
+            } else if (currentNode.right == null) {
+                currentNode = currentNode.left;
+
+            } else {
+                int minValue = minValue(currentNode.right);
+                currentNode.value = minValue;
+
+                currentNode.right = deleteNode(currentNode.right, minValue);
+            }
+        }
+
+        return currentNode;
+    }
 
     public void deleteNode(int value) {
         root = deleteNode(root, value);
