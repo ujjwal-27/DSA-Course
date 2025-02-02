@@ -1,4 +1,4 @@
-package interviewQuestions.recursiveBinarySearchTree.sortedArrayToBAST;
+package interviewQuestions.recursiveBinarySearchTree.sortedArrayToBST;
 
 import java.util.ArrayList;
 import java.util.List;
