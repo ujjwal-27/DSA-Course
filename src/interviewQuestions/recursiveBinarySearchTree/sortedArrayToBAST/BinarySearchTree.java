@@ -53,6 +53,10 @@ public class BinarySearchTree {
         this.root = sortedArrayToBST(nums, 0, nums.length - 1);
     }
 
+    private Node sortedArrayToBST(int[] nums, int left, int right) {
+
+    }
+
     //   +===================================================+
     //   |             WRITE YOUR CODE HERE                  |
     //   | Description:                                      |
