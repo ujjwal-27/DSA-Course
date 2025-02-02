@@ -6,6 +6,13 @@ import java.util.List;
 
 public class Main {
 
+    /**
+     *
+     * @param description [String]
+     * @param insertValues [Array of integers]
+     * @param expectedValues [Array of integers]
+     * @param doubleInversion [Boolean] It just indicates that if the invert() method is to carried out once or twice. If true, then the invert() method is invoked twice.
+     */
     private static void performTest(String description, int[] insertValues, Integer[] expectedValues, boolean doubleInversion) {
         BinarySearchTree bst = new BinarySearchTree();
         for (int value : insertValues) {
