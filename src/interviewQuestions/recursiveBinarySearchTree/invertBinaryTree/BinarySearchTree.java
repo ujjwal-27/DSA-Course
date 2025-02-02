@@ -60,6 +60,16 @@ public class BinarySearchTree {
         root = invertTree(root);
     }
 
+    private Node invertTree(Node node) {
+        if (node == null) return null;
+
+        Node temp = node.left;
+        node.left = invertTree(node.right);
+        node.right = invertTree(temp);
+
+        return node;
+    }
+
     //   +===================================================+
     //   |              WRITE YOUR CODE HERE                 |
     //   | Description:                                      |
