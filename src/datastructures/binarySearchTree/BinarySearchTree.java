@@ -20,7 +20,7 @@ public class BinarySearchTree {
 
     /**
      * Overview:
-     * Here, we'll visit each node on the tree, and add the 'node values' to the ArrayList, and return the list.
+     * In this approach of 'Tree Traversal', we'll visit each node on the tree, and add the 'node values' to the ArrayList, and return the list.
      * For this, we'll use Queue<Node> which will help to efficiently add 'node values' to the ArrayList.
      * Since, the Queue follows FIFO principle, while removing the node from a queue, the node at the beginning of queue is always removed.
      * ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -81,9 +81,31 @@ public class BinarySearchTree {
         return false;
     }
 
+    /**
+     * Overview:
+     * In this approach of 'Tree Traversal', we'll visit each node on the tree, and add the 'node values' to the ArrayList, and return the list.
+     * For this, we'll use 'recursive strategy' where a class named 'Traverse' will be 'instantiated' on each 'recursive call'.
+     * We'll start from the 'root' node, and traverse all the way down through the 'left' node until the 'leaf' node is reached.
+     * - On each recursive call, 'currentNode' will be added to 'call stack' behind the scene, and will be removed from the stack after its 'left' and 'right' nodes are processed.
+     * With this, upon reaching the 'leaf' node from the 'left', the nodes will start to 'unwind' from the 'stack', and 'right' nodes of the previous node (parent nodes) from the stack will be processed.
+     * The value of 'currentNode' is added to the 'ArrayList' on each 'instantiation' of the 'Traverse' class.
+     * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     * Implementation:
+     * First, an empty 'ArrayList' is created.
+     * Then, a class named 'Traverse' is created where the main logic of 'Tree Traversal' is implemented in which 'recursion' takes place.
+     * The execution of this method kicks off with the 'instantiation' of the class 'Traverse', passing 'root' node in its 'constructor'.
+     * Inside the 'parameterized constructor', the value of 'currentNode' is first added to the ArrayList i.e. 'result'.
+     * Then, 'left' node of current node is checked if it is null or not. If not, the class instantiates itself, passing the 'currentNode.left' as the parameter.
+     * Likewise, 'right' node of current node is checked if it is null or not. If not, the class instantiates itself, passing the 'currentNode.right' as the parameter.
+     * This 'recursion' takes place until it reaches the 'leaf' node at the 'bottom-right' of the 'tree'.
+     * @return [ArrayList] List of integers added from BST.
+     */
     public ArrayList<Integer> DFSPreOrder() {
         ArrayList<Integer> result = new ArrayList<>();
 
+        /*
+         * Since, Java doesn't allow to implement a method inside another method, the approach of recursion through class object was implemented.
+         */
         class Traverse {
             Traverse(Node currentNode) {
                 result.add(currentNode.value);
@@ -98,7 +120,7 @@ public class BinarySearchTree {
             }
         }
 
-        new Traverse(root);
+        new Traverse(root); // This is where the method kicks off
 
         return result;
     }
