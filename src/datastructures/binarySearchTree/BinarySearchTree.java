@@ -17,6 +17,25 @@ public class BinarySearchTree {
         }
     }
 
+    /**
+     * Overview:
+     * Here, we'll visit each node on the tree, and add the 'node values' to the ArrayList, and return the list.
+     * For this, we'll use Queue<Node> which will help to efficiently add 'node values' to the ArrayList.
+     * Since, the Queue follows FIFO principle, while removing the node from a queue, the node at the beginning of queue is always removed.
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     * Implementation:
+     * Initially, a variable 'currentNode' is created and assigned with root node.
+     * Then, create an empty Queue -> 'queue' and ArrayList -> 'result'.
+     * Then, add the 'currentNode' to the 'queue'.
+     * Then, execute a for-loop until it is not empty. On every iteration:
+     * - Remove the node from the 'queue' using remove() method. This always removes node at the beginning of the queue.
+     * - Assign the 'removed node' to the 'currentNode', and add its 'value' to the ArrayList i.e. 'result'.
+     * - Check if the 'left node' of the 'currentNode' is null or not. If not, add the 'left node' of currentNode to the 'queue'.
+     * - Likewise, check if the 'right node' of the 'currentNode' is null or not. If not, add the 'right node' of currentNode to the 'queue'.
+     * - Here, this condition if checked because at some point the currentNode will reach the leaf node which won't have any children node.
+     * Finally, after all the nodes from the queue is removed, and added to the ArrayList, return the list.
+     * @return [ArrayList] List of integers added from the tree.
+     */
     public ArrayList<Integer> BFS() {
         Node currentNode = root;
 
