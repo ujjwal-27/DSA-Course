@@ -82,6 +82,36 @@ public class BinarySearchTree {
     }
 
     /**
+     * The logic for 'DFSPreOrder' and 'DFSPostOrder' is basically the same.
+     * The only difference is, the value of 'currentNode' is added to the 'ArrayList' in 'DFSPreOrder' in the very beginning of 'Traverse' class.
+     * - Meaning, value of 'currentNode' is added to the 'list', before the complete execution of both of its 'left' and 'right' nodes.
+     * However, the value of 'currentNode' is added to the 'ArrayList' in 'DFSPreOrder' at the end of 'Traverse' class.
+     *  - Meaning, value of 'currentNode' is added to the 'list', after the complete execution of both of its 'left' and 'right' nodes.
+     * @return [ArrayList] List of integers derived from BST.
+     */
+    public ArrayList<Integer> DFSPostOrder() {
+        ArrayList<Integer> result = new ArrayList<>();
+
+        class Traverse {
+            Traverse(Node currentNode) {
+                if (currentNode.left != null) {
+                    new Traverse(currentNode.left);
+                }
+
+                if (currentNode.right != null) {
+                    new Traverse(currentNode.right);
+                }
+
+                result.add(currentNode.value);
+            }
+        }
+
+        new Traverse(root);
+
+        return result;
+    }
+
+    /**
      * Overview:
      * In this approach of 'Tree Traversal', we'll visit each node on the tree, and add the 'node values' to the ArrayList, and return the list.
      * For this, we'll use 'recursive strategy' where a class named 'Traverse' will be 'instantiated' on each 'recursive call'.

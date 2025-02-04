@@ -20,6 +20,7 @@ public class Main {
         bst.rInsert(82);
 
 //        System.out.println(bst.BFS());
-        System.out.println(bst.DFSPreOrder());
+//        System.out.println(bst.DFSPreOrder());
+        System.out.println(bst.DFSPostOrder());
     }
 }
