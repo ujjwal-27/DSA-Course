@@ -86,9 +86,11 @@ public class BinarySearchTree {
      * In this approach of 'Tree Traversal', we'll visit each node on the tree, and add the 'node values' to the ArrayList, and return the list.
      * For this, we'll use 'recursive strategy' where a class named 'Traverse' will be 'instantiated' on each 'recursive call'.
      * We'll start from the 'root' node, and traverse all the way down through the 'left' node until the 'leaf' node is reached.
-     * - On each recursive call, 'currentNode' will be added to 'call stack' behind the scene, and will be removed from the stack after its 'left' and 'right' nodes are processed.
+     * - On each recursive call, 'currentNode' will be added to 'call stack' behind the scene, and will be removed from the stack only after its both 'left' and 'right' nodes are processed.
      * With this, upon reaching the 'leaf' node from the 'left', the nodes will start to 'unwind' from the 'stack', and 'right' nodes of the previous node (parent nodes) from the stack will be processed.
      * The value of 'currentNode' is added to the 'ArrayList' on each 'instantiation' of the 'Traverse' class.
+     * NOTE: Understanding this overview through pictorial representation will be more helpful. For this, draw BST in a paper, and follow the steps how it actually works.
+     * - You'll need a graph of BST, Call stack, and result (ArrayList) for storing node values on each recursion.
      * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
      * Implementation:
      * First, an empty 'ArrayList' is created.
