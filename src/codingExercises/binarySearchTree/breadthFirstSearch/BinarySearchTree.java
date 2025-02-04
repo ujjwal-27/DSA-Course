@@ -3,6 +3,7 @@ package codingExercises.binarySearchTree.breadthFirstSearch;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 
 public class BinarySearchTree {
@@ -63,11 +64,27 @@ public class BinarySearchTree {
         return false;
     }
 
-    //// WRITE BFS METHOD HERE ////
-    //                           //
-    //                           //
-    //                           //
-    //                           //
-    ///////////////////////////////
+    public ArrayList<Integer> BFS() {
+        Node currentNode = root;
+        Queue<Node> queue = new LinkedList<>();
+        ArrayList<Integer> result = new ArrayList<>();
+
+        queue.add(currentNode);
+
+        while (queue.size() > 0) {
+            currentNode = queue.remove();
+            result.add(currentNode.value);
+
+            if (currentNode.left != null) {
+                queue.add(currentNode.left);
+            }
+
+            if (currentNode.right != null) {
+                queue.add(currentNode.right);
+            }
+        }
+
+        return result;
+    }
 
 }
