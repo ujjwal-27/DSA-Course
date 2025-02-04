@@ -81,6 +81,20 @@ public class BinarySearchTree {
         return false;
     }
 
+    /**
+     * The logic for 'DFSPreOrder' and 'DFSInOrder' is basically the same.
+     * The only difference is, the value of 'currentNode' is added to the 'ArrayList' in 'DFSPreOrder' in the very beginning of 'Traverse' class.
+     * - Meaning, value of 'currentNode' is added to the 'list', before the complete execution of both of its 'left' and 'right' nodes.
+     * However, the value of 'currentNode' is added to the 'ArrayList' in 'DFSInOrder' only after the execution of 'left' node of 'currentNode'.
+     *  - Here, 'currentNode' is shifted through its 'left' node until it reaches the 'leaf' node of the tree (which is the smallest node in the tree).
+     *  - Since, the 'leaf' node doesn't have 'left' node, it will skip the first 'if-block' and its value will be added to 'list'.
+     *  - And again, it will skip the second 'if-block', and will unwind (pull out) from the 'call stack'.
+     *  - Then, the 'parent' node of the 'pulled out' node will be at the 'top' of stack.
+     *  - Since, its 'left' node is already processed, its 'value' will be added to the 'list', and shift to its 'right' node.
+     *  - Same phenomenon continues for rest of the nodes in the tree.
+     * One special fact about this method's logic is that the node values in the 'ArrayList' (result) is added in 'ascending order', reflecting the method's name: 'DFSInOrder'.
+     * @return [ArrayList] List of integers derived from BST.
+     */
     public ArrayList<Integer> DFSInOrder() {
         ArrayList<Integer> result = new ArrayList<>();
 
