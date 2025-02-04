@@ -81,6 +81,28 @@ public class BinarySearchTree {
         return false;
     }
 
+    public ArrayList<Integer> DFSInOrder() {
+        ArrayList<Integer> result = new ArrayList<>();
+
+        class Traverse {
+            Traverse(Node currentNode) {
+                if (currentNode.left != null) {
+                    new Traverse(currentNode.left);
+                }
+
+                result.add(currentNode.value);
+
+                if (currentNode.right != null) {
+                    new Traverse(currentNode.right);
+                }
+            }
+        }
+
+        new Traverse(root);
+
+        return result;
+    }
+
     /**
      * The logic for 'DFSPreOrder' and 'DFSPostOrder' is basically the same.
      * The only difference is, the value of 'currentNode' is added to the 'ArrayList' in 'DFSPreOrder' in the very beginning of 'Traverse' class.
