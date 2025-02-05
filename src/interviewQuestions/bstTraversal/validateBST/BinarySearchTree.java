@@ -66,27 +66,15 @@ public class BinarySearchTree {
         return results;
     }
 
-    //   +===================================================+
-    //   |                  WRITE YOUR CODE HERE             |
-    //   | Description:                                      |
-    //   | - Checks if the binary tree is a valid Binary     |
-    //   |   Search Tree (BST).                              |
-    //   | - A BST is valid if all nodes follow the left <   |
-    //   |   parent < right rule across the entire tree.     |
-    //   | - Utilizes in-order traversal to collect node     |
-    //   |   values and then checks if the list of values    |
-    //   |   is in ascending order without duplicates.       |
-    //   |                                                   |
-    //   | Return:                                           |
-    //   | - Returns true if the tree is a valid BST.        |
-    //   | - Returns false otherwise.                        |
-    //   |                                                   |
-    //   | Tips:                                             |
-    //   | - DFSInOrder() is assumed to be a method that     |
-    //   |   performs an in-order traversal of the tree and  |
-    //   |   returns an ArrayList of node values.            |
-    //   | - A valid BST should have its in-order traversal  |
-    //   |   result in a strictly ascending order list.      |
-    //   +===================================================+
+    public boolean isValidBST() {
+        ArrayList<Integer> nodeValues = DFSInOrder();
 
+        for (int i = 1; i < nodeValues.size(); i++) {
+            if (nodeValues.get(i) <= nodeValues.get(i - 1)) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
 }
