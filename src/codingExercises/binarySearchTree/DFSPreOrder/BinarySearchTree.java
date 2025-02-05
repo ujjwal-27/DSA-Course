@@ -82,11 +82,25 @@ public class BinarySearchTree {
         return results;
     }
 
-    // WRITE DFS_PREORDER METHOD HERE //
-    //                                //
-    //                                //
-    //                                //
-    //                                //
-    ////////////////////////////////////
+    public ArrayList<Integer> DFSPreOrder() {
+        ArrayList<Integer> result = new ArrayList<>();
 
+        class Traverse {
+            Traverse(Node currentNode) {
+                result.add(currentNode.value);
+
+                if (currentNode.left != null) {
+                    new Traverse(currentNode.left);
+                }
+
+                if (currentNode.right != null) {
+                    new Traverse(currentNode.right);
+                }
+            }
+        }
+
+        new Traverse(root);
+
+        return result;
+    }
 }
