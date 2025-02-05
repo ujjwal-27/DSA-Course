@@ -101,11 +101,26 @@ public class BinarySearchTree {
         return results;
     }
 
-    // WRITE DFS_POSTORDER METHOD HERE //
-    //                                 //
-    //                                 //
-    //                                 //
-    //                                 //
-    /////////////////////////////////////
+    public ArrayList<Integer> DFSPostOrder() {
+        ArrayList<Integer> result = new ArrayList<>();
+
+        class Traverse {
+            Traverse(Node currentNode) {
+                if (currentNode.left != null) {
+                    new Traverse(currentNode.left);
+                }
+
+                if (currentNode.right != null) {
+                    new Traverse(currentNode.right);
+                }
+
+                result.add(currentNode.value);
+            }
+        }
+
+        new Traverse(root);
+
+        return result;
+    }
 
 }
