@@ -42,6 +42,19 @@ public class BinarySearchTree {
         }
     }
 
+    /**
+     * The purpose of this method is to find the 'kth smallest node' in the 'BST'.
+     * For this, 'currentNode' is created and assigned with 'root' node, and an empty 'stack' is created.
+     * A 'while-loop' is executed until 'stack' is not empty or 'currentNode' is not null.
+     * - On each iteration, 'currentNode' is checked if it is null or not.
+     * - If it is not null, 'currentNode' is pushed into 'stack', and moves to its 'left' node.
+     * - If it is null, a node is removed (popped) from 'stack', and value of 'k' is decreased by 1.
+     * -- If k == 0, the value of 'currentNode' is returned.
+     * -- Else, 'currentNode' shifts to its 'right' node.
+     * Finally, if there is no required smallest node in BST, return 'null'.
+     * @param k [int] Position of smallest node to find in BST.
+     * @return [Integer] 'Value' of the smallest node in BST OR 'null'.
+     */
     public Integer kthSmallest(int k) {
         Node currentNode = root;
         Stack<Node> stack = new Stack<>();
