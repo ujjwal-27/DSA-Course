@@ -43,6 +43,7 @@ public class BinarySearchTree {
     }
 
     /**
+     * APPROACH 1 (self-implementation):
      * The purpose of this method is to find the 'kth smallest node' in the 'BST'.
      * For this, 'currentNode' is created and assigned with 'root' node, and an empty 'stack' is created.
      * A 'while-loop' is executed until 'stack' is not empty or 'currentNode' is not null.
@@ -55,23 +56,59 @@ public class BinarySearchTree {
      * @param k [int] Position of smallest node to find in BST.
      * @return [Integer] 'Value' of the smallest node in BST OR 'null'.
      */
+//    public Integer kthSmallest(int k) {
+//        Node currentNode = root;
+//        Stack<Node> stack = new Stack<>();
+//
+//        while (!stack.isEmpty() || currentNode != null) {
+//            if (currentNode == null) {
+//                currentNode = stack.pop();
+//                k--;
+//
+//                if (k == 0) return currentNode.value;
+//
+//                currentNode = currentNode.right;
+//
+//            } else {
+//                stack.push(currentNode);
+//                currentNode = currentNode.left;
+//            }
+//        }
+//
+//        return null;
+//    }
+
+    /**
+     * APPROACH 2 (course-based):
+     * The purpose of this method is to find the 'kth smallest node' in the 'BST'.
+     * For this, 'currentNode' is created and assigned with 'root' node, and an empty 'stack' is created.
+     * A 'while-loop' is executed until 'stack' is not empty or 'currentNode' is not null.
+     * - On each iteration, a nest while-loop is executed until currentNode is not null.
+     * -- And, on each iteration, currentNode is pushed into stack, and shifted to its left node.
+     * - If the condition of nested while-loop is not satisfied, a node from stack is removed (popped), and the popped node is assigned to currentNode.
+     * - Then, value of 'k' is decreased by 1.
+     * - If k == 0, the value of 'currentNode' is returned.
+     * - Else, 'currentNode' shifts to its 'right' node.
+     * Finally, if there is no required smallest node in BST, return 'null'.
+     * @param k [int] Position of smallest node to find in BST.
+     * @return [Integer] 'Value' of the smallest node in BST OR 'null'.
+     */
     public Integer kthSmallest(int k) {
         Node currentNode = root;
         Stack<Node> stack = new Stack<>();
 
         while (!stack.isEmpty() || currentNode != null) {
-            if (currentNode == null) {
-                currentNode = stack.pop();
-                k--;
-
-                if (k == 0) return currentNode.value;
-
-                currentNode = currentNode.right;
-
-            } else {
+            while (currentNode != null) {
                 stack.push(currentNode);
                 currentNode = currentNode.left;
             }
+
+            currentNode = stack.pop();
+            k--;
+
+            if (k == 0) return currentNode.value;
+
+            currentNode = currentNode.right;
         }
 
         return null;
