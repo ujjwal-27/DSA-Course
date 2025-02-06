@@ -42,12 +42,27 @@ public class BinarySearchTree {
         }
     }
 
-    // WRITE KTHSMALLEST METHOD HERE //
-    //                               //
-    //                               //
-    //                               //
-    //                               //
-    ///////////////////////////////////
+    public Integer kthSmallest(int k) {
+        Node currentNode = root;
+        Stack<Node> stack = new Stack<>();
+
+        while (!stack.isEmpty() || currentNode != null) {
+            if (currentNode == null) {
+                currentNode = stack.pop();
+                k--;
+
+                if (k == 0) return currentNode.value;
+
+                currentNode = currentNode.right;
+
+            } else {
+                stack.push(currentNode);
+                currentNode = currentNode.left;
+            }
+        }
+
+        return null;
+    }
 
 }
 
