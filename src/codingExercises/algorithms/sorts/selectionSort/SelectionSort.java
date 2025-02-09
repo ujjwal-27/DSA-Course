@@ -15,9 +15,9 @@ public class SelectionSort {
      * @param numbers
      */
     public static void selectionSort(int[] numbers) {
-        int minIndex = 0;
-
         for (int i = 0; i < numbers.length - 1; i++) {
+            int minIndex = i;
+
             for (int j = i + 1; j < numbers.length; j++) {
                 if (numbers[j] < numbers[minIndex] ) {
                     minIndex = j;
@@ -29,8 +29,6 @@ public class SelectionSort {
                 numbers[i] = numbers[minIndex];
                 numbers[minIndex] = temp;
             }
-
-            minIndex = i + 1;
         }
     }
 }
