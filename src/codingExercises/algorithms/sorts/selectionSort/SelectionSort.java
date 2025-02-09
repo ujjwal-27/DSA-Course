@@ -10,10 +10,14 @@ public class SelectionSort {
         System.out.println(Arrays.toString(numbers));
     }
 
+    /**
+     *
+     * @param numbers
+     */
     public static void selectionSort(int[] numbers) {
         int minIndex = 0;
 
-        for (int i = 0; i < numbers.length; i++) {
+        for (int i = 0; i < numbers.length - 1; i++) {
             for (int j = i + 1; j < numbers.length; j++) {
                 if (numbers[j] < numbers[minIndex] ) {
                     minIndex = j;
