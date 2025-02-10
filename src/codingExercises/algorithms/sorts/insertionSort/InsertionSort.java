@@ -10,6 +10,20 @@ public class InsertionSort {
         System.out.println(Arrays.toString(numbers));
     }
 
+    public static void insertionSort(int[] numbers) {
+        for (int i = 1; i < numbers.length; i++) {
+            int temp = numbers[i];
+            int j = i - 1; // previous index
+
+            while (j >= 0 && temp < numbers[j]) {
+                numbers[j + 1] = numbers[j]; // Here, use (j + 1) instead of using 'i' directly, because on each iteration value of 'i' remains same which makes shifting of elements inaccurate.
+                numbers[j] = temp;
+
+                j--;
+            }
+        }
+    }
+
     /**
      * SELF IMPLEMENTATION: Using 'swap' approach.
      * Here, 'nested loop' is implemented.
@@ -20,19 +34,19 @@ public class InsertionSort {
      * - Then, both 'currentIndex' and 'previousIndex' is decremented by '1'. This is done to get track of the 'actual value' in 'currentIndex'.
      * @param numbers Arrays of integers
      */
-    public static void insertionSort(int[] numbers) {
-        for (int i = 1; i < numbers.length; i++) {
-            int currentIndex = i;
-            int previousIndex = i - 1;
-
-            while (previousIndex >= 0 && numbers[currentIndex] < numbers[previousIndex]) {
-                int temp = numbers[currentIndex];
-                numbers[currentIndex] = numbers[previousIndex];
-                numbers[previousIndex] = temp;
-
-                currentIndex--;
-                previousIndex--;
-            }
-        }
-    }
+//    public static void insertionSort(int[] numbers) {
+//        for (int i = 1; i < numbers.length; i++) {
+//            int currentIndex = i;
+//            int previousIndex = i - 1;
+//
+//            while (previousIndex >= 0 && numbers[currentIndex] < numbers[previousIndex]) {
+//                int temp = numbers[currentIndex];
+//                numbers[currentIndex] = numbers[previousIndex];
+//                numbers[previousIndex] = temp;
+//
+//                currentIndex--;
+//                previousIndex--;
+//            }
+//        }
+//    }
 }
