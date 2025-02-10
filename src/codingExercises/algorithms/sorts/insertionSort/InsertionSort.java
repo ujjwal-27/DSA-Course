@@ -10,6 +10,17 @@ public class InsertionSort {
         System.out.println(Arrays.toString(numbers));
     }
 
+    /**
+     * COURSE BASED: Using 'shifting elements' approach. (Efficient and recommended)
+     * Here, 'nested loop' is implemented.
+     * In outer loop, two variables 'temp' and 'j' is defined.
+     * - 'temp' is assigned with value of current index 'i', whereas 'j' is assigned with preceding index.
+     * The inner loop is executed while 'j' is greater than and equals to '0', and while 'temp' is less than value at 'j-index'. This is where the core shifting logic is implemented.
+     * - On each iteration, the value of 'preceding index' i.e. 'j' is assigned to (j + 1) index.
+     * - And, on the 'j-index', 'temp' is assigned. These two steps, shift the values between two indices.
+     * - Then, j is decremented by 1.
+     * @param numbers Arrays of integers
+     */
     public static void insertionSort(int[] numbers) {
         for (int i = 1; i < numbers.length; i++) {
             int temp = numbers[i];
