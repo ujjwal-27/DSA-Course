@@ -1,4 +1,4 @@
-package codingExercises.algorithms.sorts.insertionSort;
+package algorithms.sorts.insertionSort;
 
 import java.util.Arrays;
 

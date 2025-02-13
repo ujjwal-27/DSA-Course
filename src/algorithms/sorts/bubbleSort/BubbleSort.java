@@ -1,4 +1,4 @@
-package codingExercises.algorithms.sorts.bubbleSort;
+package algorithms.sorts.bubbleSort;
 
 import java.util.Arrays;
 
