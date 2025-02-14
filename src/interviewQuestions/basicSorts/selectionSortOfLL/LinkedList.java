@@ -60,6 +60,26 @@ public class LinkedList {
         length++;
     }
 
+    /**
+     * This method follows 'section sort' approach to sort linked list. Hence, a nested loop will be implemented.
+     * Here, the core concept is, on each iteration of outer loop, a node is picked in sequence starting from 'head' node (toSwap), and swap it with the 'smallest' node (minNode) in the list.
+     * The process of determining smallest node (minNode) is carried out inside inner loop. And once the iteration of inner loop is completed, swapping is done between the 'smallest' node (minNode) and node picked to be swapped (toSwap).
+     * ----------------------------------------------------------------------------------------------------------------------
+     * Implementation:
+     * Initially, a node variable named 'toSwap' is assigned to node 'head'.
+     * Then, an outer while loop is executed until the 'node' next to 'toSwap' (toSwap.next) is not 'null'.
+     * - Within the outer loop, a node variable named 'currentNode' is assigned next to 'toSwap' node (toSwap.next).
+     * - Likewise, a node variable named 'minNode' is assigned to 'toSwap'.
+     * - Then, an inner loop is executed until 'currentNode' is not equals to null.
+     * -- Within the inner loop, the value of 'currentNode' is compared with value of 'minNode'.
+     * -- If value of 'currentNode' is smaller, then 'currentNode' is assigned to 'minNode'.
+     * -- Then, the 'currentNode' is shifted to the 'node' next to it (currentNode.next).
+     * -- This is how it will be determined if the 'currentNode' has reached to the 'null' point.
+     * - Then, after the complete execution of inner loop, check if the nodes 'minNode' and 'toSwap' are equal or not.
+     * - If not, swap the values between 'minNode' and 'toSwap'.
+     * - Then, the 'toSwap' node is shifted to the 'node' next to it (toSwap.next).
+     * - This is how it will be determined if the 'node' next to 'toSwap' (toSwap.next) is 'null' or not.
+     */
     public void selectionSort() {
         if (this.length < 2) return;
 
