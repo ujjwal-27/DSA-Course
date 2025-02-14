@@ -60,11 +60,26 @@ public class LinkedList {
         length++;
     }
 
-    // WRITE BUBBLESORT METHOD HERE //
-    //                              //
-    //                              //
-    //                              //
-    //                              //
-    //////////////////////////////////
+    public void bubbleSort() {
+        if (this.length < 2) return;
+
+        Node sortedUntil = this.tail.next;
+
+        while (sortedUntil != this.head.next) {
+            Node currentNode = this.head;
+
+            while (currentNode.next != sortedUntil) {
+                if (currentNode.value > currentNode.next.value) {
+                    int temp = currentNode.value;
+                    currentNode.value = currentNode.next.value;
+                    currentNode.next.value = temp;
+                }
+
+                currentNode = currentNode.next;
+            }
+
+            sortedUntil = currentNode;
+        }
+    }
 
 }
