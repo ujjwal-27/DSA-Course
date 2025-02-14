@@ -60,11 +60,31 @@ public class LinkedList {
         length++;
     }
 
-    // WRITE SELECTIONSORT METHOD HERE //
-    //                                 //
-    //                                 //
-    //                                 //
-    //                                 //
-    /////////////////////////////////////
+    public void selectionSort() {
+        if (this.length < 2) return;
+
+        Node toSwap = this.head;
+
+        while (toSwap.next != null) {
+            Node currentNode = toSwap.next;
+            Node minNode = toSwap;
+
+            while (currentNode != null) {
+                if (currentNode.value < minNode.value) {
+                    minNode = currentNode;
+                }
+
+                currentNode = currentNode.next;
+            }
+
+            if (minNode != toSwap) {
+                int temp = toSwap.value;
+                toSwap.value = minNode.value;
+                minNode.value = temp;
+            }
+
+            toSwap = toSwap.next;
+        }
+    }
 
 }
