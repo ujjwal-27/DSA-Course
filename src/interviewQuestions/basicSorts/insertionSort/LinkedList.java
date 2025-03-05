@@ -60,11 +60,41 @@ public class LinkedList {
         length++;
     }
 
-    // WRITE INSERTIONSORT METHOD HERE //
-    //                                 //
-    //                                 //
-    //                                 //
-    //                                 //
-    /////////////////////////////////////
+    public void insertionSort() {
+        if (this.length < 2) return;
 
+        Node sortedListHead = this.head;
+        Node unsortedListHead = this.head.next;
+
+        sortedListHead.next = null;
+
+        while (unsortedListHead != null) {
+            Node currentNode = unsortedListHead;
+            unsortedListHead = unsortedListHead.next;
+
+            if (currentNode.value < sortedListHead.value) {
+                currentNode.next = sortedListHead;
+                sortedListHead = currentNode;
+
+            } else {
+                Node searchPointer = sortedListHead;
+
+                while (searchPointer.next != null && currentNode.value > searchPointer.next.value) {
+                    searchPointer = searchPointer.next;
+                }
+
+                currentNode.next = searchPointer.next;
+                searchPointer.next = currentNode;
+            }
+        }
+
+        head = sortedListHead;
+        Node temp = head;
+
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+
+        tail = temp;
+    }
 }
