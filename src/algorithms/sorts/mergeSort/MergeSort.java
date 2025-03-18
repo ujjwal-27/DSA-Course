@@ -4,11 +4,12 @@ import java.util.Arrays;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] array1 = {1, 3, 7, 8};
-        int[] array2 = {2, 4, 5, 6};
+        int[] originalArray = {3, 1, 4, 2};
+        int[] sortedArray = mergeSort(originalArray);
 
-        int[] result = merge(array1, array2);
-        System.out.println(Arrays.toString(result));
+        System.out.println("Original array: " + Arrays.toString(originalArray));
+        System.out.println("-------------------------------------------------");
+        System.out.println("Sorted array: " + Arrays.toString(sortedArray));
     }
 
     /**
@@ -56,5 +57,27 @@ public class MergeSort {
         }
 
         return combined;
+    }
+
+    /**
+     * This method breaks the array into half until each array has only one element.
+     * It uses recursion for this. 
+     * @param array Array of unsorted integers
+     * @return Array of sorted integers
+     */
+    public static int[] mergeSort(int[] array) {
+        if (array.length == 1) return array; // base case
+
+        int midIndex = array.length/2;
+
+        // This creates copy of elements of array from 0-index to midIndex, but not including midIndex.
+        int[] left = Arrays.copyOfRange(array, 0, midIndex);
+        left = mergeSort(left); // recursion
+
+        // This creates copy of elements of array from midIndex to length of the array. Meaning, until the last element of the array.
+        int[] right = Arrays.copyOfRange(array, midIndex, array.length);
+        right = mergeSort(right); // recursion
+
+        return merge(left, right);
     }
 }
