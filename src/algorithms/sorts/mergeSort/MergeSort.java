@@ -59,16 +59,24 @@ public class MergeSort {
         return combined;
     }
 
+    /**
+     * This method breaks the array into half until each array has only one element.
+     * It uses recursion for this. 
+     * @param array Array of unsorted integers
+     * @return Array of sorted integers
+     */
     public static int[] mergeSort(int[] array) {
-        if (array.length == 1) return array;
+        if (array.length == 1) return array; // base case
 
         int midIndex = array.length/2;
 
+        // This creates copy of elements of array from 0-index to midIndex, but not including midIndex.
         int[] left = Arrays.copyOfRange(array, 0, midIndex);
-        left = mergeSort(left);
+        left = mergeSort(left); // recursion
 
+        // This creates copy of elements of array from midIndex to length of the array. Meaning, until the last element of the array.
         int[] right = Arrays.copyOfRange(array, midIndex, array.length);
-        right = mergeSort(right);
+        right = mergeSort(right); // recursion
 
         return merge(left, right);
     }
