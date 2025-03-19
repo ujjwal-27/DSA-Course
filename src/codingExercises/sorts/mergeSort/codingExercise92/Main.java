@@ -1,4 +1,4 @@
-package codingExercises.sorts.mergeSort;
+package codingExercises.sorts.mergeSort.codingExercise92;
 
 import java.util.Arrays;
 
