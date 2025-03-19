@@ -34,13 +34,26 @@ public class Main {
         return combined;
     }
 
+    /**
+     * While understanding recursion, always try to break down the steps, and draw an illustration of elements being stacked and popped from a memory container.
+     * Everytime the method is called through recursion, that particular instance is stacked in the memory.
+     * And everytime a return statement is executed, current instance from the memory pops out.
+     * @param array Unsorted array of integers.
+     * @return Sorted array of integers.
+     */
+    public static int[] mergeSort(int[] array) {
+        if (array.length == 1) return array;
 
-    // WRITE MERGESORT METHOD HERE //
-    //                             //
-    //                             //
-    //                             //
-    //                             //
-    /////////////////////////////////
+        int midIndex = array.length/2;
+
+        int[] left = Arrays.copyOfRange(array, 0, midIndex);
+        left = mergeSort(left); // recursion
+
+        int[] right = Arrays.copyOfRange(array, midIndex, array.length);
+        right = mergeSort(right); // recursion
+
+        return merge(left, right);
+    }
 
 
     public static void main(String[] args) {
