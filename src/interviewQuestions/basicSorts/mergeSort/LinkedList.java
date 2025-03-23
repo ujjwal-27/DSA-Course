@@ -77,14 +77,39 @@ public class LinkedList {
         length++;
     }
 
-    // WRITE MERGE METHOD HERE //
-    //                         //
-    //                         //
-    //                         //
-    //                         //
-    /////////////////////////////
+    public void merge(LinkedList otherList) {
+        Node otherHead = otherList.getHead();
+        Node dummy = new Node(0);
+        dummy.next = this.head;
+        Node current = dummy;
 
+        while (current.next != null && otherHead != null) {
+            if (current.next.value < otherHead.value) {
+                current = current.next;
 
+            } else {
+                Node temp = current.next;
+                current.next = otherHead;
+                current = current.next;
+                current.next = temp;
+                otherHead = otherHead.next;
+            }
+        }
+
+        while (current.next == null && otherHead != null) {
+            current.next = otherHead;
+            current = current.next;
+            otherHead = otherHead.next;
+        }
+
+        while (otherHead == null && current.next != null) {
+            current = current.next;
+        }
+
+        this.head = dummy.next;
+        dummy.next = null;
+        this.tail = current;
+    }
 }
 
 
