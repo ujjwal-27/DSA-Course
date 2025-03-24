@@ -85,29 +85,43 @@ public class LinkedList {
 
         while (current.next != null && otherHead != null) {
             if (current.next.value < otherHead.value) {
-                current = current.next;
+                System.out.println("here");
+                current = current.next; // Move forward in this list
 
             } else {
+                /*
+                 * BUG
+                 * linkedList: 0 -> 1 -> 3 -> 5
+                 * otherList: 2 -> 4
+                 * Here, when we assign otherHead to current.next (1 -> 2), the otherHead will be pointing to Node 2 in the original list instead of otherList.
+                 * This completely wrecks the code. The otherHead must always be part of otherList.
+                 * So, logic must be implemented in which the otherHead always remains in otherList.
+                 */
                 Node temp = current.next;
                 current.next = otherHead;
+                System.out.println(otherHead.next.value); // BUG
                 current = current.next;
                 current.next = temp;
                 otherHead = otherHead.next;
+                
+                this.length++;
             }
         }
 
+        // If any elements remain in otherList, append them
         while (current.next == null && otherHead != null) {
             current.next = otherHead;
             current = current.next;
             otherHead = otherHead.next;
+            this.length++;
         }
 
         while (otherHead == null && current.next != null) {
             current = current.next;
         }
 
+        // Update head and tail
         this.head = dummy.next;
-        dummy.next = null;
         this.tail = current;
     }
 }
