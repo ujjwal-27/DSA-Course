@@ -77,6 +77,10 @@ public class LinkedList {
         length++;
     }
 
+    /**
+     * SELF-IMPLEMENTED
+     * @param otherList Sorted linked list
+     */
     public void merge(LinkedList otherList) {
         Node otherHead = otherList.getHead(); // Storing head of 'otherList' in new variable 'otherHead'. It will be used to traverse through the otherList.
         Node dummy = new Node(0); // Creating new 'dummy' node of value '0'.
