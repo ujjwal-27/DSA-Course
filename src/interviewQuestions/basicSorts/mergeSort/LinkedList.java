@@ -78,11 +78,13 @@ public class LinkedList {
     }
 
     public void merge(LinkedList otherList) {
-        Node otherHead = otherList.getHead();
-        Node dummy = new Node(0);
-        dummy.next = this.head;
-        Node current = dummy;
+        Node otherHead = otherList.getHead(); // Storing head of 'otherList' in new variable 'otherHead'. It will be used to traverse through the otherList.
+        Node dummy = new Node(0); // Creating new 'dummy' node of value '0'.
+        dummy.next = this.head; // Placing 'dummy' node at the beginning of the list.
+        Node current = dummy; // Assigning 'current' node to 'dummy'.
 
+        // This while-loop will execute while current.next is not null, and otherHead is not null.
+        // The loop will break if one of them is null.
         while (current.next != null && otherHead != null) {
             if (current.next.value < otherHead.value) {
                 System.out.println("here");
@@ -104,7 +106,8 @@ public class LinkedList {
 //                current.next = temp;
 //                otherHead = otherHead.next;
 
-                // Resolved
+                // Resolved (CRUCIAL PART OF THIS LOGIC)
+                // Always remember that, when we move a node from one list to another list, we are moving its pointer too.
                 Node temp = otherHead;
                 otherHead = otherHead.next;
                 temp.next = current.next;
@@ -122,6 +125,9 @@ public class LinkedList {
             this.length++;
         }
 
+        // If there is no element in 'otherList', but the 'current.next' still points to another node (not null), move the 'current' pointer forward
+        // This logic makes sure that the 'current' is pointing the last node of the merged list.
+        // This makes updating of 'tail' efficient.
         while (otherHead == null && current.next != null) {
             current = current.next;
         }
