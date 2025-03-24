@@ -97,13 +97,19 @@ public class LinkedList {
                  * This completely wrecks the code. The otherHead must always be part of otherList.
                  * So, logic must be implemented in which the otherHead always remains in otherList.
                  */
-                Node temp = current.next;
-                current.next = otherHead;
-                System.out.println(otherHead.next.value); // BUG
-                current = current.next;
-                current.next = temp;
+//                Node temp = current.next;
+//                current.next = otherHead;
+//                System.out.println(otherHead.next.value); // BUG
+//                current = current.next;
+//                current.next = temp;
+//                otherHead = otherHead.next;
+
+                // Resolved
+                Node temp = otherHead;
                 otherHead = otherHead.next;
-                
+                temp.next = current.next;
+                current.next = temp;
+
                 this.length++;
             }
         }
