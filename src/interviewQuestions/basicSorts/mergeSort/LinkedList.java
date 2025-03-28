@@ -77,68 +77,72 @@ public class LinkedList {
         length++;
     }
 
-    /**
-     * SELF-IMPLEMENTED
-     * @param otherList Sorted linked list
-     */
-    public void merge(LinkedList otherList) {
-        Node otherHead = otherList.getHead(); // Storing head of 'otherList' in new variable 'otherHead'. It will be used to traverse through the otherList.
-        Node dummy = new Node(0); // Creating new 'dummy' node of value '0'.
-        dummy.next = this.head; // Placing 'dummy' node at the beginning of the list.
-        Node current = dummy; // Assigning 'current' node to 'dummy'.
-
-        // This while-loop will execute while current.next is not null, and otherHead is not null.
-        // The loop will break if one of them is null.
-        while (current.next != null && otherHead != null) {
-            if (current.next.value < otherHead.value) {
-                System.out.println("here");
-                current = current.next; // Move forward in this list
-
-            } else {
-                /*
-                 * BUG
-                 * linkedList: 0 -> 1 -> 3 -> 5
-                 * otherList: 2 -> 4
-                 * Here, when we assign otherHead to current.next (1 -> 2), the otherHead will be pointing to Node 2 in the original list instead of otherList.
-                 * This completely wrecks the code. The otherHead must always be part of otherList.
-                 * So, logic must be implemented in which the otherHead always remains in otherList.
-                 */
-//                Node temp = current.next;
-//                current.next = otherHead;
-//                System.out.println(otherHead.next.value); // BUG
-//                current = current.next;
-//                current.next = temp;
+//    /**
+//     * SELF-IMPLEMENTED
+//     * @param otherList Sorted linked list
+//     */
+//    public void merge(LinkedList otherList) {
+//        Node otherHead = otherList.getHead(); // Storing head of 'otherList' in new variable 'otherHead'. It will be used to traverse through the otherList.
+//        Node dummy = new Node(0); // Creating new 'dummy' node of value '0'.
+//        dummy.next = this.head; // Placing 'dummy' node at the beginning of the list.
+//        Node current = dummy; // Assigning 'current' node to 'dummy'.
+//
+//        // This while-loop will execute while current.next is not null, and otherHead is not null.
+//        // The loop will break if one of them is null.
+//        while (current.next != null && otherHead != null) {
+//            if (current.next.value < otherHead.value) {
+//                System.out.println("here");
+//                current = current.next; // Move forward in this list
+//
+//            } else {
+//                /*
+//                 * BUG
+//                 * linkedList: 0 -> 1 -> 3 -> 5
+//                 * otherList: 2 -> 4
+//                 * Here, when we assign otherHead to current.next (1 -> 2), the otherHead will be pointing to Node 2 in the original list instead of otherList.
+//                 * This completely wrecks the code. The otherHead must always be part of otherList.
+//                 * So, logic must be implemented in which the otherHead always remains in otherList.
+//                 */
+////                Node temp = current.next;
+////                current.next = otherHead;
+////                System.out.println(otherHead.next.value); // BUG
+////                current = current.next;
+////                current.next = temp;
+////                otherHead = otherHead.next;
+//
+//                // Resolved (CRUCIAL PART OF THIS LOGIC)
+//                // Always remember that, when we move a node from one list to another list, we are moving its pointer too.
+//                Node temp = otherHead;
 //                otherHead = otherHead.next;
+//                temp.next = current.next;
+//                current.next = temp;
+//
+//                this.length++;
+//            }
+//        }
+//
+//        // If any elements remain in otherList, append them
+//        while (current.next == null && otherHead != null) {
+//            current.next = otherHead;
+//            current = current.next;
+//            otherHead = otherHead.next;
+//            this.length++;
+//        }
+//
+//        // If there is no element in 'otherList', but the 'current.next' still points to another node (not null), move the 'current' pointer forward
+//        // This logic makes sure that the 'current' is pointing the last node of the merged list.
+//        // This makes updating of 'tail' efficient.
+//        while (otherHead == null && current.next != null) {
+//            current = current.next;
+//        }
+//
+//        // Update head and tail
+//        this.head = dummy.next;
+//        this.tail = current;
+//    }
 
-                // Resolved (CRUCIAL PART OF THIS LOGIC)
-                // Always remember that, when we move a node from one list to another list, we are moving its pointer too.
-                Node temp = otherHead;
-                otherHead = otherHead.next;
-                temp.next = current.next;
-                current.next = temp;
+    public void merge(LinkedList otherList) {
 
-                this.length++;
-            }
-        }
-
-        // If any elements remain in otherList, append them
-        while (current.next == null && otherHead != null) {
-            current.next = otherHead;
-            current = current.next;
-            otherHead = otherHead.next;
-            this.length++;
-        }
-
-        // If there is no element in 'otherList', but the 'current.next' still points to another node (not null), move the 'current' pointer forward
-        // This logic makes sure that the 'current' is pointing the last node of the merged list.
-        // This makes updating of 'tail' efficient.
-        while (otherHead == null && current.next != null) {
-            current = current.next;
-        }
-
-        // Update head and tail
-        this.head = dummy.next;
-        this.tail = current;
     }
 }
 
