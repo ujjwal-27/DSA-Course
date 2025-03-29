@@ -143,6 +143,7 @@ public class LinkedList {
 
     /**
      * Self-implemented + Hints followed
+     * The concept is easier to understand when each step is drawn in the paper.
      * @param otherList Sorted list of integers
      */
     public void merge(LinkedList otherList) {
