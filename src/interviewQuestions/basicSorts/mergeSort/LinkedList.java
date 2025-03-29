@@ -142,7 +142,31 @@ public class LinkedList {
 //    }
 
     public void merge(LinkedList otherList) {
+        Node otherHead = otherList.getHead();
+        Node dummy = new Node(0);
+        dummy.next = head;
+        Node current = dummy;
 
+        while (head != null && otherHead != null) {
+            if (head.value < otherHead.value) {
+                current = head;
+                head = head.next;
+
+            } else {
+                current.next = otherHead;
+                otherHead = otherHead.next;
+                current = current.next;
+                current.next = head;
+            }
+        }
+
+        if (otherHead != null) {
+            current.next = otherHead;
+            tail = otherList.getTail();
+        }
+
+        head = dummy.next;
+        length += otherList.getLength();
     }
 }
 
