@@ -141,8 +141,12 @@ public class LinkedList {
 //        this.tail = current;
 //    }
 
+    /**
+     * Self-implemented + Hints followed
+     * @param otherList Sorted list of integers
+     */
     public void merge(LinkedList otherList) {
-        Node otherHead = otherList.getHead();
+        Node otherHead = otherList.getHead(); // head of otherList (l2)
         Node dummy = new Node(0);
         dummy.next = head;
         Node current = dummy;
@@ -160,9 +164,11 @@ public class LinkedList {
             }
         }
 
+        // Here, we can assume that head node in original list is null.
+        // Even if there are more than one node left in otherList, implementing 'current.next = otherHead' will merge the otherHead node, including all the nodes after otherHead.
         if (otherHead != null) {
             current.next = otherHead;
-            tail = otherList.getTail();
+            tail = otherList.getTail(); // assigning otherList's tail as the final tail in the merged list.
         }
 
         head = dummy.next;
