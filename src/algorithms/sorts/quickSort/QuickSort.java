@@ -6,9 +6,8 @@ public class QuickSort {
     public static void main(String[] args) {
         int[] array = {4, 6, 1, 7, 3, 2, 5};
 
-        int resultIndex = pivot(array, 0, array.length - 1);
+        quickSort(array);
 
-        System.out.println("Returned index: " + resultIndex);
         System.out.println(Arrays.toString(array));
     }
 
@@ -38,6 +37,14 @@ public class QuickSort {
         swap(array, pivotIndex, swapIndex);
 
         return swapIndex;
+    }
+
+    public static void quickSort(int[] array) {
+        quickSortHelper(array, 0, array.length - 1);
+    }
+
+    public static void quickSortHelper(int[] array, int left, int right) {
+
     }
 
     /**
