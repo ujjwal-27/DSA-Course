@@ -34,9 +34,9 @@ public class QuickSort {
             }
         }
 
-        swap(array, pivotIndex, swapIndex);
+        swap(array, pivotIndex, swapIndex); // final swap between 'pivot element' and 'element of swapIndex'
 
-        return swapIndex;
+        return swapIndex; // returns final index of pivot element
     }
 
     /**
