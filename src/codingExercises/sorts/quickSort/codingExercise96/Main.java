@@ -25,12 +25,13 @@ public class Main {
     }
 
 
-    // WRITE QUICKSORT HELPER METHOD HERE //
-    //                                    //
-    //                                    //
-    //                                    //
-    //                                    //
-    ////////////////////////////////////////
+    public static void quickSortHelper(int[] array, int left, int right) {
+        if (left < right) {
+            int index = pivot(array, left, right);
+            quickSortHelper(array, left, index - 1);
+            quickSortHelper(array, index + 1, right);
+        }
+    }
 
 
     public static void quickSort(int[] array) {
