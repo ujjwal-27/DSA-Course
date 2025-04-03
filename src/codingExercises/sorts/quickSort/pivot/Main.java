@@ -1,4 +1,4 @@
-package codingExercises.sorts.quickSort;
+package codingExercises.sorts.quickSort.pivot;
 
 import java.util.Arrays;
 
