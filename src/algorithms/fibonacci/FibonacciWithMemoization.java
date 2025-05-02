@@ -1,7 +1,7 @@
 package algorithms.fibonacci;
 
 public class FibonacciWithMemoization {
-    static int counter = 0;
+    static int counter = 0; // checks no. of times the method was invoked
     static Integer[] memo = new Integer[100];
 
     public static void main(String[] args) {
