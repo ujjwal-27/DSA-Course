@@ -5,7 +5,7 @@ public class FibonacciWithMemoization {
     static Integer[] memo = new Integer[100];
 
     public static void main(String[] args) {
-        int n = 5;
+        int n = 40; // for the value of 40, drastic difference can be observed on counter, with and without using memoization
 
         System.out.println("Fibonacci no. on " + n + "th position : " + fib(n));
         System.out.println("No. of times method called = " + counter);

@@ -4,7 +4,7 @@ public class FibonacciWithoutMemoization {
     static int counter = 0; // checks no. of times the method was invoked
 
     public static void main(String[] args) {
-        int n = 5;
+        int n = 40;
 
         System.out.println("Fibonacci no. on " + n + "th position : " + fib(n)); // output: n-th fibonacci number
 
