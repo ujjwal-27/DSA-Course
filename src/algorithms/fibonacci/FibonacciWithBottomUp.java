@@ -11,10 +11,10 @@ public class FibonacciWithBottomUp {
     }
 
     /**
-     * Using plain recursion, and recursion + memoization are top-down approach.
+     * Using plain recursion, and recursion + memoization are 'top-down' approach.
      * Here, the fibonacci number on the n-th position is computed 'iteratively'. Meaning, loop is involved, and no recursion approach is used.
-     * Any dynamic programming done 'iteratively' is known as bottom-up approach.
-     *
+     * Any dynamic programming done 'iteratively' is known as 'bottom-up' approach.
+     * This is the efficient way of carrying out Dynamic Programming.
      * @param n [int] n-th position
      * @return Fibonacci number at n-th position
      */
@@ -27,7 +27,7 @@ public class FibonacciWithBottomUp {
         for (int i = 2; i <= n; i++) {
             counter++;
 
-            fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2]; // adding fibonacci number on current index based on previous two fibonacci numbers.
+            fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2]; // adding fibonacci number on current index, taken out from the sum of previous two fibonacci numbers.
         }
 
         return fibonacci[n];
