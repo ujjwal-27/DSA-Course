@@ -23,17 +23,17 @@ public class FibonacciWithMemoization {
      * @return Fibonacci number on n-th position
      */
     public static int fib(int n) {
-        counter++;
+        counter++; // counter increment
 
-        if (memo[n] != null) {
+        if (memo[n] != null) { // using the existing fibonacci number from the 'memo' array.
             return memo[n];
         }
 
-        if (n == 0 || n == 1) {
+        if (n == 0 || n == 1) { // base case
             return n;
         }
 
-        memo[n] = fib(n - 1) + fib(n - 2);
+        memo[n] = fib(n - 1) + fib(n - 2); // storing the fibonacci number in 'memo' array if it doesn't exist.
         return memo[n];
     }
 }
