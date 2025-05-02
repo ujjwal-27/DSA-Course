@@ -5,12 +5,23 @@ public class FibonacciWithMemoization {
     static Integer[] memo = new Integer[100];
 
     public static void main(String[] args) {
-        int n = 7;
+        int n = 5;
 
-        System.out.println(fib(n));
-        System.out.println(counter);
+        System.out.println("Fibonacci no. on " + n + "th position : " + fib(n));
+        System.out.println("No. of times method called = " + counter);
     }
 
+    /**
+     * This method uses memoization approach along with recursion.
+     * The memoization approach simply stores fibonacci number of n-th position in memo array, ig it doesn't exist.
+     * The fibonacci number is stored on the n-th index of array, which can be further reused for the same value of 'n'.
+     * Using memoization, it can be observed that the value of counter also decreases.
+     * The Big O notation for this can be figured using: (2n - 1).
+     * Here, the non-dominant (- 1) and constant (2) can be dropped, which implies Big-O using memoization is O(n).
+     *
+     * @param n [int] n-th position
+     * @return Fibonacci number on n-th position
+     */
     public static int fib(int n) {
         counter++;
 
