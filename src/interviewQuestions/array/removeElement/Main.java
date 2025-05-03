@@ -5,15 +5,25 @@ import java.util.Arrays;
 
 public class Main {
 
-    // WRITE THE REMOVEELEMENT METHOD HERE //
-    //                                     //
-    //                                     //
-    //                                     //
-    //                                     //
-    /////////////////////////////////////////
+    public static int removeElement(int[] nums, int val) {
+        int count = 0;
 
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) count++;
+        }
 
+        int[] newNums = new int[count];
+        int index = 0;
 
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                newNums[index] = nums[i];
+                index++;
+            }
+        }
+
+        return newNums.length;
+    }
 
     public static void main(String[] args) {
         // Test case 1
