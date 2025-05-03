@@ -5,15 +5,22 @@ import java.util.Arrays;
 
 public class Main {
 
-    // WRITE THE FINDMAXMIN METHOD HERE //
-    //                                  //
-    //                                  //
-    //                                  //
-    //                                  //
-    //////////////////////////////////////
+    public static int[] findMaxMin(int[] myList) {
+        int min = myList[0];
+        int max = myList[0];
 
+        for (int i = 0; i < myList.length; i++) {
+            if (myList[i] < min) {
+                min = myList[i];
+            }
 
+            if (myList[i] > max) {
+                max = myList[i];
+            }
+        }
 
+        return new int[]{max, min};
+    }
 
     public static void main(String[] args) {
 
