@@ -2,16 +2,17 @@ package interviewQuestions.array.findLongestString;
 
 public class Main {
 
-    // WRITE THE FINDLONGESTSTRING METHOD HERE //
-    //                                         //
-    //                                         //
-    //                                         //
-    //                                         //
-    /////////////////////////////////////////////
+    public static String findLongestString(String[] stringList) {
+        String longestString = "";
 
+        for (String string: stringList) {
+            if (string.length() > longestString.length()) {
+                longestString = string;
+            }
+        }
 
-
-
+        return longestString;
+    }
 
     public static void main(String[] args) {
 
