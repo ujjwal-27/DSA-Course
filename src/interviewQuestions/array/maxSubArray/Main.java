@@ -5,14 +5,25 @@ import java.util.Arrays;
 
 public class Main {
 
-    // WRITE THE MAXSUBARRAY METHOD HERE //
-    //                                   //
-    //                                   //
-    //                                   //
-    //                                   //
-    ///////////////////////////////////////
+    public static int maxSubarray(int[] nums) {
+        if (nums.length == 0) return 0;
 
+        int maxSum = nums[0];
 
+        for (int i = 0; i < nums.length; i++) {
+            int currentSum = nums[i];
+
+            for (int j = i + 1; j < nums.length; j++) {
+                currentSum += nums[j];
+
+                if (currentSum > maxSum) {
+                    maxSum = currentSum;
+                }
+            }
+        }
+
+        return maxSum;
+    }
 
     public static void main(String[] args) {
         // Example 1: Simple case with positive and negative numbers
