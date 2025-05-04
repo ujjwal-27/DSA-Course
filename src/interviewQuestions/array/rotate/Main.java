@@ -4,14 +4,19 @@ import java.util.Arrays;
 
 public class Main {
 
-    // WRITE THE ROTATE METHOD HERE //
-    //                              //
-    //                              //
-    //                              //
-    //                              //
-    //////////////////////////////////
+    public static void rotate(int[] nums, int k) {
+        int lastElement = nums[nums.length - 1];
 
+        while (k > 0) {
+            for (int i = nums.length - 2; i >= 0; i--) {
+                nums[i + 1] = nums[i];
+            }
 
+            nums[0] = lastElement;
+            lastElement = nums[nums.length - 1];
+            k--;
+        }
+    }
 
     public static void main(String[] args) {
         int[] nums1 = {1, 2, 3, 4, 5, 6, 7};
