@@ -5,15 +5,19 @@ import java.util.Arrays;
 
 public class Main {
 
-    // WRITE THE REMOVEDUPLICATES METHOD HERE //
-    //                                        //
-    //                                        //
-    //                                        //
-    //                                        //
-    ///////////////`/////////////////////////////
+    public static int removeDuplicates(int[] nums) {
+        if (nums.length == 0) return 0;
 
+        int newLength = 1;
 
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[i - 1]) {
+                newLength++;
+            }
+        }
 
+        return newLength;
+    }
 
     public static void main(String[] args) {
 
